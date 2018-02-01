@@ -1,0 +1,100 @@
+<resources>
+    <string name="app_name">Dice Olympics</string>
+
+    <!--app entrance-->
+    <string name="singlePlayer">Single Player</string>
+    <string name="twoPlayers">Two Players</string>
+    <string name="exitApp">Exit App</string>
+
+    <!--game entrance-->
+    <string name="Start">Start Game</string>
+    <string name="Instructions">Instructions</string>
+    <string name="Back">Back</string>
+
+
+    <!--Names Input-->
+    <string name="EnterPlayersNames">Enter Players Names</string>
+    <string name="PlayerOneHeadline">Player One</string>
+    <string name="PlayerOneHint">Enter Here Player One\'s Name</string>
+    <string name="PlayerTwoHeadline">Player Two</string>
+    <string name="PlayerTwoHint">Enter Here Player Two\'s Name</string>
+    <string name="NoInputForAnyPlayer">No Input For Any Player</string>
+    <string name="NoInputForPlayerOne">No Input For Player One</string>
+    <string name="NoInputForPlayerTwo">No Input For Player Two</string>
+    <string name="IllegalInputForPlayerOne">Illegal Input For Player One</string>
+    <string name="IllegalInputForPlayerTwo">Illegal Input For Player Two</string>
+    <string name="BothInputsIllegal">Both Name Inputs Are Illegal</string>
+    <string name="chooseGame">Choose A Game</string>
+
+
+    <!--Exit App-->
+    <string name="areYouSureToExit">Are You Sure?</string>
+    <string name="noWantToStay">No, Stay</string>
+    <string name="yesWantToExit">Yes, Exit</string>
+
+
+    <!--New game-->
+    <string name="newPlayers">New Players</string>
+    <string name="samePlayers">Same Players</string>
+
+
+    <!--Winner Screen-->
+    <string name="theWinner">The winner is</string>
+    <string name="playAgain">Play Again</string>
+    <string name="playAgainSamePlayers">Play Again Same Players</string>
+    <string name="backHome">Home</string>
+    <string name="exitGame">Exit Game</string>
+    <string name="newGame">New Game</string>
+    <string name="ScoreBoard">SCOREBOARD</string>
+    <string name="newScore">New Score</string>
+    <string name="SameScore">Same Score</string>
+
+
+    <!--Choose Game-->
+    <string name="PlayPigDice">Play Pig Dice</string>
+    <string name="PlayMidnight">Play Midnight</string>
+
+
+    <!--Pig Dice instructions-->
+    <string name="Pigdice_Goal1H">Goal</string>
+    <string name="Pigdice_Goal2">Be the first player to reach 100 points</string>
+    <string name="Pigdice_Gameplay1H">Gameplay</string>
+    <string name="Pigdice_Gameplay2">On a turn, a player rolls the die repeatedly until either:</string>
+    <string name="Pigdice_Gameplay3">\u25CF A 1 is rolled</string>
+    <string name="Pigdice_Gameplay4">\u25CF The player chooses to hold (stop rolling)</string>
+    <string name="Pigdice_Gameplay5">If a 1 is rolled, that player\'s turn ends and no points are earned.</string>
+    <string name="Pigdice_GamePlay6">If the player chooses to hold, all of the points rolled during that turn are added to his or her score.</string>
+    <string name="Pigdice_ScoringExamples1H">Scoring Examples</string>
+    <string name="Pigdice_ScoringExamples2">Example 1: Sherri rolls a 3 and decides to continue. She then chooses to roll seven more times (6, 6, 6, 4, 5, 6, 1). Because she rolled a 1, Sherri\'s turn ends and she earns 0 points.</string>
+    <string name="Pigdice_ScoringExamples3">Example 2: Craig rolls a 6 and decides to continue. He then chooses to roll four more times (3, 4, 2, 6) and decides to hold. Craig earns 21 points for this turn (6+3+4+2+6=21).</string>
+    <string name="Pigdice_GameEnd1H">Game End</string>
+    <string name="Pigdice_GameEnd2">When a player reaches a total of 100 or more points, the game ends and that player is the winner.</string>
+
+
+    <!--Pig Dice game-->
+    <string name="Pigdice_TotalScore">Total Score</string>
+    <string name="Pigdice_currentScore">Current Score</string>
+    <string name="Pigdice_RollDice">Roll The Dice</string>
+    <string name="Pigdice_saveScore">Save Score</string>
+
+
+    <!--Midnight instructions-->
+    <string name="Midnight_Goal1H">Goal</string>
+    <string name="Midnight_Goal2">With six dice, obtain a 1 and 4 and get the highest score possible with the other 4 dice, max score of 24.</string>
+    <string name="Midnight_Gameplay1H">Gameplay</string>
+    <string name="Midnight_Gameplay2">Six dice are required. Being the first player is a disadvantage so the starting player is determined by the lowest roll.</string>
+    <string name="Midnight_Gameplay3">Player begins by rolling all six dice. After each roll the player is required to keep at least one die and re-roll the remaining. Once a dice is kept you can no longer roll it.  A turn ends when all dice have been held.</string>
+    <string name="Midnight_Gameplay4">A player must keep a 1 and a 4 or else they are disqualified.  The remaining four dice are totaled, the maximum score for a turn is 24.</string>
+    <string name="Midnight_Gameplay5">The winner is the player with the highest score.</string>
+    <string name="Midnight_ScoringExamples1H">Scoring Examples</string>
+    <string name="Midnight_ScoringExamples2">Example 1: Sherri rolls and has (6, 6, 6, 4, 5, 1). Because she has a 1 and 4, Sherri earns 23 points.(6+ 6+ 6+ 5= 23)</string>
+    <string name="Midnight_ScoringExamples3">Example 2: Craig rolls and has (6, 6, 6, 4, 5, 4). Because he has no 1 (only a 4), Craig earns 0 points.</string>
+    <string name="Midnight_ScoringExamples4">Example 3: Brandon rolls and has (6, 6, 6, 1, 5, 3). Because he has no 4 (only a 1), Brandon earns 0 points.</string>
+
+    <!--Midnight game-->
+    <string name="Score">Score</string>
+    <string name="endTurn">End Turn</string>
+    <string name="RollDice">Roll Dice</string>
+
+
+</resources>

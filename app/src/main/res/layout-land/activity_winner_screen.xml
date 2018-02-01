@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark"
+    android:layoutDirection="ltr"
+    tools:context="com.example.beni.diceolympics.WinnerScreen">
+
+    <RelativeLayout
+        android:id="@+id/winner_set1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible">
+
+        <TextView
+            android:id="@+id/winner_winnerTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30sp"
+            android:gravity="center"
+            android:text="@string/theWinner"
+            android:textColor="@color/colorAccent"
+            android:textSize="60sp" />
+
+
+        <ImageView
+            android:id="@+id/winner_crown"
+            android:layout_width="100sp"
+            android:layout_height="100sp"
+            android:layout_below="@+id/winner_winnerTitle"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="-40sp"
+            android:src="@drawable/crown" />
+
+        <TextView
+            android:id="@+id/winner_winnerName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/winner_crown"
+            android:gravity="center"
+            android:hint="winner"
+            android:textColor="@color/colorAccent"
+            android:textSize="50sp" />
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/winner_set2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/winner_Scoreboard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30sp"
+            android:gravity="center"
+            android:text="@string/ScoreBoard"
+            android:textColor="@color/colorAccent"
+            android:textSize="50sp" />
+
+        <LinearLayout
+            android:id="@+id/winner_scores"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/winner_Scoreboard"
+            android:foregroundGravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/winner_namePlayer1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:hint="Player1"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="40sp" />
+
+                <TextView
+                    android:id="@+id/winner_ScorePlayer1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:hint="Player1"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="40sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/winner_namePlayer2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:hint="Player2"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="40sp" />
+
+                <TextView
+                    android:id="@+id/winner_ScorePlayer2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:hint="Player1Score"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="40sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/winner_btns_set1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/winner_scores"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            android:gravity="center_horizontal"
+            android:visibility="visible">
+
+            <Button
+                android:id="@+id/winner_btn_PlayAgain"
+                android:layout_width="100sp"
+                android:layout_height="50sp"
+                android:background="@drawable/button_bg_round"
+                android:text="@string/playAgain"
+                android:textColor="@color/colorAccent" />
+
+            <Button
+                android:id="@+id/winner_btn_NewGame"
+                android:layout_width="100sp"
+                android:layout_height="50sp"
+                android:layout_marginEnd="30sp"
+                android:layout_marginStart="30sp"
+                android:background="@drawable/button_bg_round"
+                android:text="@string/newGame"
+                android:textColor="@color/colorAccent" />
+
+            <Button
+                android:id="@+id/winner_btn_ExitApp"
+                android:layout_width="100sp"
+                android:layout_height="50sp"
+
+                android:background="@drawable/button_bg_round"
+                android:text="@string/exitApp"
+                android:textColor="@color/colorAccent" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/winner_btns_set2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/winner_scores"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            android:gravity="center"
+            android:visibility="gone">
+
+
+            <Button
+                android:id="@+id/winner_btn_SinglePlayer"
+                android:layout_width="100sp"
+                android:layout_height="50sp"
+                android:layout_marginEnd="15sp"
+                android:background="@drawable/button_bg_round"
+                android:text="@string/singlePlayer"
+                android:textColor="@color/colorAccent" />
+
+            <Button
+                android:id="@+id/winner_btn_TwoPlayers"
+                android:layout_width="100sp"
+                android:layout_height="50sp"
+                android:layout_marginStart="15sp"
+                android:background="@drawable/button_bg_round"
+                android:text="@string/twoPlayers"
+                android:textColor="@color/colorAccent" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/winner_btns_set3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/winner_scores"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            android:gravity="center_horizontal"
+            android:visibility="gone">
+
+
+            <Button
+                android:id="@+id/winner_btn_NewPlayers"
+                android:layout_width="100sp"
+                android:layout_height="50sp"
+                android:layout_marginEnd="15sp"
+                android:background="@drawable/button_bg_round"
+                android:text="@string/newPlayers"
+                android:textColor="@color/colorAccent" />
+
+            <Button
+                android:id="@+id/winner_btn_SamePlayers"
+                android:layout_width="100sp"
+                android:layout_height="50sp"
+                android:layout_marginStart="15sp"
+                android:background="@drawable/button_bg_round"
+                android:text="@string/samePlayers"
+                android:textColor="@color/colorAccent" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/winner_btns_set4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/winner_scores"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            android:gravity="center_horizontal"
+            android:visibility="gone">
+
+
+            <Button
+                android:id="@+id/winner_btn_NewScore"
+                android:layout_width="100sp"
+                android:layout_height="50sp"
+                android:layout_marginEnd="15sp"
+                android:background="@drawable/button_bg_round"
+                android:text="@string/newScore"
+                android:textColor="@color/colorAccent" />
+
+            <Button
+                android:id="@+id/winner_btn_SameScore"
+                android:layout_width="100sp"
+                android:layout_height="50sp"
+                android:layout_marginStart="15sp"
+                android:background="@drawable/button_bg_round"
+                android:text="@string/SameScore"
+                android:textColor="@color/colorAccent" />
+
+        </LinearLayout>
+    </RelativeLayout>
+</RelativeLayout>

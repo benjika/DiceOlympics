@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Dice Olympics</string>
+
+    <!--app entrance-->
+    <string name="singlePlayer">שחקן יחיד</string>
+    <string name="twoPlayers">שני שחקנים</string>
+    <string name="exitApp">צא מהאפליקציה</string>
+
+
+    <!--game entrance-->
+    <string name="Start">התחל משחק</string>
+    <string name="Instructions">הוראות</string>
+    <string name="Back">חזור</string>
+
+
+    <!--Names Input-->
+    <string name="EnterPlayersNames">הכנס שמות שחקנים</string>
+    <string name="PlayerOneHeadline">שחקן ראשון</string>
+    <string name="PlayerOneHint">הכנס כאן את שם השחקן הראשון</string>
+    <string name="PlayerTwoHeadline">שחקן שני</string>
+    <string name="PlayerTwoHint">הכנס כאן את שם השחקן השני</string>
+    <string name="NoInputForAnyPlayer">לא הוכנס קלט עבור אף שחקן</string>
+    <string name="NoInputForPlayerOne">אין קלט עבור השחקן הראשון</string>
+    <string name="NoInputForPlayerTwo">אין קלט עבור השחקן השני</string>
+    <string name="IllegalInputForPlayerOne">קלט לא חוקי עבור השחקן הראשון</string>
+    <string name="IllegalInputForPlayerTwo">קלט לא חוקי עבור השחקן השני</string>
+    <string name="BothInputsIllegal">שני שמות המשתנים אינם חוקיים</string>
+
+
+    <!--Exit App-->
+    <string name="areYouSureToExit">האם אתה בטוח?</string>
+    <string name="noWantToStay">לא, השאר</string>
+    <string name="yesWantToExit">כן, צא</string>
+
+
+    <!--New game-->
+    <string name="newPlayers">שחקנים חדשים</string>
+    <string name="samePlayers">אותם השחקנים</string>
+
+
+    <!--Winner Screen-->
+    <string name="theWinner">המנצח הוא</string>
+    <string name="playAgain">שחק שוב</string>
+    <string name="playAgainSamePlayers">שחק שוב עם אותם שחקנים</string>
+    <string name="backHome">אל מסך הבית</string>
+    <string name="exitGame">צא מהמשחק</string>
+    <string name="newGame">משחק חדש</string>
+    <string name="chooseGame">בחר משחק</string>
+    <string name="ScoreBoard">לוח תוצאות</string>
+    <string name="newScore">אפס תוצאה</string>
+    <string name="SameScore">אותה תוצאה</string>
+
+
+    <!--Choose Game-->
+    <string name="PlayPigDice">שחקו Pig Dice</string>
+    <string name="PlayMidnight">שחקו Midnight</string>
+
+
+    <!--Pig Dice instructions-->
+    <string name="Pigdice_Goal1H">מטרה</string>
+    <string name="Pigdice_Goal2">להשיג 100 נקודות</string>
+    <string name="Pigdice_Gameplay1H">שלבי המשחק</string>
+    <string name="Pigdice_Gameplay2">בתורו, השחקן מגלגל את הקוביה שוב ושוב עד ש:</string>
+    <string name="Pigdice_Gameplay3">\u25CF הוא מקבל 1</string>
+    <string name="Pigdice_Gameplay4">\u25CF השחקן מחליט להפסיק ולהעביר את התור לשחקן השני</string>
+    <string name="Pigdice_Gameplay5">אם השחקן מקבל 1, כל הנקודות שהשחקן צבר בסיבוב הזה לא נספרות והתור עובר לשחקן השני.</string>
+    <string name="Pigdice_GamePlay6">אם השחקן מחליט להעביר את התור לשחקן השני לפני שקיבל 1, כל הנקודות שצבר בסיבוב זה מתווספות למאזן של השחקן.</string>
+    <string name="Pigdice_ScoringExamples1H">דוגמאות</string>
+    <string name="Pigdice_ScoringExamples2">דוגמא 1: סיוון מקבלת בקוביה 3 ומחליטה להמשיך. לאחר מכן מגלגלת 7 פעמים נוספות (6,6,5,2,4,3,1). מאחר וקיבלה 1, התור שלה נגמר והיא לא מקבל נקודות בסיבוב זה.</string>
+    <string name="Pigdice_ScoringExamples3">דוגמא 2: יוני מקבל בקוביה 6 ומחליט להמשיך.לאחר 4 גלגולים בהם קיבל (3, 4, 2, 6) ומחליט לסיים את התור. יוני מקבל 21 נקודות בסיבוב זה (6+3+4+2+6=21).</string>
+    <string name="Pigdice_GameEnd1H">סוף המשחק</string>
+    <string name="Pigdice_GameEnd2">כאשר שחקן משיג 100 נקודות או יותר, הוא המנצח והמשחק נגמר</string>
+
+
+    <!--Pig Dice game-->
+    <string name="Pigdice_TotalScore">סך הכל נקודות</string>
+    <string name="Pigdice_currentScore">ניקוד כרגע</string>
+    <string name="Pigdice_RollDice">גלגל את הקוביות</string>
+    <string name="Pigdice_saveScore">שמור ניקוד</string>
+
+
+    <!--Midnight instructions-->
+    <string name="Midnight_Goal1H">מטרה</string>
+    <string name="Midnight_Goal2">עם 6 קוביות, תשיג 1 ו-4 עם שתי קוביות ותשיג כמה שיותר נקודות עם שאר ה-4 קוביות. ניקוד מקסימלי-24.</string>
+    <string name="Midnight_Gameplay1H">שלבי המשחק</string>
+    <string name="Midnight_Gameplay2">נדרשות 6 קוביות. להיות ראשון הוא חסרון אז מתחיל מי שמקבל פחות בקוביה.</string>
+    <string name="Midnight_Gameplay3">השחקן מתחיל בהטלה כל 6 הקוביות. לאחר כל הטלה עליו לשמור לפחות אחת ולגלגל שוב את השאר. ברגע שקוביה נשמרת, לא ניטל להטיל אותה שוב. התור נגמר כאשר אין יותר קוביות להטיל.</string>
+    <string name="Midnight_Gameplay4">שחקן חייב שבסוף התור יהיה לו 1 וגם 4, אחרת הניקוד בסיבוב זה לא נספר. הניקוד נספר בשאר 4 הקוביות. ניקוד מקסימלי הוא 24.</string>
+    <string name="Midnight_Gameplay5">המנצח הוא השחקן עם הניקוד הגבוה ביותר.</string>
+    <string name="Midnight_ScoringExamples1H">דוגמאות</string>
+    <string name="Midnight_ScoringExamples2">דוגמא 1: לסיוון בסוף התור יש (6, 6, 6, 4, 5, 1). בגלל שיש לה גם 1 וגם 4, סיוון מקבלת 23 נקודות. (6+ 6+ 6+ 5= 23)</string>
+    <string name="Midnight_ScoringExamples3">דוגמא 2: ליוני בסוף התור יש (6, 6, 6, 4, 5, 4). בגלל שאין לו 4 (רק 1), יוני מרוויח 0 נקודות.</string>
+    <string name="Midnight_ScoringExamples4">דוגמא 3: לרון בסוף התור יש (6, 6, 6, 1, 5, 3). בגלל שאין לו 4 (רק 1), רון מקבל 0 נקודות.</string>
+
+
+    <!--Midnight game-->
+    <string name="Score">תוצאה</string>
+    <string name="endTurn">סיים תור</string>
+    <string name="RollDice">גלגל את הקוביות</string>
+
+</resources>

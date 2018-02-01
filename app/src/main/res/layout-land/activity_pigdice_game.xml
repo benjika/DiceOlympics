@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layoutDirection="ltr"
+    tools:context="com.example.beni.diceolympics.PigdiceGame">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:id="@+id/pigDice_Area_Player1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/colorPrimary">
+
+            <TextView
+                android:id="@+id/pigDice_PlayerName_Player1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="30sp"
+                android:gravity="center"
+                android:hint="player one"
+                android:text=""
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/pigDice_totalScoreTag_Player1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/pigDice_PlayerName_Player1"
+                android:layout_centerHorizontal="true"
+                android:textColor="@color/colorPrimaryDark"
+                android:layout_marginTop="15sp"
+                android:text="@string/Pigdice_TotalScore"
+                android:textSize="25sp" />
+
+            <TextView
+                android:id="@+id/pigDice_totalScore_Player1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/pigDice_totalScoreTag_Player1"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10sp"
+                android:text="0"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="35sp" />
+
+            <TextView
+                android:id="@+id/pigDice_currentScoreTag_Player1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/pigDice_totalScore_Player1"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="15sp"
+                android:text="@string/Pigdice_currentScore"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="25sp" />
+
+            <TextView
+                android:id="@+id/pigDice_currentScore_Player1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/pigDice_currentScoreTag_Player1"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10sp"
+                android:text="0"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="35sp" />
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/pigDice_Area_Player2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/colorPrimaryDark">
+
+            <TextView
+                android:id="@+id/pigDice_PlayerName_Player2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="30sp"
+                android:gravity="center"
+                android:hint="player two"
+                android:text=""
+                android:textColor="@color/colorPrimary"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/totalScoreTag_Player2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/pigDice_PlayerName_Player2"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="15sp"
+                android:text="@string/Pigdice_TotalScore"
+                android:textSize="25sp" />
+
+            <TextView
+                android:id="@+id/pigDice_totalScore_Player2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/totalScoreTag_Player2"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10sp"
+                android:text="0"
+                android:textColor="@color/colorPrimary"
+                android:textSize="35sp" />
+
+            <TextView
+                android:id="@+id/pigDice_currentScoreTag_Player2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/pigDice_totalScore_Player2"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="15sp"
+                android:text="@string/Pigdice_currentScore"
+                android:textSize="25sp" />
+
+            <TextView
+                android:id="@+id/pigDice_currentScorePlayer2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/pigDice_currentScoreTag_Player2"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10sp"
+                android:text="0"
+                android:textColor="@color/colorPrimary"
+                android:textSize="35sp" />
+
+
+        </RelativeLayout>
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/pigDice_turnArrow"
+        android:layout_width="80sp"
+        android:layout_height="80sp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15sp"
+        android:scaleType="fitXY"
+        android:src="@drawable/playerturnarrow" />
+
+    <ImageView
+        android:id="@+id/pigDice_dice"
+        android:layout_width="80sp"
+        android:layout_height="80sp"
+        android:layout_below="@+id/pigDice_turnArrow"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20sp"
+        android:scaleType="fitXY"
+        android:src="@drawable/diceone"
+        android:visibility="invisible" />
+
+    <Button
+        android:id="@+id/pigDice_btn_diceRoll"
+        android:layout_width="100sp"
+        android:layout_height="50sp"
+        android:layout_below="@+id/pigDice_dice"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10sp"
+        android:background="@drawable/button_bg_round"
+        android:text="@string/Pigdice_RollDice"
+        android:textColor="@color/colorAccent"
+        android:textSize="15sp" />
+
+    <Button
+        android:id="@+id/pigDice_btn_saveScore"
+        android:layout_width="100sp"
+        android:layout_height="50sp"
+        android:layout_below="@id/pigDice_btn_diceRoll"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10sp"
+        android:background="@drawable/button_bg_round"
+        android:text="@string/Pigdice_saveScore"
+        android:textColor="@color/colorAccent"
+        android:textSize="15sp" />
+
+
+
+</RelativeLayout>

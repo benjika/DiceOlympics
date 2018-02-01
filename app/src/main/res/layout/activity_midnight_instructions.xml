@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorPrimary"
+    tools:context="com.example.beni.diceolympics.MidnightInstructions">
+
+    <TextView
+        android:id="@+id/Midnight_Instructions_instructionHeadline"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:gravity="center"
+        android:text="@string/Instructions"
+        android:textColor="@color/colorAccent"
+        android:textSize="40sp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="7"
+
+        >
+
+        <ScrollView
+            android:id="@+id/Midnight_Instructions_instructionText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/Midnight_Instructions_instructionHeadline">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingHorizontal="12dp">
+
+
+                <TextView
+                    android:id="@+id/Midnight_Instructions_Goal1H"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="start"
+                    android:text="@string/Midnight_Goal1H"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="25sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/Pigdice_Instructions_Goal2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:text="@string/Midnight_Goal2"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="17sp" />
+
+                <TextView
+                    android:id="@+id/Pigdice_Instructions_Gameplay1H"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Midnight_Gameplay1H"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="25sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/Pigdice_Instructions_Gameplay2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Midnight_Gameplay2"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="17sp" />
+
+                <TextView
+                    android:id="@+id/Pigdice_Instructions_Gameplay3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Midnight_Gameplay3"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="17sp" />
+
+                <TextView
+                    android:id="@+id/Pigdice_Instructions_Gameplay4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Midnight_Gameplay4"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="17sp" />
+
+                <TextView
+                    android:id="@+id/Pigdice_Instructions_Gameplay5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Midnight_Gameplay5"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="17sp" />
+
+
+
+                <TextView
+                    android:id="@+id/Pigdice_Instructions_ScoringExamplesH"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="start"
+                    android:text="@string/Midnight_ScoringExamples1H"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="25sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/Pigdice_Instructions_ScoringExamplesString1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Midnight_ScoringExamples2"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="17sp" />
+
+                <TextView
+                    android:id="@+id/Pigdice_Instructions_ScoringExamplesString2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:text="@string/Midnight_ScoringExamples3"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="17sp" />
+
+                <TextView
+                    android:id="@+id/Midnight_Instructions_ScoringExamplesString3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:text="@string/Midnight_ScoringExamples4"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="17sp" />
+
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/Midnight_Instructions_btn_Back"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_margin="10dp"
+        android:layout_weight="1"
+        android:background="@color/colorAccent"
+        android:text="@string/Back"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="17sp" />
+
+
+</LinearLayout>
