@@ -78,6 +78,13 @@ public class MidnightGame extends AppCompatActivity {
         fifthDice_Chosen.setClickable(false);
         sixthDice_Chosen.setClickable(false);
 
+        firstDice_unChosen.setClickable(false);
+        secondDice_unChosen.setClickable(false);
+        thirdDice_unChosen.setClickable(false);
+        fourthDice_unChosen.setClickable(false);
+        fifthDice_unChosen.setClickable(false);
+        sixthDice_unChosen.setClickable(false);
+
     }
 
     void getInfoFromExtras() {
