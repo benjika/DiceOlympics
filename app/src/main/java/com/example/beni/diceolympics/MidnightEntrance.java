@@ -41,6 +41,7 @@ public class MidnightEntrance extends AppCompatActivity {
         btnInstructions.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if (!Sounds.getIsMute()) buttonClickSound.start();
                 Intent intent = new Intent(MidnightEntrance.this, MidnightInstructions.class);
                 startActivity(intent);
             }
@@ -49,6 +50,7 @@ public class MidnightEntrance extends AppCompatActivity {
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if (!Sounds.getIsMute()) buttonClickSound.start();
                 final Intent intent = new Intent(MidnightEntrance.this, ChooseGame.class);
                 intent.putExtra("NameArr", getNamesArr);
                 intent.putExtra("ScoresArr", getScores);

@@ -30,6 +30,8 @@ public class PigdiceGame extends AppCompatActivity {
     static ImageView arrow;
     static Animation changeArrowTo1;
     static Animation changeArrowTo2;
+    static MediaPlayer arrowSound;
+    static boolean startOfGame;
 
     static Button SaveScoreBTN;
 
@@ -66,6 +68,8 @@ public class PigdiceGame extends AppCompatActivity {
         dice = (ImageView) findViewById(R.id.pigDice_dice);
         arrow = (ImageView) findViewById(R.id.pigDice_turnArrow);
         SaveScoreBTN = (Button) findViewById(R.id.pigDice_btn_saveScore);
+        arrowSound = MediaPlayer.create(this, R.raw.arrowturn);
+        startOfGame = true;
 
         Button RollDiceBTN = (Button) findViewById(R.id.pigDice_btn_diceRoll);
         SaveScoreBTN.setVisibility(View.GONE);
@@ -142,6 +146,8 @@ public class PigdiceGame extends AppCompatActivity {
     }
 
     static void turnArrow() {
+        if (!startOfGame) if (!Sounds.getIsMute()) arrowSound.start();
+        else startOfGame = false;
 
         if (playerTurn == 1)
             arrow.startAnimation(changeArrowTo1);
