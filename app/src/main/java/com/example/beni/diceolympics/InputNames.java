@@ -24,13 +24,11 @@ public class InputNames extends AppCompatActivity {
         playerOneName = (EditText) findViewById(R.id.PlayerOneInput);
         playerTwoName = (EditText) findViewById(R.id.PlayerTwoInput);
 
-        final MediaPlayer buttonClickSound = MediaPlayer.create(InputNames.this , R.raw.buttonpress);
-
         btnStartGame.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                buttonClickSound.start();
+                Sounds.playButtonPress(InputNames.this);
 
                 boolean FirstLegal;
                 boolean SecondLegal;
@@ -70,7 +68,7 @@ public class InputNames extends AppCompatActivity {
                     } else {
 
                         String[] Names = {playerOneNameString, playerTwoNameString};
-                        int[] Scores = {0,0};
+                        int[] Scores = {0, 0};
 
                         Intent intent = new Intent(InputNames.this, ChooseGame.class);
                         intent.putExtra("NameArr", Names);

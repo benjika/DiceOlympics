@@ -21,12 +21,6 @@ public class MidnightGame extends AppCompatActivity {
     Button RollTheDiceBTN;
     Button EndTurnBTN;
 
-    MediaPlayer diceShakeSound1;
-    MediaPlayer diceShakeSound2;
-    MediaPlayer diceShakeSound3;
-    MediaPlayer buttonClickSound;
-    MediaPlayer slideSound;
-
     ImageButton firstDice_Chosen;
     ImageButton secondDice_Chosen;
     ImageButton thirdDice_Chosen;
@@ -48,8 +42,6 @@ public class MidnightGame extends AppCompatActivity {
         setContentView(R.layout.activity_midnight_game);
 
         InitializeDice();
-
-        InitializeMedia();
 
         getInfoFromExtras();
 
@@ -93,13 +85,5 @@ public class MidnightGame extends AppCompatActivity {
         getScores = getIntent().getIntArrayExtra("ScoresArr");
     }
 
-    void InitializeMedia() {
-
-        diceShakeSound1 = MediaPlayer.create(this, R.raw.shakerdice1);
-        diceShakeSound2 = MediaPlayer.create(this, R.raw.shakerdice2);
-        diceShakeSound3 = MediaPlayer.create(this, R.raw.shakerdice3);
-        buttonClickSound = MediaPlayer.create(this, R.raw.buttonpress);
-        slideSound = MediaPlayer.create(this, R.raw.slide);
-    }
 
 }

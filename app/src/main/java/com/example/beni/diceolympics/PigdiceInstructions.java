@@ -18,6 +18,7 @@ public class PigdiceInstructions extends AppCompatActivity {
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Sounds.playButtonPress(PigdiceInstructions.this);
                 Intent intent = new Intent(PigdiceInstructions.this, PigdiceEntrance.class);
                 startActivity(intent);
                 finish();

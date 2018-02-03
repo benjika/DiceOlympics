@@ -19,8 +19,6 @@ public class PigdiceGame extends AppCompatActivity {
 
     SensorManager shakeManager;
 
-    static MediaPlayer diceShakeSound;
-
     static TextView currentScorePlayer1;
     static TextView currentScorePlayer2;
 
@@ -54,8 +52,6 @@ public class PigdiceGame extends AppCompatActivity {
         final TextView player2name = (TextView) findViewById(R.id.pigDice_PlayerName_Player2);
         player1name.setText(NamesArr[0]);
         player2name.setText(NamesArr[1]);
-
-        diceShakeSound = MediaPlayer.create(this, R.raw.shakerdice1);
 
         currentScorePlayer1 = (TextView) findViewById(R.id.pigDice_currentScore_Player1);
         currentScorePlayer2 = (TextView) findViewById(R.id.pigDice_currentScorePlayer2);
@@ -121,7 +117,8 @@ public class PigdiceGame extends AppCompatActivity {
     // A universal function that physical shake and button shake use
     {
 
-        diceShakeSound.start();
+       Sounds diceSound = new Sounds();
+       diceSound.playButtonPress(PigdiceGame.this);
 
         diceNum = GameFunctions.rollDice("Pigdice");
 
@@ -140,6 +137,10 @@ public class PigdiceGame extends AppCompatActivity {
                 currentScorePlayer2.setText(String.valueOf(Integer.parseInt
                         (currentScorePlayer2.getText().toString()) + diceNum));
         }
+    }
+
+    void playShake(){
+        Sounds.playShakerdice1(PigdiceGame.this);
     }
 
     static void turnArrow() {

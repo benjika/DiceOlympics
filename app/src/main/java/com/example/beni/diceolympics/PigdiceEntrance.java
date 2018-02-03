@@ -25,6 +25,7 @@ public class PigdiceEntrance extends AppCompatActivity {
         btnStartGame.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Sounds.playButtonPress(PigdiceEntrance.this);
                 Intent intent = new Intent(PigdiceEntrance.this, PigdiceGame.class);
                 intent.putExtra("NameArr", getNamesArr);
                 intent.putExtra("ScoresArr", getScores);
@@ -36,6 +37,7 @@ public class PigdiceEntrance extends AppCompatActivity {
         btnInstructions.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Sounds.playButtonPress(PigdiceEntrance.this);
                 Intent intent = new Intent(PigdiceEntrance.this, PigdiceInstructions.class);
                 startActivity(intent);
             }
@@ -44,6 +46,7 @@ public class PigdiceEntrance extends AppCompatActivity {
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Sounds.playButtonPress(PigdiceEntrance.this);
                 final Intent intent = new Intent(PigdiceEntrance.this, ChooseGame.class);
                 intent.putExtra("NameArr", getNamesArr);
                 intent.putExtra("ScoresArr", getScores);

@@ -18,15 +18,13 @@ public class ChooseGame extends AppCompatActivity {
         Button btnPlayPigDice = (Button) findViewById(R.id.chooseGame_btn_playPigDice);
         Button btnPlayMidnight = (Button) findViewById(R.id.chooseGame_btn_playMidnight);
 
-        final MediaPlayer buttonClickSound = MediaPlayer.create(ChooseGame.this , R.raw.buttonpress);
-
         final String[] getNamesArr = getIntent().getStringArrayExtra("NameArr");
         final int[] getScores = getIntent().getIntArrayExtra("ScoresArr");
 
         btnPlayPigDice.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                buttonClickSound.start();
+                Sounds.playButtonPress(ChooseGame.this);
                 Intent intent = new Intent(ChooseGame.this, PigdiceEntrance.class);
                 intent.putExtra("NameArr", getNamesArr);
                 intent.putExtra("ScoresArr", getScores);
@@ -39,7 +37,7 @@ public class ChooseGame extends AppCompatActivity {
         btnPlayMidnight.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                buttonClickSound.start();
+                Sounds.playButtonPress(ChooseGame.this);
                 Intent intent = new Intent(ChooseGame.this, MidnightEntrance.class);
                 intent.putExtra("NameArr", getNamesArr);
                 intent.putExtra("ScoresArr", getScores);

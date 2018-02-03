@@ -18,6 +18,7 @@ public class MidnightInstructions extends AppCompatActivity {
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Sounds.playButtonPress(MidnightInstructions.this);
                 Intent intent = new Intent(MidnightInstructions.this, MidnightEntrance.class);
                 startActivity(intent);
                 finish();

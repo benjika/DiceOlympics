@@ -26,6 +26,7 @@ public class MidnightEntrance extends AppCompatActivity {
        btnStartGame.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Sounds.playButtonPress(MidnightEntrance.this);
                 /*Intent intent = new Intent(MidnightEntrance.this, MidnightGame.class);
                 intent.putExtra("NameArr", NamesArr);
                 intent.putExtra("ScoresArr", Scores);
@@ -38,6 +39,7 @@ public class MidnightEntrance extends AppCompatActivity {
         btnInstructions.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Sounds.playButtonPress(MidnightEntrance.this);
                 Intent intent = new Intent(MidnightEntrance.this, MidnightInstructions.class);
                 startActivity(intent);
             }
@@ -46,6 +48,7 @@ public class MidnightEntrance extends AppCompatActivity {
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Sounds.playButtonPress(MidnightEntrance.this);
                 final Intent intent = new Intent(MidnightEntrance.this, ChooseGame.class);
                 intent.putExtra("NameArr", getNamesArr);
                 intent.putExtra("ScoresArr", getScores);
