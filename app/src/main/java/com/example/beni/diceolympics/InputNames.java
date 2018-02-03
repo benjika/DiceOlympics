@@ -24,11 +24,13 @@ public class InputNames extends AppCompatActivity {
         playerOneName = (EditText) findViewById(R.id.PlayerOneInput);
         playerTwoName = (EditText) findViewById(R.id.PlayerTwoInput);
 
+        final MediaPlayer buttonClickSound = MediaPlayer.create(InputNames.this, R.raw.buttonpress);
+
         btnStartGame.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                Sounds.playButtonPress(InputNames.this);
+                if (!Sounds.getIsMute()) buttonClickSound.start();
 
                 boolean FirstLegal;
                 boolean SecondLegal;

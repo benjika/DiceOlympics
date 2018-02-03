@@ -12,9 +12,9 @@ import android.os.CountDownTimer;
 
 public class Shaker {
 
-    static float accelVal;
-    static float accelLast;
-    static float shake;
+    private static float accelVal;
+    private static float accelLast;
+    private static float shake;
     private static boolean canShake = true;
 
     public static String getNameOfGame() {
@@ -47,7 +47,7 @@ public class Shaker {
 
                 canShake = false;
                 countDown();
-                if (NameOfGame == "Pigdice") PigdiceGame. UniversalShake();
+                if (NameOfGame.equals("Pigdice")) PigdiceGame.UniversalShake();
             }
         }
 
@@ -70,7 +70,7 @@ public class Shaker {
 
     }
 
-    static void countDown()
+    private static void countDown()
     // countdowns a second from one physical shake to another
     // to avoid many shakes at once
     {

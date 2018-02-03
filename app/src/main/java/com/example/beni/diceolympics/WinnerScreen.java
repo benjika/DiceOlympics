@@ -28,7 +28,6 @@ public class WinnerScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_winner_screen);
 
-        Sounds.playVictory(WinnerScreen.this);
 
         final String[] getNamesArr = getIntent().getStringArrayExtra("NameArr");
         final int[] getScores = getIntent().getIntArrayExtra("ScoresArr");
@@ -36,6 +35,9 @@ public class WinnerScreen extends AppCompatActivity {
         final String GameToReplay = getIntent().getStringExtra("GameToReplay");
         setTexts(getNamesArr, getScores, winnerNameFromGame);
 
+        final MediaPlayer buttonClickSound = MediaPlayer.create(WinnerScreen.this, R.raw.buttonpress);
+        final MediaPlayer victorySound = MediaPlayer.create(WinnerScreen.this, R.raw.victory);
+        if (!Sounds.getIsMute()) victorySound.start();
 
         final RelativeLayout set1 = (RelativeLayout) findViewById(R.id.winner_set1);
         final RelativeLayout set2 = (RelativeLayout) findViewById(R.id.winner_set2);
@@ -71,10 +73,10 @@ public class WinnerScreen extends AppCompatActivity {
         btnPlayAgain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Sounds.playButtonPress(WinnerScreen.this);
+                if (!Sounds.getIsMute()) buttonClickSound.start();
 
                 final Intent intent;
-                if (GameToReplay == "Pigdice") {
+                if (GameToReplay.equals("Pigdice")) {
                     intent = new Intent(WinnerScreen.this, PigdiceGame.class);
                 } else {
                     intent = new Intent(WinnerScreen.this, MidnightGame.class);
@@ -89,7 +91,7 @@ public class WinnerScreen extends AppCompatActivity {
         btnNewGame.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Sounds.playButtonPress(WinnerScreen.this);
+                if (!Sounds.getIsMute()) buttonClickSound.start();
                 btnsSet1.setVisibility(View.GONE);
                 btnsSet2.setVisibility(View.VISIBLE);
             }
@@ -98,7 +100,7 @@ public class WinnerScreen extends AppCompatActivity {
         btnExitApp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Sounds.playButtonPress(WinnerScreen.this);
+                if (!Sounds.getIsMute()) buttonClickSound.start();
                 final AlertDialog.Builder builder = new AlertDialog.Builder(WinnerScreen.this);
                 builder.setTitle("");
                 builder.setMessage(R.string.areYouSureToExit);
@@ -106,7 +108,7 @@ public class WinnerScreen extends AppCompatActivity {
                 builder.setPositiveButton(R.string.yesWantToExit, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        Sounds.playButtonPress(WinnerScreen.this);
+                        if (!Sounds.getIsMute()) buttonClickSound.start();
                         finish();
                         System.exit(0);
                     }
@@ -115,7 +117,7 @@ public class WinnerScreen extends AppCompatActivity {
                 builder.setNegativeButton(R.string.noWantToStay, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        Sounds.playButtonPress(WinnerScreen.this);
+                        if (!Sounds.getIsMute()) buttonClickSound.start();
                         dialogInterface.dismiss();
                     }
                 });
@@ -129,7 +131,7 @@ public class WinnerScreen extends AppCompatActivity {
         btnSinglePlayer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Sounds.playButtonPress(WinnerScreen.this);
+                if (!Sounds.getIsMute()) buttonClickSound.start();
                 /*final Intent intent = new Intent(WinnerScreen.this, NewGameClass.class);
                 startActivity(intent);
                 finish();*/
@@ -140,7 +142,7 @@ public class WinnerScreen extends AppCompatActivity {
         btnTwoPlayers.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Sounds.playButtonPress(WinnerScreen.this);
+                if (!Sounds.getIsMute()) buttonClickSound.start();
                 btnsSet2.setVisibility(View.GONE);
                 btnsSet3.setVisibility(View.VISIBLE);
             }
@@ -149,7 +151,7 @@ public class WinnerScreen extends AppCompatActivity {
         btnNewPlayers.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Sounds.playButtonPress(WinnerScreen.this);
+                if (!Sounds.getIsMute()) buttonClickSound.start();
                 final Intent intent = new Intent(WinnerScreen.this, InputNames.class);
                 startActivity(intent);
                 finish();
@@ -159,7 +161,7 @@ public class WinnerScreen extends AppCompatActivity {
         btnSamePlayers.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Sounds.playButtonPress(WinnerScreen.this);
+                if (!Sounds.getIsMute()) buttonClickSound.start();
                 btnsSet3.setVisibility(View.GONE);
                 btnsSet4.setVisibility(View.VISIBLE);
             }
@@ -169,7 +171,7 @@ public class WinnerScreen extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                Sounds.playButtonPress(WinnerScreen.this);
+                if (!Sounds.getIsMute()) buttonClickSound.start();
 
                 getScores[0] = 0;
                 getScores[1] = 0;
@@ -185,7 +187,7 @@ public class WinnerScreen extends AppCompatActivity {
         btnSameScore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Sounds.playButtonPress(WinnerScreen.this);
+                if (!Sounds.getIsMute()) buttonClickSound.start();
 
                 final Intent intent = new Intent(WinnerScreen.this, ChooseGame.class);
                 intent.putExtra("NameArr", getNamesArr);

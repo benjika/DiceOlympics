@@ -1,6 +1,7 @@
 package com.example.beni.diceolympics;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -17,6 +18,7 @@ public class PigdiceEntrance extends AppCompatActivity {
         final Button btnInstructions = (Button) findViewById(R.id.pigdice_btn_Instructions);
         final Button btnBack = (Button) findViewById(R.id.pigdice_btn_Back);
 
+        final MediaPlayer buttonClickSound = MediaPlayer.create(PigdiceEntrance.this, R.raw.buttonpress);
 
         final String[] getNamesArr = getIntent().getStringArrayExtra("NameArr");
         final int[] getScores = getIntent().getIntArrayExtra("ScoresArr");
@@ -25,7 +27,7 @@ public class PigdiceEntrance extends AppCompatActivity {
         btnStartGame.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Sounds.playButtonPress(PigdiceEntrance.this);
+                if (!Sounds.getIsMute()) buttonClickSound.start();
                 Intent intent = new Intent(PigdiceEntrance.this, PigdiceGame.class);
                 intent.putExtra("NameArr", getNamesArr);
                 intent.putExtra("ScoresArr", getScores);
@@ -37,7 +39,7 @@ public class PigdiceEntrance extends AppCompatActivity {
         btnInstructions.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Sounds.playButtonPress(PigdiceEntrance.this);
+                if (!Sounds.getIsMute()) buttonClickSound.start();
                 Intent intent = new Intent(PigdiceEntrance.this, PigdiceInstructions.class);
                 startActivity(intent);
             }
@@ -46,7 +48,7 @@ public class PigdiceEntrance extends AppCompatActivity {
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Sounds.playButtonPress(PigdiceEntrance.this);
+                if (!Sounds.getIsMute()) buttonClickSound.start();
                 final Intent intent = new Intent(PigdiceEntrance.this, ChooseGame.class);
                 intent.putExtra("NameArr", getNamesArr);
                 intent.putExtra("ScoresArr", getScores);
