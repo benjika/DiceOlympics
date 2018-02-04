@@ -1,9 +1,9 @@
 package com.example.beni.diceolympics;
 
-import android.media.MediaPlayer;
+import android.widget.ImageButton;
 
 /**
- * Created by Beni on 03-Feb-18.
+ * Created by Benny on 03-Feb-18.
  */
 
 public class Sounds {
@@ -16,8 +16,19 @@ public class Sounds {
     }
 
     //sets new vale for Is mute
-    public static void setIsMute(boolean newIsMute) {
+   private static void setIsMute(boolean newIsMute) {
         isMute = newIsMute;
+    }
+
+    static void buttonMutePress(ImageButton btnMute){
+        if(isMute){
+            Sounds.setIsMute(false);
+            btnMute.setImageResource(R.drawable.unmute);
+        }
+        else{
+            Sounds.setIsMute(true);
+            btnMute.setImageResource(R.drawable.mute);
+        }
     }
 
 }

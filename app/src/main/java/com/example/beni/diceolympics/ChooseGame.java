@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 public class ChooseGame extends AppCompatActivity {
@@ -17,6 +18,11 @@ public class ChooseGame extends AppCompatActivity {
 
         Button btnPlayPigDice = (Button) findViewById(R.id.chooseGame_btn_playPigDice);
         Button btnPlayMidnight = (Button) findViewById(R.id.chooseGame_btn_playMidnight);
+        final ImageButton btnMute = (ImageButton) findViewById(R.id.chooseGame_btn_mute);
+
+        if (Sounds.getIsMute()) btnMute.setImageResource(R.drawable.mute);
+        else btnMute.setImageResource(R.drawable.unmute);
+
 
         final MediaPlayer buttonClickSound = MediaPlayer.create(ChooseGame.this, R.raw.buttonpress);
 
@@ -48,6 +54,11 @@ public class ChooseGame extends AppCompatActivity {
 
             }
         });
-
+        btnMute.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Sounds.buttonMutePress(btnMute);
+            }
+        });
     }
 }

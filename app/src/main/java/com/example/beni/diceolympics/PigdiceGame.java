@@ -14,7 +14,7 @@ import android.widget.TextView;
 
 public class PigdiceGame extends AppCompatActivity {
 
-    static int playerTurn = (int) (Math.random() * 2 + 1);
+    static int playerTurn;
     static int diceNum;
 
     SensorManager shakeManager;
@@ -31,7 +31,6 @@ public class PigdiceGame extends AppCompatActivity {
     static Animation changeArrowTo1;
     static Animation changeArrowTo2;
     static MediaPlayer arrowSound;
-    static boolean startOfGame;
 
     static Button SaveScoreBTN;
 
@@ -44,6 +43,8 @@ public class PigdiceGame extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pigdice_game);
+
+        playerTurn = (int) (Math.random() * 2 + 1);
 
         NamesArr = getIntent().getStringArrayExtra("NameArr");
         Scores = getIntent().getIntArrayExtra("ScoresArr");
@@ -69,15 +70,15 @@ public class PigdiceGame extends AppCompatActivity {
         arrow = (ImageView) findViewById(R.id.pigDice_turnArrow);
         SaveScoreBTN = (Button) findViewById(R.id.pigDice_btn_saveScore);
         arrowSound = MediaPlayer.create(this, R.raw.arrowturn);
-        startOfGame = true;
+
 
         Button RollDiceBTN = (Button) findViewById(R.id.pigDice_btn_diceRoll);
         SaveScoreBTN.setVisibility(View.GONE);
 
         changeArrowTo1 = AnimationUtils.loadAnimation(PigdiceGame.this, R.anim.arrorflipto1);
         changeArrowTo2 = AnimationUtils.loadAnimation(PigdiceGame.this, R.anim.arrowflipto2);
-
-        turnArrow();
+        if (playerTurn == 1) arrow.startAnimation(changeArrowTo1);
+        else arrow.startAnimation(changeArrowTo2);
 
 
         SaveScoreBTN.setOnClickListener(new View.OnClickListener() {
@@ -146,8 +147,7 @@ public class PigdiceGame extends AppCompatActivity {
     }
 
     static void turnArrow() {
-        if (!startOfGame) if (!Sounds.getIsMute()) arrowSound.start();
-        else startOfGame = false;
+        if (!Sounds.getIsMute()) arrowSound.start();
 
         if (playerTurn == 1)
             arrow.startAnimation(changeArrowTo1);

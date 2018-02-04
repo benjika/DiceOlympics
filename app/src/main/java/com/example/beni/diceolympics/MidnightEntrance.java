@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 public class MidnightEntrance extends AppCompatActivity {
@@ -18,6 +19,10 @@ public class MidnightEntrance extends AppCompatActivity {
         final Button btnStartGame = (Button) findViewById(R.id.midnight_Entrance_btn_Start);
         final Button btnInstructions = (Button) findViewById(R.id.midnight_Entrance_btn_Instructions);
         final Button btnBack = (Button) findViewById(R.id.midnight_Entrance_btn_Back);
+        final ImageButton btnMute = (ImageButton) findViewById(R.id.midnight_Entrance_btn_mute);
+
+        if(Sounds.getIsMute()) btnMute.setImageResource(R.drawable.mute);
+        else btnMute.setImageResource(R.drawable.unmute);
 
         final MediaPlayer buttonClickSound = MediaPlayer.create(MidnightEntrance.this, R.raw.buttonpress);
 
@@ -56,6 +61,13 @@ public class MidnightEntrance extends AppCompatActivity {
                 intent.putExtra("ScoresArr", getScores);
                 startActivity(intent);
                 finish();
+            }
+        });
+
+        btnMute.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Sounds.buttonMutePress(btnMute);
             }
         });
     }

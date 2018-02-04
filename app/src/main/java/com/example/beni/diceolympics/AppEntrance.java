@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 public class AppEntrance extends AppCompatActivity {
@@ -20,6 +21,10 @@ public class AppEntrance extends AppCompatActivity {
         Button btnOnePlayer = (Button) findViewById(R.id.app_btn_singlePlayers);
         Button btnTwoPlayers = (Button) findViewById(R.id.app_btn_twoPlayers);
         Button btnExitApp = (Button) findViewById(R.id.app_btn_exitApp);
+        final ImageButton btnMute = (ImageButton) findViewById(R.id.app_btn_mute);
+
+        if(Sounds.getIsMute()) btnMute.setImageResource(R.drawable.mute);
+        else btnMute.setImageResource(R.drawable.unmute);
 
         final MediaPlayer buttonClickSound = MediaPlayer.create(AppEntrance.this, R.raw.buttonpress);
 
@@ -69,6 +74,13 @@ public class AppEntrance extends AppCompatActivity {
 
                 AlertDialog dialog = builder.create();
                 dialog.show();
+            }
+        });
+
+        btnMute.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Sounds.buttonMutePress(btnMute);
             }
         });
     }

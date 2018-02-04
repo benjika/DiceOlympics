@@ -7,26 +7,29 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 public class InputNames extends AppCompatActivity {
 
-    Button btnStartGame;
-    EditText playerOneName;
-    EditText playerTwoName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_input_names);
-        btnStartGame = (Button) findViewById(R.id.btnStartEnterNames);
 
-        playerOneName = (EditText) findViewById(R.id.PlayerOneInput);
-        playerTwoName = (EditText) findViewById(R.id.PlayerTwoInput);
+        Button btnChooseGame = (Button) findViewById(R.id.InputNames_btn_chooseGame);
+        final ImageButton btnMute = (ImageButton)findViewById(R.id.inputNames_btn_mute);
+
+        if(Sounds.getIsMute()) btnMute.setImageResource(R.drawable.mute);
+        else btnMute.setImageResource(R.drawable.unmute);
+
+        final EditText playerOneName = (EditText) findViewById(R.id.PlayerOneInput);
+        final EditText playerTwoName = (EditText) findViewById(R.id.PlayerTwoInput);
 
         final MediaPlayer buttonClickSound = MediaPlayer.create(InputNames.this, R.raw.buttonpress);
 
-        btnStartGame.setOnClickListener(new View.OnClickListener() {
+        btnChooseGame.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -79,6 +82,13 @@ public class InputNames extends AppCompatActivity {
                         finish();
                     }
                 }
+            }
+        });
+
+        btnMute.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Sounds.buttonMutePress(btnMute);
             }
         });
     }
