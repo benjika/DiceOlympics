@@ -1,13 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimaryDark"
     android:layoutDirection="ltr"
     tools:context="com.example.beni.diceolympics.WinnerScreen">
+
+
+    <ImageButton
+        android:id="@+id/winner_btn_mute"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_gravity="start"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/colorPrimaryDark"
+        android:src="@drawable/unmute" />
+
 
     <RelativeLayout
         android:id="@+id/winner_set1"

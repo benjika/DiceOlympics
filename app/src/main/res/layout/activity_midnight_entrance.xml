@@ -8,6 +8,7 @@
     android:orientation="vertical"
     tools:context="com.example.beni.diceolympics.MidnightEntrance">
 
+    <!--mute/unmute button-->
     <ImageButton
         android:id="@+id/midnight_Entrance_btn_mute"
         android:layout_width="35dp"
@@ -25,12 +26,14 @@
         android:gravity="center"
         android:orientation="vertical">
 
+        <!--Midnight's logo-->
         <ImageView
             android:id="@+id/midnight_Entrance_image"
             android:layout_width="300dp"
             android:layout_height="250dp"
             android:src="@drawable/piggamered" />
 
+        <!--Button start midnight game-->
         <Button
             android:id="@+id/midnight_Entrance_btn_Start"
             android:layout_width="250dp"
@@ -41,6 +44,7 @@
             android:textColor="@color/colorPrimaryDark"
             android:textSize="17sp" />
 
+        <!--Button go to midnight instructions-->
         <Button
             android:id="@+id/midnight_Entrance_btn_Instructions"
             android:layout_width="250dp"
@@ -52,6 +56,7 @@
             android:textColor="@color/colorPrimaryDark"
             android:textSize="17sp" />
 
+        <!--Button go back to choose a game-->
         <Button
             android:id="@+id/midnight_Entrance_btn_Back"
             android:layout_width="250dp"

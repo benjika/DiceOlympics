@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 public class PigdiceEntrance extends AppCompatActivity {
 
@@ -17,6 +18,9 @@ public class PigdiceEntrance extends AppCompatActivity {
         final Button btnStartGame = (Button) findViewById(R.id.pigdice_btn_Start);
         final Button btnInstructions = (Button) findViewById(R.id.pigdice_btn_Instructions);
         final Button btnBack = (Button) findViewById(R.id.pigdice_btn_Back);
+        final ImageButton btnMute = (ImageButton) findViewById(R.id.Pigdice_entrance_btn_mute);
+        if (Sounds.getIsMute()) btnMute.setImageResource(R.drawable.mute);
+        else btnMute.setImageResource(R.drawable.unmute);
 
         final MediaPlayer buttonClickSound = MediaPlayer.create(PigdiceEntrance.this, R.raw.buttonpress);
 
@@ -57,6 +61,12 @@ public class PigdiceEntrance extends AppCompatActivity {
             }
         });
 
+        btnMute.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Sounds.buttonMutePress(btnMute);
+            }
+        });
 
     }
 }

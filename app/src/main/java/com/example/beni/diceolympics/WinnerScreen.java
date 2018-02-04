@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -34,6 +35,10 @@ public class WinnerScreen extends AppCompatActivity {
         final String winnerNameFromGame = getIntent().getStringExtra("WinnerName");
         final String GameToReplay = getIntent().getStringExtra("GameToReplay");
         setTexts(getNamesArr, getScores, winnerNameFromGame);
+
+        final ImageButton btnMute = (ImageButton) findViewById(R.id.winner_btn_mute);
+        if (Sounds.getIsMute()) btnMute.setImageResource(R.drawable.mute);
+        else btnMute.setImageResource(R.drawable.unmute);
 
         final MediaPlayer buttonClickSound = MediaPlayer.create(WinnerScreen.this, R.raw.buttonpress);
         final MediaPlayer victorySound = MediaPlayer.create(WinnerScreen.this, R.raw.victory);
@@ -197,6 +202,12 @@ public class WinnerScreen extends AppCompatActivity {
             }
         });
 
+        btnMute.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Sounds.buttonMutePress(btnMute);
+            }
+        });
 
     }
 

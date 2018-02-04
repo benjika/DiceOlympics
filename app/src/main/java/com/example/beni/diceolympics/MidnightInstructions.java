@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 public class MidnightInstructions extends AppCompatActivity {
 
@@ -16,6 +17,10 @@ public class MidnightInstructions extends AppCompatActivity {
 
         final Button btnBack = (Button) findViewById(R.id.Midnight_Instructions_btn_Back);
 
+        final ImageButton btnMute = (ImageButton) findViewById(R.id.Midnight_Instructions_btn_mute);
+        if(Sounds.getIsMute()) btnMute.setImageResource(R.drawable.mute);
+        else btnMute.setImageResource(R.drawable.unmute);
+
         final MediaPlayer buttonClickSound = MediaPlayer.create(MidnightInstructions.this, R.raw.buttonpress);
 
         btnBack.setOnClickListener(new View.OnClickListener() {
@@ -25,6 +30,13 @@ public class MidnightInstructions extends AppCompatActivity {
                 Intent intent = new Intent(MidnightInstructions.this, MidnightEntrance.class);
                 startActivity(intent);
                 finish();
+            }
+        });
+
+        btnMute.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Sounds.buttonMutePress(btnMute);
             }
         });
 

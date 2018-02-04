@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -57,6 +58,10 @@ public class PigdiceGame extends AppCompatActivity {
         final TextView player2name = (TextView) findViewById(R.id.pigDice_PlayerName_Player2);
         player1name.setText(NamesArr[0]);
         player2name.setText(NamesArr[1]);
+
+        final ImageButton btnMute = (ImageButton) findViewById(R.id.Pigdice_game_btn_mute);
+        if (Sounds.getIsMute()) btnMute.setImageResource(R.drawable.mute);
+        else btnMute.setImageResource(R.drawable.unmute);
 
         diceShakeSound = MediaPlayer.create(this, R.raw.shakerdice1);
 
@@ -109,6 +114,13 @@ public class PigdiceGame extends AppCompatActivity {
                     else endTurn(currentScorePlayer2);
                 }
 
+            }
+        });
+
+        btnMute.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Sounds.buttonMutePress(btnMute);
             }
         });
 

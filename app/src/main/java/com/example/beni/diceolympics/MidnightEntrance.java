@@ -19,8 +19,8 @@ public class MidnightEntrance extends AppCompatActivity {
         final Button btnStartGame = (Button) findViewById(R.id.midnight_Entrance_btn_Start);
         final Button btnInstructions = (Button) findViewById(R.id.midnight_Entrance_btn_Instructions);
         final Button btnBack = (Button) findViewById(R.id.midnight_Entrance_btn_Back);
-        final ImageButton btnMute = (ImageButton) findViewById(R.id.midnight_Entrance_btn_mute);
 
+        final ImageButton btnMute = (ImageButton) findViewById(R.id.midnight_Entrance_btn_mute);
         if(Sounds.getIsMute()) btnMute.setImageResource(R.drawable.mute);
         else btnMute.setImageResource(R.drawable.unmute);
 

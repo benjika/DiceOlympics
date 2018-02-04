@@ -1,19 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@color/colorPrimary"
+    android:orientation="vertical"
     tools:context="com.example.beni.diceolympics.MidnightInstructions">
+
+    <ImageButton
+        android:id="@+id/Midnight_Instructions_btn_mute"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_gravity="start"
+        android:layout_marginBottom="0dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/colorPrimary"
+        android:src="@drawable/unmute" />
 
     <TextView
         android:id="@+id/Midnight_Instructions_instructionHeadline"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="-12dp"
         android:gravity="center"
         android:text="@string/Instructions"
         android:textColor="@color/colorAccent"
@@ -30,14 +39,14 @@
         <ScrollView
             android:id="@+id/Midnight_Instructions_instructionText"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/Midnight_Instructions_instructionHeadline">
+            android:layout_height="wrap_content">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:paddingHorizontal="12dp">
+                android:paddingEnd="12dp"
+                android:paddingStart="12dp">
 
 
                 <TextView
@@ -99,7 +108,6 @@
                     android:text="@string/Midnight_Gameplay5"
                     android:textColor="@color/colorAccent"
                     android:textSize="17sp" />
-
 
 
                 <TextView
