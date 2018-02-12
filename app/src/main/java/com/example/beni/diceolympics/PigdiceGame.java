@@ -16,8 +16,8 @@ import android.widget.TextView;
 
 public class PigdiceGame extends AppCompatActivity {
 
-    ////TAL Message
 
+int boom;
     static int playerTurn;  //Determines who's turn
     static int diceNum;     //Determines dice value
 
