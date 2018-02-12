@@ -5,6 +5,7 @@ import android.hardware.SensorManager;
 import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -15,15 +16,17 @@ import android.widget.TextView;
 
 public class PigdiceGame extends AppCompatActivity {
 
-    static int playerTurn;
-    static int diceNum;
+    ////TAL Message
 
-    SensorManager shakeManager;
+    static int playerTurn;  //Determines who's turn
+    static int diceNum;     //Determines dice value
 
-    static MediaPlayer diceShakeSound;
+    SensorManager shakeManager; //Activates dice shaker
 
-    static TextView currentScorePlayer1;
-    static TextView currentScorePlayer2;
+    static MediaPlayer diceShakeSound; //Sound of dice shake
+
+    private static TextView currentScorePlayer1;
+    private static TextView currentScorePlayer2;
 
     static TextView totalScorePlayer1;
     static TextView totalScorePlayer2;
@@ -50,15 +53,18 @@ public class PigdiceGame extends AppCompatActivity {
         NamesArr = getIntent().getStringArrayExtra("NameArr");
         Scores = getIntent().getIntArrayExtra("ScoresArr");
 
+        //Activate Shaker
         shakeManager = (SensorManager) getSystemService(SENSOR_SERVICE);
         Shaker.setNameOfGame("Pigdice");
         Shaker.startShaker(shakeManager);
 
+        //Get input from previous intent
         final TextView player1name = (TextView) findViewById(R.id.pigDice_PlayerName_Player1);
         final TextView player2name = (TextView) findViewById(R.id.pigDice_PlayerName_Player2);
         player1name.setText(NamesArr[0]);
         player2name.setText(NamesArr[1]);
 
+        //Sets the arrow for the next game
         final ImageButton btnMute = (ImageButton) findViewById(R.id.Pigdice_game_btn_mute);
         if (Sounds.getIsMute()) btnMute.setImageResource(R.drawable.mute);
         else btnMute.setImageResource(R.drawable.unmute);
@@ -110,7 +116,6 @@ public class PigdiceGame extends AppCompatActivity {
                     totalScorePlayer2.setText(String.valueOf(sum));
 
                     if (sum >= 100) weHaveWinner(1);
-
                     else endTurn(currentScorePlayer2);
                 }
 
@@ -134,9 +139,26 @@ public class PigdiceGame extends AppCompatActivity {
     }
 
 
-    static void UniversalShake()
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
+
+            shakeManager.unregisterListener(Shaker.sensorListener); //stops physical shake
+
+            final Intent intent = new Intent(this, PigdiceEntrance.class);
+            intent.putExtra("NameArr", NamesArr);
+            intent.putExtra("ScoresArr", Scores);
+            startActivity(intent);
+            finish();
+
+            return true;
+        }
+
+        return super.onKeyDown(keyCode, event);
+    }
+
     // A universal function that physical shake and button shake use
-    {
+    static void UniversalShake() {
         if (!Sounds.getIsMute()) diceShakeSound.start();
 
         diceNum = GameFunctions.rollDice("Pigdice");

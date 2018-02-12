@@ -8,7 +8,9 @@
     android:orientation="vertical"
     tools:context="com.example.beni.diceolympics.InputNames">
 
+    <!--mute/unmute button-->
     <ImageButton
+        android:contentDescription="@string/MuteUnMuteButton"
         android:id="@+id/inputNames_btn_mute"
         android:layout_width="35dp"
         android:layout_height="35dp"
@@ -19,6 +21,7 @@
         android:background="@color/colorPrimary"
         android:src="@drawable/unmute" />
 
+    <!--Title Enter Players Names-->
     <TextView
         android:id="@+id/EnterPlayersNames"
         android:layout_width="match_parent"
@@ -27,9 +30,10 @@
         android:gravity="center"
         android:text="@string/EnterPlayersNames"
         android:textColor="@color/colorAccent"
-        android:textSize="37sp"
+        android:textSize="32sp"
         android:textStyle="bold" />
 
+    <!--Title Player One-->
     <TextView
         android:id="@+id/PlayerOneHeadline"
         android:layout_width="match_parent"
@@ -42,6 +46,7 @@
         android:textSize="25sp"
         android:textStyle="bold" />
 
+    <!--Field to input Player One's name-->
     <EditText
         android:id="@+id/PlayerOneInput"
         android:layout_width="match_parent"
@@ -53,6 +58,7 @@
         android:hint="@string/PlayerOneHint"
         android:textColorHint="@color/colorPrimaryDark" />
 
+    <!--Title Player Two-->
     <TextView
         android:id="@+id/PlayerTwoHeadline"
         android:layout_width="match_parent"
@@ -65,6 +71,7 @@
         android:textSize="25sp"
         android:textStyle="bold" />
 
+    <!--Field to input Player Two's name-->
     <EditText
         android:id="@+id/PlayerTwoInput"
         android:layout_width="match_parent"
@@ -76,6 +83,7 @@
         android:textColor="@color/colorAccent"
         android:textColorHint="@color/colorPrimaryDark" />
 
+    <!--Proceed to Choose A Game button-->
     <Button
         android:id="@+id/InputNames_btn_chooseGame"
         android:layout_width="250dp"

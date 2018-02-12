@@ -23,7 +23,8 @@ public class AppEntrance extends AppCompatActivity {
         Button btnExitApp = (Button) findViewById(R.id.app_btn_exitApp);
         final ImageButton btnMute = (ImageButton) findViewById(R.id.app_btn_mute);
 
-        if(Sounds.getIsMute()) btnMute.setImageResource(R.drawable.mute);
+        //Gets the mute status and sets the button image by it
+        if (Sounds.getIsMute()) btnMute.setImageResource(R.drawable.mute);
         else btnMute.setImageResource(R.drawable.unmute);
 
         final MediaPlayer buttonClickSound = MediaPlayer.create(AppEntrance.this, R.raw.buttonpress);
@@ -47,26 +48,35 @@ public class AppEntrance extends AppCompatActivity {
             }
         });
 
+        //Listener on the Exit App button
         btnExitApp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 if (!Sounds.getIsMute()) buttonClickSound.start();
-                final AlertDialog.Builder builder = new AlertDialog.Builder(AppEntrance.this);
+
+                //A dialog to make sure the user wants to exit
+                AlertDialog.Builder builder = new AlertDialog.Builder(AppEntrance.this);
+
                 builder.setTitle("");
                 builder.setMessage(R.string.areYouSureToExit);
 
+                //If the user is sure to exit
                 builder.setPositiveButton(R.string.yesWantToExit, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
+
                         if (!Sounds.getIsMute()) buttonClickSound.start();
                         finish();
                         System.exit(0);
                     }
                 });
 
+                //If the user wants to stay
                 builder.setNegativeButton(R.string.noWantToStay, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
+
                         if (!Sounds.getIsMute()) buttonClickSound.start();
                         dialogInterface.dismiss();
                     }
@@ -77,6 +87,7 @@ public class AppEntrance extends AppCompatActivity {
             }
         });
 
+        //Listener on the Mute button
         btnMute.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

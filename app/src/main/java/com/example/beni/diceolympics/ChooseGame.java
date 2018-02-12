@@ -4,12 +4,15 @@ import android.content.Intent;
 import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
 public class ChooseGame extends AppCompatActivity {
+
+    private MediaPlayer buttonClickSound;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,7 +27,7 @@ public class ChooseGame extends AppCompatActivity {
         else btnMute.setImageResource(R.drawable.unmute);
 
 
-        final MediaPlayer buttonClickSound = MediaPlayer.create(ChooseGame.this, R.raw.buttonpress);
+        buttonClickSound = MediaPlayer.create(ChooseGame.this, R.raw.buttonpress);
 
         final String[] getNamesArr = getIntent().getStringArrayExtra("NameArr");
         final int[] getScores = getIntent().getIntArrayExtra("ScoresArr");
@@ -60,5 +63,20 @@ public class ChooseGame extends AppCompatActivity {
                 Sounds.buttonMutePress(btnMute);
             }
         });
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
+
+            if (!Sounds.getIsMute()) buttonClickSound.start();
+            Intent intent = new Intent(ChooseGame.this, InputNames.class);
+            startActivity(intent);
+            finish();
+
+            return true;
+        }
+
+        return super.onKeyDown(keyCode, event);
     }
 }

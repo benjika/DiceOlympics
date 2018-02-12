@@ -9,6 +9,7 @@
     tools:context="com.example.beni.diceolympics.PigdiceEntrance">
 
     <ImageButton
+        android:contentDescription="@string/MuteUnMuteButton"
         android:id="@+id/Pigdice_entrance_btn_mute"
         android:layout_width="35dp"
         android:layout_height="35dp"
@@ -53,15 +54,6 @@
             android:textColor="@color/colorPrimaryDark"
             android:textSize="17sp" />
 
-        <Button
-            android:id="@+id/pigdice_btn_Back"
-            android:layout_width="250dp"
-            android:layout_height="50dp"
-            android:layout_marginBottom="10dp"
-            android:layout_marginTop="10dp"
-            android:background="@color/colorAccent"
-            android:text="@string/Back"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="17sp" />
+
     </LinearLayout>
 </RelativeLayout>

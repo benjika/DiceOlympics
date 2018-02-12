@@ -1,10 +1,17 @@
 <resources>
     <string name="app_name">Dice Olympics</string>
 
+
+    <!--Content descriptions-->
+    <string name="MuteUnMuteButton">Mute/UnMute Button</string>
+    <string name="DiceOlympicLogo">Dice Olympic Logo</string>
+
+
     <!--app entrance-->
     <string name="singlePlayer">Single Player</string>
     <string name="twoPlayers">Two Players</string>
     <string name="exitApp">Exit App</string>
+
 
     <!--game entrance-->
     <string name="Start">Start Game</string>

@@ -7,6 +7,8 @@
     android:orientation="vertical"
     tools:context="com.example.beni.diceolympics.AppEntrance">
 
+
+    <!--mute/unmute button-->
     <ImageButton
         android:id="@+id/app_btn_mute"
         android:layout_width="35dp"
@@ -14,6 +16,7 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:background="@color/colorPrimary"
+        android:contentDescription="@string/MuteUnMuteButton"
         android:src="@drawable/unmute" />
 
     <LinearLayout
@@ -22,12 +25,15 @@
         android:gravity="center"
         android:orientation="vertical">
 
+        <!--Game's logo-->
         <ImageView
             android:id="@+id/imageLanding"
             android:layout_width="300dp"
             android:layout_height="250dp"
+            android:contentDescription="@string/DiceOlympicLogo"
             android:src="@drawable/piggamered" />
 
+        <!--Single Player button-->
         <Button
             android:id="@+id/app_btn_singlePlayers"
             android:layout_width="250dp"
@@ -38,6 +44,7 @@
             android:textColor="@color/colorPrimaryDark"
             android:textSize="17sp" />
 
+        <!--Two Players Button-->
         <Button
             android:id="@+id/app_btn_twoPlayers"
             android:layout_width="250dp"
@@ -49,6 +56,7 @@
             android:textColor="@color/colorPrimaryDark"
             android:textSize="17sp" />
 
+        <!--Exit Game button-->
         <Button
             android:id="@+id/app_btn_exitApp"
             android:layout_width="250dp"

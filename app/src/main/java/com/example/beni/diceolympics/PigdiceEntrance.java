@@ -4,11 +4,17 @@ import android.content.Intent;
 import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 
 public class PigdiceEntrance extends AppCompatActivity {
+
+    private MediaPlayer buttonClickSound;
+
+    private String[] getNamesArr;
+    private int[] getScores;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,15 +23,14 @@ public class PigdiceEntrance extends AppCompatActivity {
 
         final Button btnStartGame = (Button) findViewById(R.id.pigdice_btn_Start);
         final Button btnInstructions = (Button) findViewById(R.id.pigdice_btn_Instructions);
-        final Button btnBack = (Button) findViewById(R.id.pigdice_btn_Back);
         final ImageButton btnMute = (ImageButton) findViewById(R.id.Pigdice_entrance_btn_mute);
         if (Sounds.getIsMute()) btnMute.setImageResource(R.drawable.mute);
         else btnMute.setImageResource(R.drawable.unmute);
 
-        final MediaPlayer buttonClickSound = MediaPlayer.create(PigdiceEntrance.this, R.raw.buttonpress);
+        buttonClickSound = MediaPlayer.create(PigdiceEntrance.this, R.raw.buttonpress);
 
-        final String[] getNamesArr = getIntent().getStringArrayExtra("NameArr");
-        final int[] getScores = getIntent().getIntArrayExtra("ScoresArr");
+        getNamesArr = getIntent().getStringArrayExtra("NameArr");
+        getScores = getIntent().getIntArrayExtra("ScoresArr");
 
 
         btnStartGame.setOnClickListener(new View.OnClickListener() {
@@ -49,17 +54,6 @@ public class PigdiceEntrance extends AppCompatActivity {
             }
         });
 
-        btnBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (!Sounds.getIsMute()) buttonClickSound.start();
-                final Intent intent = new Intent(PigdiceEntrance.this, ChooseGame.class);
-                intent.putExtra("NameArr", getNamesArr);
-                intent.putExtra("ScoresArr", getScores);
-                startActivity(intent);
-                finish();
-            }
-        });
 
         btnMute.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,5 +62,23 @@ public class PigdiceEntrance extends AppCompatActivity {
             }
         });
 
+    }
+
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
+
+            if (!Sounds.getIsMute()) buttonClickSound.start();
+            final Intent intent = new Intent(PigdiceEntrance.this, ChooseGame.class);
+            intent.putExtra("NameArr", getNamesArr);
+            intent.putExtra("ScoresArr", getScores);
+            startActivity(intent);
+            finish();
+
+            return true;
+        }
+
+        return super.onKeyDown(keyCode, event);
     }
 }
