@@ -97,6 +97,8 @@
     <!--Midnight game-->
     <string name="Score">תוצאה</string>
     <string name="endTurn">סיים תור</string>
+    <string name="endGame">סיים משחק</string>
+    <string name="noDiceWereChosen">עליך לבחור קוביות לפני ההטלה</string>
     <string name="RollDice">גלגל את הקוביות</string>
 
 </resources>

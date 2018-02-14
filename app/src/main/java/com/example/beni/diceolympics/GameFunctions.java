@@ -1,9 +1,9 @@
 package com.example.beni.diceolympics;
 
 import android.view.View;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 
-import static com.example.beni.diceolympics.PigdiceGame.SaveScoreBTN;
-import static com.example.beni.diceolympics.PigdiceGame.dice;
 
 /**
  * Created by Beni on 02-Feb-18.
@@ -11,7 +11,7 @@ import static com.example.beni.diceolympics.PigdiceGame.dice;
 
 public class GameFunctions {
 
-    static int rollDice(String NameOfGame)
+    static int rollDice(String NameOfGame, ImageView dice)
     //return a new value from the dice
     {
 
@@ -22,7 +22,7 @@ public class GameFunctions {
 
         switch (diceNum) {
             case 1:
-                if (NameOfGame == "Pigdice") {
+                if (NameOfGame.equals("Pigdice")) {
                     PigdiceGame.dice.setImageResource(R.drawable.diceone);
                     PigdiceGame.SaveScoreBTN.setVisibility(View.GONE);
                 }
@@ -61,6 +61,45 @@ public class GameFunctions {
                     PigdiceGame.dice.setImageResource(R.drawable.dicesix);
                     PigdiceGame.SaveScoreBTN.setVisibility(View.VISIBLE);
                 }
+                return 6;
+
+        }
+
+        return 0;
+    }
+
+    static int rollDice(ImageButton dice)
+    //return a new value from the dice
+    {
+
+        int diceNum = (int) (Math.random() * 6 + 1);
+
+        dice.setVisibility(View.VISIBLE);
+
+
+        switch (diceNum) {
+            case 1:
+                dice.setImageResource(R.drawable.diceone);
+                return 1;
+
+            case 2:
+                dice.setImageResource(R.drawable.dicetwo);
+                return 2;
+
+            case 3:
+                dice.setImageResource(R.drawable.dicethree);
+                return 3;
+
+            case 4:
+                dice.setImageResource(R.drawable.dicefour);
+                return 4;
+
+            case 5:
+                dice.setImageResource(R.drawable.dicefive);
+                return 5;
+
+            case 6:
+                dice.setImageResource(R.drawable.dicesix);
                 return 6;
 
         }

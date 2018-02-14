@@ -85,6 +85,8 @@
     <string name="Pigdice_saveScore">Save Score</string>
 
 
+
+
     <!--Midnight instructions-->
     <string name="Midnight_Goal1H">Goal</string>
     <string name="Midnight_Goal2">With six dice, obtain a 1 and 4 and get the highest score possible with the other 4 dice, max score of 24.</string>
@@ -101,6 +103,8 @@
     <!--Midnight game-->
     <string name="Score">Score</string>
     <string name="endTurn">End Turn</string>
+    <string name="endGame">End Game</string>
+    <string name="noDiceWereChosen">Choose dice before rolling</string>
     <string name="RollDice">Roll Dice</string>
 
 

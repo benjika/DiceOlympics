@@ -160,7 +160,7 @@ public class PigdiceGame extends AppCompatActivity {
     static void UniversalShake() {
         if (!Sounds.getIsMute()) diceShakeSound.start();
 
-        diceNum = GameFunctions.rollDice("Pigdice");
+        diceNum = GameFunctions.rollDice("Pigdice", dice);
 
         if (diceNum == 1) {
             if (playerTurn == 1) {
