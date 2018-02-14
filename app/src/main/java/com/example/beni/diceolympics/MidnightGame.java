@@ -1,11 +1,17 @@
 package com.example.beni.diceolympics;
 
+import android.content.Intent;
+import android.hardware.SensorManager;
 import android.media.MediaPlayer;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -14,8 +20,7 @@ public class MidnightGame extends AppCompatActivity {
     String[] getNamesArr;
     int[] getScores;
 
-    int sum1 = 0;
-    int sum2 = 0;
+    SensorManager shakeManager; //Activates dice shaker
 
     int playerTurn = (int) Math.random() * 2 + 1;
 
@@ -35,6 +40,14 @@ public class MidnightGame extends AppCompatActivity {
 
     TextView PlayerName1;
     TextView PlayerName2;
+    TextView PlayerScore1;
+    TextView PlayerScore2;
+
+    ImageView arrow;
+    Animation changeArrowTo1;
+    Animation changeArrowTo2;
+
+boolean isFirstShake=true;
 
     int[] diceValues = {0, 0, 0, 0, 0, 0};
 
@@ -45,8 +58,7 @@ public class MidnightGame extends AppCompatActivity {
     ImageButton fifthDice_Chosen;
     ImageButton sixthDice_Chosen;
 
-    boolean[] arrayOfValuesChosen = {true, true, true, true, true};
-    int diceAmount = arrayOfValuesChosen.length;
+
     ImageButton[] arrayOfButtonsChosen = {firstDice_Chosen, secondDice_Chosen, thirdDice_Chosen,
             fourthDice_Chosen, fifthDice_Chosen, sixthDice_Chosen};
 
@@ -57,9 +69,11 @@ public class MidnightGame extends AppCompatActivity {
     ImageButton fifthDice_unChosen;
     ImageButton sixthDice_unChosen;
 
-    boolean[] arrayOfValuesUnChosen = {false, false, false, false, false};
+    boolean[] arrayOfValuesUnChosen = {true, true, true, true, true, true};
     ImageButton[] arrayOfButtonsUnChosen = {firstDice_unChosen, secondDice_unChosen,
             thirdDice_unChosen, fourthDice_unChosen, fifthDice_unChosen, sixthDice_unChosen};
+
+    int diceAmount = arrayOfValuesUnChosen.length;
 
     int diceCountCurr = diceAmount;
     int diceCountTot = diceAmount;
@@ -191,8 +205,63 @@ public class MidnightGame extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (playerTurn == 1) {
-
+                    PlayerScore1.setText(String.valueOf(countDice()));
+                    playerTurn = 2;
+                    arrow.startAnimation(changeArrowTo2);
+                } else {
+                    PlayerScore2.setText(String.valueOf(countDice()));
+                    playerTurn = 1;
+                    arrow.startAnimation(changeArrowTo1);
                 }
+
+                refreshDice();
+
+
+            }
+        });
+
+        EndgameBTN.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (playerTurn == 1) {
+                    PlayerScore1.setText(String.valueOf(countDice()));
+                } else {
+                    PlayerScore2.setText(String.valueOf(countDice()));
+                }
+
+                final int player1ScoreINT = Integer.parseInt(PlayerScore1.getText().toString());
+                final int player2ScoreINT = Integer.parseInt(PlayerScore2.getText().toString());
+
+
+                Runnable r = new Runnable() {
+                    @Override
+                    public void run() {
+
+                        final Intent intent =
+                                new Intent(MidnightGame.this, WinnerScreen.class);
+                        intent.putExtra("NameArr", getNamesArr);
+                        intent.putExtra("GameToReplay", "Midnight");
+
+                        if (player1ScoreINT == player2ScoreINT) {
+                            intent.putExtra("WinnerName", 3);
+                        } else if (player1ScoreINT > player2ScoreINT) {
+                            getScores[0]++;
+                            intent.putExtra("WinnerName", 0);
+
+                        } else {
+                            getScores[1]++;
+                            intent.putExtra("WinnerName", 1);
+                        }
+
+                        intent.putExtra("ScoresArr", getScores);
+                        startActivity(intent);
+                        finish();
+                    }
+                };
+
+                Handler handler = new Handler();
+
+                handler.postDelayed(r, 2500);
             }
         });
 
@@ -205,6 +274,17 @@ public class MidnightGame extends AppCompatActivity {
         EndTurnBTN = (Button) findViewById(R.id.midnight_game_endTurn);
         EndgameBTN = (Button) findViewById(R.id.midnight_game_endgame);
 
+        arrow = (ImageView) findViewById(R.id.midnight_turnArrow);
+        changeArrowTo1 = AnimationUtils.loadAnimation(MidnightGame.this, R.anim.arrorflipto1);
+        changeArrowTo2 = AnimationUtils.loadAnimation(MidnightGame.this, R.anim.arrowflipto2);
+        if (playerTurn == 1) arrow.startAnimation(changeArrowTo1);
+        else arrow.startAnimation(changeArrowTo2);
+
+
+        //Activate Shaker
+        shakeManager = (SensorManager) getSystemService(SENSOR_SERVICE);
+        Shaker.setNameOfGame("Midnight");
+        Shaker.startShaker(shakeManager);
 
         firstDice_Chosen = (ImageButton) findViewById(R.id.midnight_game_diceFirst_chosen);
         secondDice_Chosen = (ImageButton) findViewById(R.id.midnight_game_diceSecond_chosen);
@@ -219,6 +299,26 @@ public class MidnightGame extends AppCompatActivity {
         fourthDice_unChosen = (ImageButton) findViewById(R.id.midnight_game_diceFourth_unChosen);
         fifthDice_unChosen = (ImageButton) findViewById(R.id.midnight_game_diceFifth_unChosen);
         sixthDice_unChosen = (ImageButton) findViewById(R.id.midnight_game_diceSixth_unChosen);
+
+        refreshDice();
+
+    }
+
+    void refreshDice() {
+
+        firstDice_Chosen.setImageResource(R.drawable.diceempty);
+        secondDice_Chosen.setImageResource(R.drawable.diceempty);
+        thirdDice_Chosen.setImageResource(R.drawable.diceempty);
+        fourthDice_Chosen.setImageResource(R.drawable.diceempty);
+        fifthDice_Chosen.setImageResource(R.drawable.diceempty);
+        sixthDice_Chosen.setImageResource(R.drawable.diceempty);
+
+        firstDice_unChosen.setImageResource(R.drawable.diceempty);
+        secondDice_unChosen.setImageResource(R.drawable.diceempty);
+        thirdDice_unChosen.setImageResource(R.drawable.diceempty);
+        fourthDice_unChosen.setImageResource(R.drawable.diceempty);
+        fifthDice_unChosen.setImageResource(R.drawable.diceempty);
+        sixthDice_unChosen.setImageResource(R.drawable.diceempty);
 
         firstDice_Chosen.setClickable(false);
         secondDice_Chosen.setClickable(false);
@@ -240,6 +340,19 @@ public class MidnightGame extends AppCompatActivity {
 
         getNamesArr = getIntent().getStringArrayExtra("NameArr");
         getScores = getIntent().getIntArrayExtra("ScoresArr");
+
+        PlayerName1 = (TextView) findViewById(R.id.midnight_game_playerName1);
+        PlayerName2 = (TextView) findViewById(R.id.midnight_game_playerName1);
+
+        PlayerName1.setText(getNamesArr[0]);
+        PlayerName2.setText(getNamesArr[1]);
+
+        PlayerScore1 = (TextView) findViewById(R.id.midnight_game_scorePlayer1);
+        PlayerScore2 = (TextView) findViewById(R.id.midnight_game_scorePlayer2);
+
+        PlayerScore1.setText("0");
+        PlayerScore2.setText("0");
+
     }
 
     void setDice_InAndOut_OfBank(ImageButton diceOld, ImageButton diceNew, int i) {
@@ -275,10 +388,12 @@ public class MidnightGame extends AppCompatActivity {
 
     void UltimateShake() {
 
-        if (diceCountTot == diceCountCurr) {
+        if (diceCountTot == diceCountCurr && !isFirstShake) {
             Toast.makeText(this, R.string.noDiceWereChosen, Toast.LENGTH_SHORT);
             return;
         }
+
+        isFirstShake = false;
 
         diceCountTot = diceCountCurr;
 
@@ -315,11 +430,31 @@ public class MidnightGame extends AppCompatActivity {
     }
 
     void checkButtons() {
+
         if (RollTheDiceBTN.getVisibility() == View.VISIBLE) return;
 
         if (EndgameBTN.getVisibility() == View.VISIBLE) EndgameBTN.setVisibility(View.GONE);
         else if (EndTurnBTN.getVisibility() == View.VISIBLE) EndTurnBTN.setVisibility(View.GONE);
 
         RollTheDiceBTN.setVisibility(View.VISIBLE);
+    }
+
+    int countDice() {
+
+        int sum = 0;
+
+        for (int i = 0; i < diceAmount; i++) {
+            sum += diceValues[i];
+
+            if (diceValues[i] == 1) was1 = true;
+            else if (diceValues[i] == 4) was4 = true;
+
+            diceValues[i] = 0;
+        }
+
+        if (was1 && was4) return sum;
+
+        return 0;
+
     }
 }

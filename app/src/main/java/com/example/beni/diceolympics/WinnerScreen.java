@@ -32,7 +32,7 @@ public class WinnerScreen extends AppCompatActivity {
 
         final String[] getNamesArr = getIntent().getStringArrayExtra("NameArr");
         final int[] getScores = getIntent().getIntArrayExtra("ScoresArr");
-        final String winnerNameFromGame = getIntent().getStringExtra("WinnerName");
+        final int winnerNameFromGame = Integer.parseInt(getIntent().getStringExtra("WinnerName"));
         final String GameToReplay = getIntent().getStringExtra("GameToReplay");
         setTexts(getNamesArr, getScores, winnerNameFromGame);
 
@@ -42,7 +42,10 @@ public class WinnerScreen extends AppCompatActivity {
 
         final MediaPlayer buttonClickSound = MediaPlayer.create(WinnerScreen.this, R.raw.buttonpress);
         final MediaPlayer victorySound = MediaPlayer.create(WinnerScreen.this, R.raw.victory);
-        if (!Sounds.getIsMute()) victorySound.start();
+
+
+        if (winnerNameFromGame < 2){
+            if (!Sounds.getIsMute()) victorySound.start();}
 
         final RelativeLayout set1 = (RelativeLayout) findViewById(R.id.winner_set1);
         final RelativeLayout set2 = (RelativeLayout) findViewById(R.id.winner_set2);
@@ -86,6 +89,7 @@ public class WinnerScreen extends AppCompatActivity {
                 } else {
                     intent = new Intent(WinnerScreen.this, MidnightGame.class);
                 }
+
                 intent.putExtra("NameArr", getNamesArr);
                 intent.putExtra("ScoresArr", getScores);
                 startActivity(intent);
@@ -211,14 +215,14 @@ public class WinnerScreen extends AppCompatActivity {
 
     }
 
-    void setTexts(String[] getNamesArr, int[] getScores, String winnerNameFromGame) {
+    void setTexts(String[] getNamesArr, int[] getScores, int winnerNameFromGame) {
         winnerNameTextView = (TextView) findViewById(R.id.winner_winnerName);
         playerName1 = (TextView) findViewById(R.id.winner_namePlayer1);
         playerName2 = (TextView) findViewById(R.id.winner_namePlayer2);
         playerScore1 = (TextView) findViewById(R.id.winner_ScorePlayer1);
         playerScore2 = (TextView) findViewById(R.id.winner_ScorePlayer2);
 
-        winnerNameTextView.setText(winnerNameFromGame);
+        if (winnerNameFromGame < 2) winnerNameTextView.setText(getNamesArr[winnerNameFromGame]);
         playerName1.setText(getNamesArr[0]);
         playerName2.setText(getNamesArr[1]);
         playerScore1.setText(String.valueOf(getScores[0]));

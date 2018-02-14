@@ -29,7 +29,7 @@
                 android:src="@drawable/unmute" />
 
             <TextView
-                android:id="@+id/midnight_playerName1"
+                android:id="@+id/midnight_game_playerName1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
@@ -44,7 +44,7 @@
                 android:id="@+id/midnight_scoreTagPlayer1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/midnight_playerName1"
+                android:layout_below="@+id/midnight_game_playerName1"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="15sp"
                 android:text="@string/Score"
@@ -52,7 +52,7 @@
                 android:textSize="25sp" />
 
             <TextView
-                android:id="@+id/midnight_scorePlayer1"
+                android:id="@+id/midnight_game_scorePlayer1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/midnight_scoreTagPlayer1"
@@ -72,7 +72,7 @@
             android:background="@color/colorPrimaryDark">
 
             <TextView
-                android:id="@+id/midnight_playerName2"
+                android:id="@+id/midnight_game_playerName2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
@@ -87,7 +87,7 @@
                 android:id="@+id/midnight_scoreTagPlayer2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/midnight_playerName2"
+                android:layout_below="@+id/midnight_game_playerName2"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="15sp"
                 android:text="@string/Score"
@@ -95,7 +95,7 @@
                 android:textSize="25sp" />
 
             <TextView
-                android:id="@+id/midnight_scorePlayer2"
+                android:id="@+id/midnight_game_scorePlayer2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/midnight_scoreTagPlayer2"
@@ -167,50 +167,56 @@
 
         <ImageButton
             android:id="@+id/midnight_game_diceFirst_unChosen"
-            android:layout_width="80sp"
-            android:layout_height="80sp"
+            android:layout_width="60sp"
+            android:layout_height="60sp"
             android:layout_gravity="center"
-            android:layout_marginEnd="10sp"
+            android:layout_marginEnd="20sp"
+            android:background="@color/colorPrimary"
             android:scaleType="fitXY"
             android:src="@drawable/diceempty" />
 
         <ImageButton
             android:id="@+id/midnight_game_diceSecond_unChosen"
-            android:layout_width="80sp"
-            android:layout_height="80sp"
+            android:layout_width="60sp"
+            android:layout_height="60sp"
+            android:background="@color/colorPrimary"
             android:scaleType="fitXY"
             android:src="@drawable/diceempty" />
 
         <ImageButton
             android:id="@+id/midnight_game_diceThird_unChosen"
-            android:layout_width="80sp"
-            android:layout_height="80sp"
-            android:layout_marginEnd="10sp"
-            android:layout_marginStart="10sp"
+            android:layout_width="60sp"
+            android:layout_height="60sp"
+            android:layout_marginEnd="20sp"
+            android:layout_marginStart="20sp"
+            android:background="@color/colorPrimary"
             android:scaleType="fitXY"
             android:src="@drawable/diceempty" />
 
         <ImageButton
 
             android:id="@+id/midnight_game_diceFourth_unChosen"
-            android:layout_width="80sp"
-            android:layout_height="80sp"
+            android:layout_width="60sp"
+            android:layout_height="60sp"
+            android:background="@color/colorPrimaryDark"
             android:scaleType="fitXY"
             android:src="@drawable/diceempty" />
 
         <ImageButton
             android:id="@+id/midnight_game_diceFifth_unChosen"
-            android:layout_width="80sp"
-            android:layout_height="80sp"
-            android:layout_marginEnd="10sp"
-            android:layout_marginStart="10sp"
+            android:layout_width="60sp"
+            android:layout_height="60sp"
+            android:layout_marginEnd="20sp"
+            android:layout_marginStart="20sp"
+            android:background="@color/colorPrimaryDark"
             android:scaleType="fitXY"
             android:src="@drawable/diceempty" />
 
         <ImageButton
             android:id="@+id/midnight_game_diceSixth_unChosen"
-            android:layout_width="80sp"
-            android:layout_height="80sp"
+            android:layout_width="60sp"
+            android:layout_height="60sp"
+            android:background="@color/colorPrimaryDark"
             android:scaleType="fitXY"
             android:src="@drawable/diceempty" />
 
@@ -227,49 +233,56 @@
 
         <ImageButton
             android:id="@+id/midnight_game_diceFirst_chosen"
-            android:layout_width="80sp"
-            android:layout_height="80sp"
+            android:layout_width="60sp"
+            android:layout_height="60sp"
             android:layout_gravity="center"
-            android:layout_marginEnd="10sp"
+            android:layout_marginEnd="20sp"
+            android:background="@color/colorPrimary"
             android:scaleType="fitXY"
             android:src="@drawable/diceempty" />
 
         <ImageButton
             android:id="@+id/midnight_game_diceSecond_chosen"
-            android:layout_width="80sp"
-            android:layout_height="80sp"
+            android:layout_width="60sp"
+            android:layout_height="60sp"
+            android:background="@color/colorPrimary"
             android:scaleType="fitXY"
             android:src="@drawable/diceempty" />
 
         <ImageButton
             android:id="@+id/midnight_game_diceThird_chosen"
-            android:layout_width="80sp"
-            android:layout_height="80sp"
-            android:layout_marginEnd="10sp"
-            android:layout_marginStart="10sp"
+            android:layout_width="60sp"
+            android:layout_height="60sp"
+            android:layout_marginEnd="20sp"
+            android:layout_marginStart="20sp"
+            android:background="@color/colorPrimary"
             android:scaleType="fitXY"
+
             android:src="@drawable/diceempty" />
 
         <ImageButton
             android:id="@+id/midnight_game_diceFourth_chosen"
-            android:layout_width="80sp"
-            android:layout_height="80sp"
+            android:layout_width="60sp"
+            android:layout_height="60sp"
+            android:background="@color/colorPrimaryDark"
             android:scaleType="fitXY"
             android:src="@drawable/diceempty" />
 
         <ImageButton
             android:id="@+id/midnight_game_diceFifth_chosen"
-            android:layout_width="80sp"
-            android:layout_height="80sp"
-            android:layout_marginEnd="10sp"
-            android:layout_marginStart="10sp"
+            android:layout_width="60sp"
+            android:layout_height="60sp"
+            android:layout_marginEnd="20sp"
+            android:layout_marginStart="20sp"
+            android:background="@color/colorPrimaryDark"
             android:scaleType="fitXY"
             android:src="@drawable/diceempty" />
 
         <ImageButton
             android:id="@+id/midnight_game_diceSixth_chosen"
-            android:layout_width="80sp"
-            android:layout_height="80sp"
+            android:layout_width="60sp"
+            android:layout_height="60sp"
+            android:background="@color/colorPrimaryDark"
             android:scaleType="fitXY"
             android:src="@drawable/diceempty" />
 
