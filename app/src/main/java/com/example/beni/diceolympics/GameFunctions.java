@@ -74,8 +74,6 @@ public class GameFunctions {
 
         int diceNum = (int) (Math.random() * 6 + 1);
 
-        dice.setVisibility(View.VISIBLE);
-
 
         switch (diceNum) {
             case 1:

@@ -50,6 +50,8 @@
     <string name="ScoreBoard">לוח תוצאות</string>
     <string name="newScore">אפס תוצאה</string>
     <string name="SameScore">אותה תוצאה</string>
+    <string name="noWinner1">אין מנצחים הפעם</string>
+    <string name="noWinner2">המשחק נגמר בתיקו</string>
 
 
     <!--Choose Game-->

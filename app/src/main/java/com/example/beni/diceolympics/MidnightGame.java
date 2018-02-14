@@ -1,17 +1,21 @@
 package com.example.beni.diceolympics;
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.hardware.SensorManager;
 import android.media.MediaPlayer;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,9 +34,15 @@ public class MidnightGame extends AppCompatActivity {
     boolean was4 = false;
     boolean was1 = false;
 
-    MediaPlayer diceShake1;
-    MediaPlayer diceShake2;
-    MediaPlayer diceShake3;
+    static LinearLayout setOfDiceBoard0;
+    static LinearLayout setOfDiceBoard1;
+    static LinearLayout setOfDiceBank0;
+    static LinearLayout setOfDiceBank1;
+
+
+    static MediaPlayer diceShake1;
+    static MediaPlayer diceShake2;
+    static MediaPlayer diceShake3;
 
     Button RollTheDiceBTN;
     Button EndTurnBTN;
@@ -47,148 +57,169 @@ public class MidnightGame extends AppCompatActivity {
     Animation changeArrowTo1;
     Animation changeArrowTo2;
 
-boolean isFirstShake=true;
+    static boolean isFirstShake = true;
 
-    int[] diceValues = {0, 0, 0, 0, 0, 0};
+    static int[] diceValues = {0, 0, 0, 0, 0, 0};
 
-    ImageButton firstDice_Chosen;
-    ImageButton secondDice_Chosen;
-    ImageButton thirdDice_Chosen;
-    ImageButton fourthDice_Chosen;
-    ImageButton fifthDice_Chosen;
-    ImageButton sixthDice_Chosen;
+    ImageButton firstDice_Bank;
+    ImageButton secondDice_Bank;
+    ImageButton thirdDice_Bank;
+    ImageButton fourthDice_Bank;
+    ImageButton fifthDice_Bank;
+    ImageButton sixthDice_Bank;
 
+    static boolean[] dicePlayableBank = new boolean[6];
 
-    ImageButton[] arrayOfButtonsChosen = {firstDice_Chosen, secondDice_Chosen, thirdDice_Chosen,
-            fourthDice_Chosen, fifthDice_Chosen, sixthDice_Chosen};
+    static ImageButton[] diceBank = new ImageButton[6];
 
-    ImageButton firstDice_unChosen;
-    ImageButton secondDice_unChosen;
-    ImageButton thirdDice_unChosen;
-    ImageButton fourthDice_unChosen;
-    ImageButton fifthDice_unChosen;
-    ImageButton sixthDice_unChosen;
+    ImageButton firstDice_Board;
+    ImageButton secondDice_Board;
+    ImageButton thirdDice_Board;
+    ImageButton fourthDice_Board;
+    ImageButton fifthDice_Board;
+    ImageButton sixthDice_Board;
 
-    boolean[] arrayOfValuesUnChosen = {true, true, true, true, true, true};
-    ImageButton[] arrayOfButtonsUnChosen = {firstDice_unChosen, secondDice_unChosen,
-            thirdDice_unChosen, fourthDice_unChosen, fifthDice_unChosen, sixthDice_unChosen};
+    static boolean[] dicePlayableBoard = new boolean[6];
 
-    int diceAmount = arrayOfValuesUnChosen.length;
+    static ImageButton[] diceBoard = new ImageButton[6];
 
-    int diceCountCurr = diceAmount;
-    int diceCountTot = diceAmount;
+    static int diceAmount = dicePlayableBoard.length;
+
+    static int diceCountCurr = 6;
+    static int diceCountTot = 6;
+
+    ImageButton btnMute;
+
+    static Activity thisActivity = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_midnight_game);
 
+        thisActivity = this;
+
         getInfoFromExtras();
         InitializeDiceAndButtons();
 
-        firstDice_unChosen.setOnClickListener(new View.OnClickListener() {
+        firstDice_Board.setClickable(false);
+        secondDice_Board.setClickable(false);
+        thirdDice_Board.setClickable(false);
+        fourthDice_Board.setClickable(false);
+        fifthDice_Board.setClickable(false);
+        sixthDice_Board.setClickable(false);
+
+
+        firstDice_Bank.setClickable(false);
+        secondDice_Bank.setClickable(false);
+        thirdDice_Bank.setClickable(false);
+        fourthDice_Bank.setClickable(false);
+        fifthDice_Bank.setClickable(false);
+        sixthDice_Bank.setClickable(false);
+
+        firstDice_Board.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setDice_InAndOut_OfBank(firstDice_unChosen, firstDice_Chosen, diceValues[0]);
+                setDice_InAndOut_OfBank(diceBoard[0], diceBank[0], diceValues[0], 0);
                 diceCountCurr--;
                 if (diceCountCurr == 0) noMoreDice();
             }
         });
 
-        secondDice_unChosen.setOnClickListener(new View.OnClickListener() {
+        secondDice_Board.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setDice_InAndOut_OfBank(secondDice_unChosen, secondDice_Chosen, diceValues[1]);
+                setDice_InAndOut_OfBank(diceBoard[1], diceBank[1], diceValues[1], 1);
                 diceCountCurr--;
                 if (diceCountCurr == 0) noMoreDice();
             }
         });
 
-        thirdDice_unChosen.setOnClickListener(new View.OnClickListener() {
+        thirdDice_Board.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setDice_InAndOut_OfBank(thirdDice_unChosen, thirdDice_Chosen, diceValues[2]);
+                setDice_InAndOut_OfBank(diceBoard[2], diceBank[2], diceValues[2], 2);
                 diceCountCurr--;
                 if (diceCountCurr == 0) noMoreDice();
             }
         });
 
-        fourthDice_unChosen.setOnClickListener(new View.OnClickListener() {
+        fourthDice_Board.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setDice_InAndOut_OfBank(fourthDice_unChosen, fourthDice_Chosen, diceValues[3]);
+                setDice_InAndOut_OfBank(diceBoard[3], diceBank[3], diceValues[3], 3);
                 diceCountCurr--;
                 if (diceCountCurr == 0) noMoreDice();
             }
         });
 
-        fifthDice_unChosen.setOnClickListener(new View.OnClickListener() {
+        fifthDice_Board.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setDice_InAndOut_OfBank(fifthDice_unChosen, fifthDice_Chosen, diceValues[4]);
+                setDice_InAndOut_OfBank(diceBoard[4], diceBank[4], diceValues[4], 4);
                 diceCountCurr--;
                 if (diceCountCurr == 0) noMoreDice();
             }
         });
 
-        sixthDice_unChosen.setOnClickListener(new View.OnClickListener() {
+        sixthDice_Board.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setDice_InAndOut_OfBank(sixthDice_unChosen, sixthDice_Chosen, diceValues[5]);
+                setDice_InAndOut_OfBank(diceBoard[5], diceBank[5], diceValues[5], 5);
                 diceCountCurr--;
                 if (diceCountCurr == 0) noMoreDice();
             }
         });
 
-        firstDice_Chosen.setOnClickListener(new View.OnClickListener() {
+        firstDice_Bank.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setDice_InAndOut_OfBank(firstDice_Chosen, firstDice_unChosen, diceValues[0]);
+                setDice_InAndOut_OfBank(diceBank[0], diceBoard[0], diceValues[0], 0);
                 diceCountCurr++;
                 checkButtons();
             }
         });
 
-        secondDice_Chosen.setOnClickListener(new View.OnClickListener() {
+        secondDice_Bank.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setDice_InAndOut_OfBank(secondDice_Chosen, secondDice_unChosen, diceValues[1]);
+                setDice_InAndOut_OfBank(diceBank[1], diceBoard[1], diceValues[1], 1);
                 diceCountCurr++;
                 checkButtons();
             }
         });
 
-        thirdDice_unChosen.setOnClickListener(new View.OnClickListener() {
+        thirdDice_Bank.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setDice_InAndOut_OfBank(thirdDice_Chosen, thirdDice_unChosen, diceValues[2]);
+                setDice_InAndOut_OfBank(diceBank[2], diceBoard[2], diceValues[2], 2);
                 diceCountCurr++;
                 checkButtons();
             }
         });
 
-        fourthDice_unChosen.setOnClickListener(new View.OnClickListener() {
+        fourthDice_Bank.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setDice_InAndOut_OfBank(fourthDice_Chosen, fourthDice_unChosen, diceValues[3]);
+                setDice_InAndOut_OfBank(diceBank[3], diceBoard[3], diceValues[3], 3);
                 diceCountCurr++;
                 checkButtons();
             }
         });
 
-        fifthDice_unChosen.setOnClickListener(new View.OnClickListener() {
+        fifthDice_Bank.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setDice_InAndOut_OfBank(fifthDice_Chosen, fifthDice_unChosen, diceValues[4]);
+                setDice_InAndOut_OfBank(diceBank[4], diceBoard[4], diceValues[4], 4);
                 diceCountCurr++;
                 checkButtons();
             }
         });
 
-        sixthDice_unChosen.setOnClickListener(new View.OnClickListener() {
+        sixthDice_Bank.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setDice_InAndOut_OfBank(sixthDice_Chosen, sixthDice_unChosen, diceValues[5]);
+                setDice_InAndOut_OfBank(diceBank[5], diceBoard[5], diceValues[5], 5);
                 diceCountCurr++;
                 checkButtons();
             }
@@ -215,14 +246,16 @@ boolean isFirstShake=true;
                 }
 
                 refreshDice();
-
-
+                EndTurnBTN.setVisibility(View.INVISIBLE);
+                RollTheDiceBTN.setVisibility(View.VISIBLE);
+                isFirstShake = true;
             }
         });
 
         EndgameBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 if (playerTurn == 1) {
                     PlayerScore1.setText(String.valueOf(countDice()));
                 } else {
@@ -243,18 +276,22 @@ boolean isFirstShake=true;
                         intent.putExtra("GameToReplay", "Midnight");
 
                         if (player1ScoreINT == player2ScoreINT) {
-                            intent.putExtra("WinnerName", 3);
+                            intent.putExtra("WinnerName", " ");
                         } else if (player1ScoreINT > player2ScoreINT) {
                             getScores[0]++;
-                            intent.putExtra("WinnerName", 0);
+                            intent.putExtra("WinnerName", getNamesArr[0]);
 
                         } else {
                             getScores[1]++;
-                            intent.putExtra("WinnerName", 1);
+                            intent.putExtra("WinnerName", getNamesArr[1]);
                         }
 
                         intent.putExtra("ScoresArr", getScores);
                         startActivity(intent);
+                        shakeManager.unregisterListener(Shaker.sensorListener); //stops physical shake
+                        refreshDice();
+                        PlayerScore1.setText("0");
+                        PlayerScore2.setText("0");
                         finish();
                     }
                 };
@@ -262,6 +299,13 @@ boolean isFirstShake=true;
                 Handler handler = new Handler();
 
                 handler.postDelayed(r, 2500);
+            }
+        });
+
+        btnMute.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Sounds.buttonMutePress(btnMute);
             }
         });
 
@@ -274,65 +318,92 @@ boolean isFirstShake=true;
         EndTurnBTN = (Button) findViewById(R.id.midnight_game_endTurn);
         EndgameBTN = (Button) findViewById(R.id.midnight_game_endgame);
 
+        setOfDiceBank0 = (LinearLayout) findViewById(R.id.midnight_setOfDice_Bank0);
+        setOfDiceBank1 = (LinearLayout) findViewById(R.id.midnight_setOfDice_Bank1);
+        setOfDiceBoard0 = (LinearLayout) findViewById(R.id.midnight_setOfDice_Board0);
+        setOfDiceBoard1 = (LinearLayout) findViewById(R.id.midnight_setOfDice_Board1);
+
+        diceShake1 = MediaPlayer.create(this, R.raw.shakerdice1);
+        diceShake2 = MediaPlayer.create(this, R.raw.shakerdice2);
+        diceShake3 = MediaPlayer.create(this, R.raw.shakerdice3);
+
+
         arrow = (ImageView) findViewById(R.id.midnight_turnArrow);
         changeArrowTo1 = AnimationUtils.loadAnimation(MidnightGame.this, R.anim.arrorflipto1);
         changeArrowTo2 = AnimationUtils.loadAnimation(MidnightGame.this, R.anim.arrowflipto2);
         if (playerTurn == 1) arrow.startAnimation(changeArrowTo1);
         else arrow.startAnimation(changeArrowTo2);
 
+        btnMute = (ImageButton) findViewById(R.id.midnight_game_btn_mute);
+        if (Sounds.getIsMute()) btnMute.setImageResource(R.drawable.mute);
+        else btnMute.setImageResource(R.drawable.unmute);
 
         //Activate Shaker
         shakeManager = (SensorManager) getSystemService(SENSOR_SERVICE);
         Shaker.setNameOfGame("Midnight");
         Shaker.startShaker(shakeManager);
 
-        firstDice_Chosen = (ImageButton) findViewById(R.id.midnight_game_diceFirst_chosen);
-        secondDice_Chosen = (ImageButton) findViewById(R.id.midnight_game_diceSecond_chosen);
-        thirdDice_Chosen = (ImageButton) findViewById(R.id.midnight_game_diceThird_chosen);
-        fourthDice_Chosen = (ImageButton) findViewById(R.id.midnight_game_diceFourth_chosen);
-        fifthDice_Chosen = (ImageButton) findViewById(R.id.midnight_game_diceFifth_chosen);
-        sixthDice_Chosen = (ImageButton) findViewById(R.id.midnight_game_diceSixth_chosen);
+        firstDice_Bank = (ImageButton) findViewById(R.id.midnight_game_diceFirst_Bank);
+        secondDice_Bank = (ImageButton) findViewById(R.id.midnight_game_diceSecond_bank);
+        thirdDice_Bank = (ImageButton) findViewById(R.id.midnight_game_diceThird_Bank);
+        fourthDice_Bank = (ImageButton) findViewById(R.id.midnight_game_diceFourth_Bank);
+        fifthDice_Bank = (ImageButton) findViewById(R.id.midnight_game_diceFifth_bank);
+        sixthDice_Bank = (ImageButton) findViewById(R.id.midnight_game_diceSixth_bank);
 
-        firstDice_unChosen = (ImageButton) findViewById(R.id.midnight_game_diceFirst_unChosen);
-        secondDice_unChosen = (ImageButton) findViewById(R.id.midnight_game_diceSecond_unChosen);
-        thirdDice_unChosen = (ImageButton) findViewById(R.id.midnight_game_diceThird_unChosen);
-        fourthDice_unChosen = (ImageButton) findViewById(R.id.midnight_game_diceFourth_unChosen);
-        fifthDice_unChosen = (ImageButton) findViewById(R.id.midnight_game_diceFifth_unChosen);
-        sixthDice_unChosen = (ImageButton) findViewById(R.id.midnight_game_diceSixth_unChosen);
+        firstDice_Bank.setClickable(false);
+        secondDice_Bank.setClickable(false);
+        thirdDice_Bank.setClickable(false);
+        fourthDice_Bank.setClickable(false);
+        fifthDice_Bank.setClickable(false);
+        sixthDice_Bank.setClickable(false);
+
+        diceBank[0] = firstDice_Bank;
+        diceBank[1] = secondDice_Bank;
+        diceBank[2] = thirdDice_Bank;
+        diceBank[3] = fourthDice_Bank;
+        diceBank[4] = fifthDice_Bank;
+        diceBank[5] = sixthDice_Bank;
+
+        firstDice_Board = (ImageButton) findViewById(R.id.midnight_game_diceFirst_Board);
+        secondDice_Board = (ImageButton) findViewById(R.id.midnight_game_diceSecond_Board);
+        thirdDice_Board = (ImageButton) findViewById(R.id.midnight_game_diceThird_Board);
+        fourthDice_Board = (ImageButton) findViewById(R.id.midnight_game_diceFourth_Board);
+        fifthDice_Board = (ImageButton) findViewById(R.id.midnight_game_diceFifth_Board);
+        sixthDice_Board = (ImageButton) findViewById(R.id.midnight_game_diceSixth_Board);
+
+        firstDice_Board.setClickable(false);
+        secondDice_Board.setClickable(false);
+        thirdDice_Board.setClickable(false);
+        fourthDice_Board.setClickable(false);
+        fifthDice_Board.setClickable(false);
+        sixthDice_Board.setClickable(false);
+
+        diceBoard[0] = firstDice_Board;
+        diceBoard[1] = secondDice_Board;
+        diceBoard[2] = thirdDice_Board;
+        diceBoard[3] = fourthDice_Board;
+        diceBoard[4] = fifthDice_Board;
+        diceBoard[5] = sixthDice_Board;
+
 
         refreshDice();
+
 
     }
 
     void refreshDice() {
 
-        firstDice_Chosen.setImageResource(R.drawable.diceempty);
-        secondDice_Chosen.setImageResource(R.drawable.diceempty);
-        thirdDice_Chosen.setImageResource(R.drawable.diceempty);
-        fourthDice_Chosen.setImageResource(R.drawable.diceempty);
-        fifthDice_Chosen.setImageResource(R.drawable.diceempty);
-        sixthDice_Chosen.setImageResource(R.drawable.diceempty);
+        for (int i = 0; i < diceAmount; i++) {
+            dicePlayableBoard[i] = true;
+            dicePlayableBank[i] = false;
+            diceBank[i].setImageResource(R.drawable.diceempty);
+            diceBank[i].setClickable(false);
+            diceBoard[i].setImageResource(R.drawable.diceempty);
+            diceBoard[i].setClickable(false);
+        }
 
-        firstDice_unChosen.setImageResource(R.drawable.diceempty);
-        secondDice_unChosen.setImageResource(R.drawable.diceempty);
-        thirdDice_unChosen.setImageResource(R.drawable.diceempty);
-        fourthDice_unChosen.setImageResource(R.drawable.diceempty);
-        fifthDice_unChosen.setImageResource(R.drawable.diceempty);
-        sixthDice_unChosen.setImageResource(R.drawable.diceempty);
-
-        firstDice_Chosen.setClickable(false);
-        secondDice_Chosen.setClickable(false);
-        thirdDice_Chosen.setClickable(false);
-        fourthDice_Chosen.setClickable(false);
-        fifthDice_Chosen.setClickable(false);
-        sixthDice_Chosen.setClickable(false);
-
-        firstDice_unChosen.setClickable(false);
-        secondDice_unChosen.setClickable(false);
-        thirdDice_unChosen.setClickable(false);
-        fourthDice_unChosen.setClickable(false);
-        fifthDice_unChosen.setClickable(false);
-        sixthDice_unChosen.setClickable(false);
+        diceCountCurr = diceAmount;
+        diceCountTot = diceAmount;
 
     }
 
@@ -342,7 +413,7 @@ boolean isFirstShake=true;
         getScores = getIntent().getIntArrayExtra("ScoresArr");
 
         PlayerName1 = (TextView) findViewById(R.id.midnight_game_playerName1);
-        PlayerName2 = (TextView) findViewById(R.id.midnight_game_playerName1);
+        PlayerName2 = (TextView) findViewById(R.id.midnight_game_playerName2);
 
         PlayerName1.setText(getNamesArr[0]);
         PlayerName2.setText(getNamesArr[1]);
@@ -355,63 +426,87 @@ boolean isFirstShake=true;
 
     }
 
-    void setDice_InAndOut_OfBank(ImageButton diceOld, ImageButton diceNew, int i) {
+    void setDice_InAndOut_OfBank(ImageButton diceOld, ImageButton diceNew, int valueOfDice, int indexOfDice) {
 
         diceNew.setClickable(true);
 
-        if (i == 1) diceNew.setImageResource(R.drawable.diceone);
-        else if (i == 2) diceNew.setImageResource(R.drawable.dicetwo);
-        else if (i == 3) diceNew.setImageResource(R.drawable.dicethree);
-        else if (i == 4) diceNew.setImageResource(R.drawable.dicefour);
-        else if (i == 5) diceNew.setImageResource(R.drawable.dicefive);
+        if (valueOfDice == 1) diceNew.setImageResource(R.drawable.diceone);
+        else if (valueOfDice == 2) diceNew.setImageResource(R.drawable.dicetwo);
+        else if (valueOfDice == 3) diceNew.setImageResource(R.drawable.dicethree);
+        else if (valueOfDice == 4) diceNew.setImageResource(R.drawable.dicefour);
+        else if (valueOfDice == 5) diceNew.setImageResource(R.drawable.dicefive);
         else diceNew.setImageResource(R.drawable.dicesix);
 
         diceOld.setClickable(false);
         diceOld.setImageResource(R.drawable.diceempty);
 
-    }
-
-    void setDiceChosenToBank(ImageButton dice, int i) {
-
-        dice.setClickable(false);
-
-        if (i == 1) dice.setImageResource(R.drawable.diceonered);
-        else if (i == 2) dice.setImageResource(R.drawable.dicetwored);
-        else if (i == 3) dice.setImageResource(R.drawable.dicethreered);
-        else if (i == 4) dice.setImageResource(R.drawable.dicefourred);
-        else if (i == 5) dice.setImageResource(R.drawable.dicefivered);
-        else dice.setImageResource(R.drawable.dicesixred);
-
-        arrayOfValuesUnChosen[i] = false;
+        dicePlayableBank[indexOfDice] = !dicePlayableBank[indexOfDice];
+        dicePlayableBoard[indexOfDice] = !dicePlayableBoard[indexOfDice];
 
     }
 
-    void UltimateShake() {
+    static void setDiceChosenToBank(int i) {
+
+        diceBank[i].setClickable(false);
+        diceBoard[i].setClickable(false);
+
+
+        if (diceValues[i] == 1)
+            diceBank[i].setImageResource(R.drawable.diceonered);
+        else if (diceValues[i] == 2)
+            diceBank[i].setImageResource(R.drawable.dicetwored);
+        else if (diceValues[i] == 3)
+            diceBank[i].setImageResource(R.drawable.dicethreered);
+        else if (diceValues[i] == 4)
+            diceBank[i].setImageResource(R.drawable.dicefourred);
+        else if (diceValues[i] == 5)
+            diceBank[i].setImageResource(R.drawable.dicefivered);
+        else
+            diceBank[i].setImageResource(R.drawable.dicesixred);
+
+        diceBoard[i].setImageResource(R.drawable.diceempty);
+
+        dicePlayableBank[i] = false;
+        dicePlayableBoard[i] = false;
+
+    }
+
+    static void UltimateShake() {
 
         if (diceCountTot == diceCountCurr && !isFirstShake) {
-            Toast.makeText(this, R.string.noDiceWereChosen, Toast.LENGTH_SHORT);
+            Toast.makeText(thisActivity, R.string.noDiceWereChosen, Toast.LENGTH_SHORT).show();
             return;
         }
 
-        isFirstShake = false;
+        if (isFirstShake) {
+            isFirstShake = false;
+            setOfDiceBank0.setVisibility(View.GONE);
+            setOfDiceBank1.setVisibility(View.VISIBLE);
+            setOfDiceBoard0.setVisibility(View.GONE);
+            setOfDiceBoard1.setVisibility(View.VISIBLE);
+        }
 
         diceCountTot = diceCountCurr;
 
+        if (!Sounds.getIsMute()) {
+            if (diceCountTot == 6 || diceCountTot == 5) diceShake3.start();
+            else if (diceCountTot == 4 || diceCountTot == 3) diceShake2.start();
+            else diceShake1.start();
+        }
+
         for (int i = 0; i < diceAmount; i++)
-            if (arrayOfButtonsChosen[i].isClickable())
-                setDiceChosenToBank(arrayOfButtonsChosen[i], i);
+            if (dicePlayableBank[i])
+                setDiceChosenToBank(i);
 
 
         for (int i = 0; i < diceAmount; i++)
-            if (arrayOfValuesUnChosen[i]) rollDice(arrayOfButtonsUnChosen[i], i);
-
+            if (dicePlayableBoard[i]) {
+                diceValues[i] = GameFunctions.rollDice(diceBoard[i]);
+                diceBoard[i].setClickable(true);
+            }
 
     }
 
-    void rollDice(ImageButton diceToRoll, int i) {
-        diceValues[i] = GameFunctions.rollDice(diceToRoll);
-        diceToRoll.setClickable(true);
-    }
 
     void noMoreDice() {
         RollTheDiceBTN.setVisibility(View.INVISIBLE);
@@ -456,5 +551,23 @@ boolean isFirstShake=true;
 
         return 0;
 
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
+
+            shakeManager.unregisterListener(Shaker.sensorListener); //stops physical shake
+
+            final Intent intent = new Intent(this, MidnightEntrance.class);
+            intent.putExtra("NameArr", getNamesArr);
+            intent.putExtra("ScoresArr", getScores);
+            startActivity(intent);
+            finish();
+
+            return true;
+        }
+
+        return super.onKeyDown(keyCode, event);
     }
 }

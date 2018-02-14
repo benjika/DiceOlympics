@@ -55,6 +55,9 @@
     <string name="ScoreBoard">SCOREBOARD</string>
     <string name="newScore">New Score</string>
     <string name="SameScore">Same Score</string>
+    <string name="noWinner1">No Winner This Time</string>
+    <string name="noWinner2">The game Ended Up in draw</string>
+
 
 
     <!--Choose Game-->
