@@ -209,7 +209,7 @@ public class PigdiceGame extends AppCompatActivity {
         final Intent intent = new Intent(this, WinnerScreen.class);
         intent.putExtra("NameArr", NamesArr);
         intent.putExtra("ScoresArr", Scores);
-        intent.putExtra("WinnerName", nameIndex);
+        intent.putExtra("WinnerName", NamesArr[nameIndex]);
         intent.putExtra("GameToReplay", "Pigdice");
         startActivity(intent);
         finish();

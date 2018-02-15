@@ -22,7 +22,7 @@
         android:id="@+id/winner_set0"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="gone">
+        android:visibility="invisible">
 
         <TextView
             android:id="@+id/winner_noWinnerTitle"
@@ -32,7 +32,7 @@
             android:gravity="center"
             android:text="@string/noWinner1"
             android:textColor="@color/colorAccent"
-            android:textSize="60sp" />
+            android:textSize="50sp" />
 
 
         <TextView
@@ -44,7 +44,7 @@
             android:gravity="center"
             android:text="@string/noWinner2"
             android:textColor="@color/colorAccent"
-            android:textSize="60sp" />
+            android:textSize="50sp" />
 
     </RelativeLayout>
 

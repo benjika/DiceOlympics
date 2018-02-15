@@ -110,6 +110,7 @@ public class WinnerScreen extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (!Sounds.getIsMute()) buttonClickSound.start();
+
                 btnsSet1.setVisibility(View.GONE);
                 btnsSet2.setVisibility(View.VISIBLE);
             }

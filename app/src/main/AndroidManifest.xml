@@ -29,9 +29,12 @@
             android:name=".WinnerScreen"
             android:screenOrientation="landscape" />
         <activity android:name=".MidnightInstructions" />
-        <activity android:name=".MidnightGame"
-            android:screenOrientation="landscape"
-            ></activity>
+        <activity
+            android:name=".MidnightGame"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".WhosStarting"
+            android:screenOrientation="landscape"></activity>
     </application>
 
 </manifest>

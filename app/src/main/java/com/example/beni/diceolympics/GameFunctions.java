@@ -25,6 +25,8 @@ public class GameFunctions {
                 if (NameOfGame.equals("Pigdice")) {
                     PigdiceGame.dice.setImageResource(R.drawable.diceone);
                     PigdiceGame.SaveScoreBTN.setVisibility(View.GONE);
+                } else if (NameOfGame.equals("Who's Starting")) {
+                    dice.setImageResource(R.drawable.diceone);
                 }
                 return 1;
 
@@ -32,6 +34,8 @@ public class GameFunctions {
                 if (NameOfGame == "Pigdice") {
                     PigdiceGame.dice.setImageResource(R.drawable.dicetwo);
                     PigdiceGame.SaveScoreBTN.setVisibility(View.VISIBLE);
+                } else if (NameOfGame.equals("Who's Starting")) {
+                    dice.setImageResource(R.drawable.dicetwo);
                 }
                 return 2;
 
@@ -39,6 +43,8 @@ public class GameFunctions {
                 if (NameOfGame == "Pigdice") {
                     PigdiceGame.dice.setImageResource(R.drawable.dicethree);
                     PigdiceGame.SaveScoreBTN.setVisibility(View.VISIBLE);
+                } else if (NameOfGame.equals("Who's Starting")) {
+                    dice.setImageResource(R.drawable.dicethree);
                 }
                 return 3;
 
@@ -46,6 +52,8 @@ public class GameFunctions {
                 if (NameOfGame == "Pigdice") {
                     PigdiceGame.dice.setImageResource(R.drawable.dicefour);
                     PigdiceGame.SaveScoreBTN.setVisibility(View.VISIBLE);
+                } else if (NameOfGame.equals("Who's Starting")) {
+                    dice.setImageResource(R.drawable.dicefour);
                 }
                 return 4;
 
@@ -53,6 +61,8 @@ public class GameFunctions {
                 if (NameOfGame == "Pigdice") {
                     PigdiceGame.dice.setImageResource(R.drawable.dicefive);
                     PigdiceGame.SaveScoreBTN.setVisibility(View.VISIBLE);
+                } else if (NameOfGame.equals("Who's Starting")) {
+                    dice.setImageResource(R.drawable.dicefive);
                 }
                 return 5;
 
@@ -60,6 +70,8 @@ public class GameFunctions {
                 if (NameOfGame == "Pigdice") {
                     PigdiceGame.dice.setImageResource(R.drawable.dicesix);
                     PigdiceGame.SaveScoreBTN.setVisibility(View.VISIBLE);
+                } else if (NameOfGame.equals("Who's Starting")) {
+                    dice.setImageResource(R.drawable.dicefive);
                 }
                 return 6;
 

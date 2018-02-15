@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -25,10 +24,10 @@
                 android:id="@+id/Pigdice_game_btn_mute"
                 android:layout_width="35dp"
                 android:layout_height="35dp"
+                android:layout_gravity="start"
+                android:layout_marginBottom="10dp"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:layout_gravity="start"
                 android:background="@color/colorPrimary"
                 android:src="@drawable/unmute" />
 
@@ -50,9 +49,9 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/pigDice_PlayerName_Player1"
                 android:layout_centerHorizontal="true"
-                android:textColor="@color/colorPrimaryDark"
                 android:layout_marginTop="15sp"
                 android:text="@string/Pigdice_TotalScore"
+                android:textColor="@color/colorPrimaryDark"
                 android:textSize="25sp" />
 
             <TextView
@@ -199,7 +198,6 @@
         android:text="@string/Pigdice_saveScore"
         android:textColor="@color/colorAccent"
         android:textSize="15sp" />
-
 
 
 </RelativeLayout>

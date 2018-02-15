@@ -43,6 +43,7 @@ public class MidnightGame extends AppCompatActivity {
     static MediaPlayer diceShake1;
     static MediaPlayer diceShake2;
     static MediaPlayer diceShake3;
+    static MediaPlayer arrowSound;
 
     Button RollTheDiceBTN;
     Button EndTurnBTN;
@@ -245,6 +246,8 @@ public class MidnightGame extends AppCompatActivity {
                     arrow.startAnimation(changeArrowTo1);
                 }
 
+                if (!Sounds.getIsMute()) arrowSound.start();
+
                 refreshDice();
                 EndTurnBTN.setVisibility(View.INVISIBLE);
                 RollTheDiceBTN.setVisibility(View.VISIBLE);
@@ -289,7 +292,7 @@ public class MidnightGame extends AppCompatActivity {
                         intent.putExtra("ScoresArr", getScores);
                         startActivity(intent);
                         shakeManager.unregisterListener(Shaker.sensorListener); //stops physical shake
-                        refreshDice();
+                        isFirstShake = true;
                         PlayerScore1.setText("0");
                         PlayerScore2.setText("0");
                         finish();
@@ -298,7 +301,7 @@ public class MidnightGame extends AppCompatActivity {
 
                 Handler handler = new Handler();
 
-                handler.postDelayed(r, 2500);
+                handler.postDelayed(r, 1000);
             }
         });
 
@@ -326,7 +329,7 @@ public class MidnightGame extends AppCompatActivity {
         diceShake1 = MediaPlayer.create(this, R.raw.shakerdice1);
         diceShake2 = MediaPlayer.create(this, R.raw.shakerdice2);
         diceShake3 = MediaPlayer.create(this, R.raw.shakerdice3);
-
+        arrowSound = MediaPlayer.create(this, R.raw.arrowturn);
 
         arrow = (ImageView) findViewById(R.id.midnight_turnArrow);
         changeArrowTo1 = AnimationUtils.loadAnimation(MidnightGame.this, R.anim.arrorflipto1);
@@ -489,8 +492,8 @@ public class MidnightGame extends AppCompatActivity {
         diceCountTot = diceCountCurr;
 
         if (!Sounds.getIsMute()) {
-            if (diceCountTot == 6 || diceCountTot == 5) diceShake3.start();
-            else if (diceCountTot == 4 || diceCountTot == 3) diceShake2.start();
+            if (diceCountTot <= 6 && diceCountTot >= 4) diceShake3.start();
+            else if (diceCountTot == 2 || diceCountTot == 3) diceShake2.start();
             else diceShake1.start();
         }
 
@@ -555,6 +558,7 @@ public class MidnightGame extends AppCompatActivity {
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
+
         if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
 
             shakeManager.unregisterListener(Shaker.sensorListener); //stops physical shake
@@ -563,6 +567,9 @@ public class MidnightGame extends AppCompatActivity {
             intent.putExtra("NameArr", getNamesArr);
             intent.putExtra("ScoresArr", getScores);
             startActivity(intent);
+            isFirstShake = true;
+            PlayerScore1.setText("0");
+            PlayerScore2.setText("0");
             finish();
 
             return true;

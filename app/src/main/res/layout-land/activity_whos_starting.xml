@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layoutDirection="ltr"
+    android:orientation="horizontal"
+    tools:context="com.example.beni.diceolympics.WhosStarting">
+
+    <ImageButton
+        android:id="@+id/whosStarting_game_btn_mute"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_gravity="start"
+        android:layout_marginBottom="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/colorPrimary"
+        android:src="@drawable/unmute" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/pigDice_Area_Player1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/colorPrimary"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/whosStarting_PlayerName_Player1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="60dp"
+                android:gravity="center"
+                android:hint="player one"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="30sp" />
+
+            <ImageView
+                android:id="@+id/whosStarting_dice_Player1"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/diceempty" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/pigDice_Area_Player2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/colorPrimaryDark"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/whosStarting_PlayerName_Player2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="60dp"
+                android:gravity="center"
+                android:hint="player one"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="30sp" />
+
+            <ImageView
+                android:id="@+id/whosStarting_dice_Player2"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/diceempty" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/whosStarting_turnArrow"
+        android:layout_width="80sp"
+        android:layout_height="80sp"
+
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="120sp"
+        android:scaleType="fitXY"
+        android:src="@drawable/playerturnarrow" />
+
+
+    <Button
+        android:id="@+id/whosStarting_btn_diceRoll"
+        android:layout_width="100sp"
+        android:layout_height="50sp"
+        android:layout_below="@+id/whosStarting_turnArrow"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30sp"
+        android:background="@drawable/button_bg_round"
+        android:text="@string/Pigdice_RollDice"
+        android:textColor="@color/colorAccent"
+        android:textSize="15sp" />
+
+    <Button
+        android:id="@+id/whosStarting_btn_StarTheGame"
+        android:layout_width="100sp"
+        android:layout_height="50sp"
+        android:layout_below="@+id/whosStarting_turnArrow"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30sp"
+        android:background="@drawable/button_bg_round"
+        android:text="@string/Start"
+        android:textColor="@color/colorAccent"
+        android:textSize="15sp"
+        android:visibility="gone" />
+
+
+</RelativeLayout>
