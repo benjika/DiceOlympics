@@ -232,6 +232,4 @@ public class WinnerScreen extends AppCompatActivity {
         playerScore1.setText(String.valueOf(getScores[0]));
         playerScore2.setText(String.valueOf(getScores[1]));
     }
-
-
 }
