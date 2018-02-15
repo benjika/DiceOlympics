@@ -27,7 +27,7 @@
             android:id="@+id/imageLanding"
             android:layout_width="300dp"
             android:layout_height="250dp"
-            android:src="@drawable/piggamered" />
+            android:src="@drawable/diceolympicgame_logo" />
 
         <TextView
             android:layout_width="wrap_content"
