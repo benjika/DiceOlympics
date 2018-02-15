@@ -107,6 +107,15 @@ public class YatzeePlayScreen extends Activity {
             mone[i] = 0;
         }
 
+        Back_BTN.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent= new Intent(YatzeePlayScreen.this,YatzeeEntrance.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
 
         Aces_score.setOnClickListener(new View.OnClickListener() {
             @Override
