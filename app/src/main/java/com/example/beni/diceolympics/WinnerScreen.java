@@ -147,6 +147,7 @@ public class WinnerScreen extends AppCompatActivity {
             }
         });
 
+        //Calls Yatzee game
         btnSinglePlayer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -154,7 +155,6 @@ public class WinnerScreen extends AppCompatActivity {
                 final Intent intent = new Intent(WinnerScreen.this, YatzeeEntrance.class);
                 startActivity(intent);
                 finish();
-                Toast.makeText(WinnerScreen.this, "Will Work", Toast.LENGTH_SHORT).show();
             }
         });
 

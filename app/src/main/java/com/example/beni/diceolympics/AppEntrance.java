@@ -6,6 +6,7 @@ import android.media.MediaPlayer;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -27,7 +28,8 @@ public class AppEntrance extends AppCompatActivity {
         if (Sounds.getIsMute()) btnMute.setImageResource(R.drawable.mute);
         else btnMute.setImageResource(R.drawable.unmute);
 
-        final MediaPlayer buttonClickSound = MediaPlayer.create(AppEntrance.this, R.raw.buttonpress);
+        final MediaPlayer buttonClickSound = MediaPlayer.
+                create(AppEntrance.this, R.raw.buttonpress);
 
         btnOnePlayer.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -38,6 +40,8 @@ public class AppEntrance extends AppCompatActivity {
             }
         });
 
+        //Listener on the Two players button
+        //Leads to Input Names before choosing a game for two
         btnTwoPlayers.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -93,6 +97,18 @@ public class AppEntrance extends AppCompatActivity {
                 Sounds.buttonMutePress(btnMute);
             }
         });
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
+
+            finish();
+
+            return true;
+        }
+
+        return super.onKeyDown(keyCode, event);
     }
 
 

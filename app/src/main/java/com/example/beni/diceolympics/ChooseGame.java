@@ -32,6 +32,7 @@ public class ChooseGame extends AppCompatActivity {
         final String[] getNamesArr = getIntent().getStringArrayExtra("NameArr");
         final int[] getScores = getIntent().getIntArrayExtra("ScoresArr");
 
+        //Leads to Pigdice game menu
         btnPlayPigDice.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -44,7 +45,7 @@ public class ChooseGame extends AppCompatActivity {
             }
         });
 
-
+        //Leads to Midnight game menu
         btnPlayMidnight.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -65,6 +66,7 @@ public class ChooseGame extends AppCompatActivity {
         });
     }
 
+    //Overrides the default back button
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {

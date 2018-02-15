@@ -35,7 +35,7 @@ public class MidnightEntrance extends AppCompatActivity {
         getNamesArr = getIntent().getStringArrayExtra("NameArr");
         getScores = getIntent().getIntArrayExtra("ScoresArr");
 
-
+        //Calls the Who's starting screen. From there it will go to Midnight game screen
         btnStartGame.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -49,6 +49,7 @@ public class MidnightEntrance extends AppCompatActivity {
             }
         });
 
+        //Calls Midnight instructions screen
         btnInstructions.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -58,6 +59,7 @@ public class MidnightEntrance extends AppCompatActivity {
             }
         });
 
+        //Goes back to choose game screen
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

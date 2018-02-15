@@ -11,8 +11,10 @@ import android.widget.ImageView;
 
 public class GameFunctions {
 
-    static int rollDice(String NameOfGame, ImageView dice)
+    //Roll Dice function for Pigdice and Who's Starting(a screen to determine who
+                                                        //starting Pigdice/Midnight games)
     //return a new value from the dice
+    static int rollDice(String NameOfGame, ImageView dice)
     {
 
         int diceNum = (int) (Math.random() * 6 + 1);
@@ -80,8 +82,9 @@ public class GameFunctions {
         return 0;
     }
 
-    static int rollDice(ImageButton dice)
+    //
     //return a new value from the dice
+    static int rollDice(ImageButton dice)
     {
 
         int diceNum = (int) (Math.random() * 6 + 1);

@@ -117,6 +117,8 @@ public class WhosStarting extends AppCompatActivity {
         if (!Sounds.getIsMute()) diceSound.start();
 
         if (playerTurn == 1) {
+
+            //Gets value and sets value for the dice of Player 1
             player1Score = GameFunctions.rollDice("Who's Starting", dice1);
             playerTurn++;
             arrow.startAnimation(changeArrowTo2);
@@ -125,6 +127,8 @@ public class WhosStarting extends AppCompatActivity {
         } else {
 
             RollDice.setVisibility(View.INVISIBLE);
+
+            //Gets value and sets value for the dice of Player 2
             player2Score = GameFunctions.rollDice("Who's Starting", dice2);
             if (player1Score > player2Score) {
                 playerToBegin = 1;

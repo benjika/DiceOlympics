@@ -425,6 +425,7 @@ public class MidnightGame extends AppCompatActivity {
 
     }
 
+    //Resets all dice and values to default before end of turn
     void refreshDice() {
 
         for (int i = 0; i < diceAmount; i++) {
@@ -443,6 +444,7 @@ public class MidnightGame extends AppCompatActivity {
 
     }
 
+    //Gets info from previous screen
     void getInfoFromExtras() {
 
         getNamesArr = getIntent().getStringArrayExtra("NameArr");
@@ -464,6 +466,7 @@ public class MidnightGame extends AppCompatActivity {
 
     }
 
+    //Passes dice from board to back, or from bank to board(depends on the input)
     void setDice_InAndOut_OfBank(ImageButton diceOld, ImageButton diceNew, int valueOfDice, int indexOfDice) {
 
         diceNew.setClickable(true);
@@ -483,6 +486,7 @@ public class MidnightGame extends AppCompatActivity {
 
     }
 
+    //Sets the dice that are already in bank to be untouchable
     static void setDiceChosenToBank(int i) {
 
         diceBank[i].setClickable(false);
@@ -509,6 +513,7 @@ public class MidnightGame extends AppCompatActivity {
 
     }
 
+    //Function the both Shake Dice button and Physical Shaker use
     static void UniversalShake() {
 
         if (diceCountTot == diceCountCurr && !isFirstShake) {
@@ -545,7 +550,7 @@ public class MidnightGame extends AppCompatActivity {
 
     }
 
-
+    //Being called when no more dice on the board
     void noMoreDice() {
         RollTheDiceBTN.setVisibility(View.INVISIBLE);
 
@@ -561,6 +566,7 @@ public class MidnightGame extends AppCompatActivity {
         }
     }
 
+    //Being called when end of turn or end of game
     void checkButtons() {
 
         if (RollTheDiceBTN.getVisibility() == View.VISIBLE) return;

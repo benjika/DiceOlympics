@@ -12,6 +12,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //Delays opening screen
         Runnable r = new Runnable() {
             @Override
             public void run() {
@@ -23,6 +24,6 @@ public class MainActivity extends AppCompatActivity {
 
         Handler handler = new Handler();
 
-        handler.postDelayed(r,2000);
+        handler.postDelayed(r, 2000);
     }
 }

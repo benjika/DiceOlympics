@@ -64,7 +64,6 @@ public class YatzeePlayScreen extends Activity {
         diceShakeSound = MediaPlayer.create(this, R.raw.shakerdice1);
 
 
-
         final Button Back_BTN = findViewById(R.id.Yatzee_Play_Screen_Back_BTN);
         final Button Roll_Dice_BTN = findViewById(R.id.Yatzee_Play_Screen_Roll_Dice_BTN);
         Dice_1 = findViewById(R.id.Yatzee_Dice_Num_One);
@@ -110,7 +109,7 @@ public class YatzeePlayScreen extends Activity {
         Back_BTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent= new Intent(YatzeePlayScreen.this,YatzeeEntrance.class);
+                Intent intent = new Intent(YatzeePlayScreen.this, YatzeeEntrance.class);
                 startActivity(intent);
                 finish();
             }
@@ -135,16 +134,15 @@ public class YatzeePlayScreen extends Activity {
 
                         Num_Of_Roll.setText("3");
                         ResetDice(Dice_1, Dice_2, Dice_3, Dice_4, Dice_5);
-                        if(CheackIfFinish()){
-                            if(CheakIfNewChamp(Integer.valueOf(Total_Score.getText().toString()))){
-                                Intent intent = new Intent(YatzeePlayScreen.this,YatzeeEndGameTopPlayer.class);
-                                intent.putExtra(FINAL_SCORE,Total_Score.getText().toString());
+                        if (CheckIfFinish()) {
+                            if (CheckIfNewChamp(Integer.valueOf(Total_Score.getText().toString()))) {
+                                Intent intent = new Intent(YatzeePlayScreen.this, YatzeeEndGameTopPlayer.class);
+                                intent.putExtra(FINAL_SCORE, Total_Score.getText().toString());
                                 startActivity(intent);
                                 finish();
-                            }
-                            else {
-                                Intent intent = new Intent(YatzeePlayScreen.this,YatzeeEndGame.class);
-                                intent.putExtra(FINAL_SCORE,Total_Score.getText().toString());
+                            } else {
+                                Intent intent = new Intent(YatzeePlayScreen.this, YatzeeEndGame.class);
+                                intent.putExtra(FINAL_SCORE, Total_Score.getText().toString());
                                 startActivity(intent);
                                 finish();
                             }
@@ -176,16 +174,15 @@ public class YatzeePlayScreen extends Activity {
 
                         Num_Of_Roll.setText("3");
                         ResetDice(Dice_1, Dice_2, Dice_3, Dice_4, Dice_5);
-                        if(CheackIfFinish()){
-                            if(CheakIfNewChamp(Integer.valueOf(Total_Score.getText().toString()))){
-                                Intent intent = new Intent(YatzeePlayScreen.this,YatzeeEndGameTopPlayer.class);
-                                intent.putExtra(FINAL_SCORE,Total_Score.getText().toString());
+                        if (CheckIfFinish()) {
+                            if (CheckIfNewChamp(Integer.valueOf(Total_Score.getText().toString()))) {
+                                Intent intent = new Intent(YatzeePlayScreen.this, YatzeeEndGameTopPlayer.class);
+                                intent.putExtra(FINAL_SCORE, Total_Score.getText().toString());
                                 startActivity(intent);
                                 finish();
-                            }
-                            else {
-                                Intent intent = new Intent(YatzeePlayScreen.this,YatzeeEndGame.class);
-                                intent.putExtra(FINAL_SCORE,Total_Score.getText().toString());
+                            } else {
+                                Intent intent = new Intent(YatzeePlayScreen.this, YatzeeEndGame.class);
+                                intent.putExtra(FINAL_SCORE, Total_Score.getText().toString());
                                 startActivity(intent);
                                 finish();
                             }
@@ -217,16 +214,15 @@ public class YatzeePlayScreen extends Activity {
 
                         Num_Of_Roll.setText("3");
                         ResetDice(Dice_1, Dice_2, Dice_3, Dice_4, Dice_5);
-                        if(CheackIfFinish()){
-                            if(CheakIfNewChamp(Integer.valueOf(Total_Score.getText().toString()))){
-                                Intent intent = new Intent(YatzeePlayScreen.this,YatzeeEndGameTopPlayer.class);
-                                intent.putExtra(FINAL_SCORE,Total_Score.getText().toString());
+                        if (CheckIfFinish()) {
+                            if (CheckIfNewChamp(Integer.valueOf(Total_Score.getText().toString()))) {
+                                Intent intent = new Intent(YatzeePlayScreen.this, YatzeeEndGameTopPlayer.class);
+                                intent.putExtra(FINAL_SCORE, Total_Score.getText().toString());
                                 startActivity(intent);
                                 finish();
-                            }
-                            else {
-                                Intent intent = new Intent(YatzeePlayScreen.this,YatzeeEndGame.class);
-                                intent.putExtra(FINAL_SCORE,Total_Score.getText().toString());
+                            } else {
+                                Intent intent = new Intent(YatzeePlayScreen.this, YatzeeEndGame.class);
+                                intent.putExtra(FINAL_SCORE, Total_Score.getText().toString());
                                 startActivity(intent);
                                 finish();
                             }
@@ -258,16 +254,15 @@ public class YatzeePlayScreen extends Activity {
 
                         Num_Of_Roll.setText("3");
                         ResetDice(Dice_1, Dice_2, Dice_3, Dice_4, Dice_5);
-                        if(CheackIfFinish()){
-                            if(CheakIfNewChamp(Integer.valueOf(Total_Score.getText().toString()))){
-                                Intent intent = new Intent(YatzeePlayScreen.this,YatzeeEndGameTopPlayer.class);
-                                intent.putExtra(FINAL_SCORE,Total_Score.getText().toString());
+                        if (CheckIfFinish()) {
+                            if (CheckIfNewChamp(Integer.valueOf(Total_Score.getText().toString()))) {
+                                Intent intent = new Intent(YatzeePlayScreen.this, YatzeeEndGameTopPlayer.class);
+                                intent.putExtra(FINAL_SCORE, Total_Score.getText().toString());
                                 startActivity(intent);
                                 finish();
-                            }
-                            else {
-                                Intent intent = new Intent(YatzeePlayScreen.this,YatzeeEndGame.class);
-                                intent.putExtra(FINAL_SCORE,Total_Score.getText().toString());
+                            } else {
+                                Intent intent = new Intent(YatzeePlayScreen.this, YatzeeEndGame.class);
+                                intent.putExtra(FINAL_SCORE, Total_Score.getText().toString());
                                 startActivity(intent);
                                 finish();
                             }
@@ -299,16 +294,15 @@ public class YatzeePlayScreen extends Activity {
 
                         Num_Of_Roll.setText("3");
                         ResetDice(Dice_1, Dice_2, Dice_3, Dice_4, Dice_5);
-                        if(CheackIfFinish()){
-                            if(CheakIfNewChamp(Integer.valueOf(Total_Score.getText().toString()))){
-                                Intent intent = new Intent(YatzeePlayScreen.this,YatzeeEndGameTopPlayer.class);
-                                intent.putExtra(FINAL_SCORE,Total_Score.getText().toString());
+                        if (CheckIfFinish()) {
+                            if (CheckIfNewChamp(Integer.valueOf(Total_Score.getText().toString()))) {
+                                Intent intent = new Intent(YatzeePlayScreen.this, YatzeeEndGameTopPlayer.class);
+                                intent.putExtra(FINAL_SCORE, Total_Score.getText().toString());
                                 startActivity(intent);
                                 finish();
-                            }
-                            else {
-                                Intent intent = new Intent(YatzeePlayScreen.this,YatzeeEndGame.class);
-                                intent.putExtra(FINAL_SCORE,Total_Score.getText().toString());
+                            } else {
+                                Intent intent = new Intent(YatzeePlayScreen.this, YatzeeEndGame.class);
+                                intent.putExtra(FINAL_SCORE, Total_Score.getText().toString());
                                 startActivity(intent);
                                 finish();
                             }
@@ -340,16 +334,15 @@ public class YatzeePlayScreen extends Activity {
 
                         Num_Of_Roll.setText("3");
                         ResetDice(Dice_1, Dice_2, Dice_3, Dice_4, Dice_5);
-                        if(CheackIfFinish()){
-                            if(CheakIfNewChamp(Integer.valueOf(Total_Score.getText().toString()))){
-                                Intent intent = new Intent(YatzeePlayScreen.this,YatzeeEndGameTopPlayer.class);
-                                intent.putExtra(FINAL_SCORE,Total_Score.getText().toString());
+                        if (CheckIfFinish()) {
+                            if (CheckIfNewChamp(Integer.valueOf(Total_Score.getText().toString()))) {
+                                Intent intent = new Intent(YatzeePlayScreen.this, YatzeeEndGameTopPlayer.class);
+                                intent.putExtra(FINAL_SCORE, Total_Score.getText().toString());
                                 startActivity(intent);
                                 finish();
-                            }
-                            else {
-                                Intent intent = new Intent(YatzeePlayScreen.this,YatzeeEndGame.class);
-                                intent.putExtra(FINAL_SCORE,Total_Score.getText().toString());
+                            } else {
+                                Intent intent = new Intent(YatzeePlayScreen.this, YatzeeEndGame.class);
+                                intent.putExtra(FINAL_SCORE, Total_Score.getText().toString());
                                 startActivity(intent);
                                 finish();
                             }
@@ -390,16 +383,15 @@ public class YatzeePlayScreen extends Activity {
 
                         Num_Of_Roll.setText("3");
                         ResetDice(Dice_1, Dice_2, Dice_3, Dice_4, Dice_5);
-                        if(CheackIfFinish()){
-                            if(CheakIfNewChamp(Integer.valueOf(Total_Score.getText().toString()))){
-                                Intent intent = new Intent(YatzeePlayScreen.this,YatzeeEndGameTopPlayer.class);
-                                intent.putExtra(FINAL_SCORE,Total_Score.getText().toString());
+                        if (CheckIfFinish()) {
+                            if (CheckIfNewChamp(Integer.valueOf(Total_Score.getText().toString()))) {
+                                Intent intent = new Intent(YatzeePlayScreen.this, YatzeeEndGameTopPlayer.class);
+                                intent.putExtra(FINAL_SCORE, Total_Score.getText().toString());
                                 startActivity(intent);
                                 finish();
-                            }
-                            else {
-                                Intent intent = new Intent(YatzeePlayScreen.this,YatzeeEndGame.class);
-                                intent.putExtra(FINAL_SCORE,Total_Score.getText().toString());
+                            } else {
+                                Intent intent = new Intent(YatzeePlayScreen.this, YatzeeEndGame.class);
+                                intent.putExtra(FINAL_SCORE, Total_Score.getText().toString());
                                 startActivity(intent);
                                 finish();
                             }
@@ -440,16 +432,15 @@ public class YatzeePlayScreen extends Activity {
 
                         Num_Of_Roll.setText("3");
                         ResetDice(Dice_1, Dice_2, Dice_3, Dice_4, Dice_5);
-                        if(CheackIfFinish()){
-                            if(CheakIfNewChamp(Integer.valueOf(Total_Score.getText().toString()))){
-                                Intent intent = new Intent(YatzeePlayScreen.this,YatzeeEndGameTopPlayer.class);
-                                intent.putExtra(FINAL_SCORE,Total_Score.getText().toString());
+                        if (CheckIfFinish()) {
+                            if (CheckIfNewChamp(Integer.valueOf(Total_Score.getText().toString()))) {
+                                Intent intent = new Intent(YatzeePlayScreen.this, YatzeeEndGameTopPlayer.class);
+                                intent.putExtra(FINAL_SCORE, Total_Score.getText().toString());
                                 startActivity(intent);
                                 finish();
-                            }
-                            else {
-                                Intent intent = new Intent(YatzeePlayScreen.this,YatzeeEndGame.class);
-                                intent.putExtra(FINAL_SCORE,Total_Score.getText().toString());
+                            } else {
+                                Intent intent = new Intent(YatzeePlayScreen.this, YatzeeEndGame.class);
+                                intent.putExtra(FINAL_SCORE, Total_Score.getText().toString());
                                 startActivity(intent);
                                 finish();
                             }
@@ -487,16 +478,15 @@ public class YatzeePlayScreen extends Activity {
                         }
                         Num_Of_Roll.setText("3");
                         ResetDice(Dice_1, Dice_2, Dice_3, Dice_4, Dice_5);
-                        if(CheackIfFinish()){
-                            if(CheakIfNewChamp(Integer.valueOf(Total_Score.getText().toString()))){
-                                Intent intent = new Intent(YatzeePlayScreen.this,YatzeeEndGameTopPlayer.class);
-                                intent.putExtra(FINAL_SCORE,Total_Score.getText().toString());
+                        if (CheckIfFinish()) {
+                            if (CheckIfNewChamp(Integer.valueOf(Total_Score.getText().toString()))) {
+                                Intent intent = new Intent(YatzeePlayScreen.this, YatzeeEndGameTopPlayer.class);
+                                intent.putExtra(FINAL_SCORE, Total_Score.getText().toString());
                                 startActivity(intent);
                                 finish();
-                            }
-                            else {
-                                Intent intent = new Intent(YatzeePlayScreen.this,YatzeeEndGame.class);
-                                intent.putExtra(FINAL_SCORE,Total_Score.getText().toString());
+                            } else {
+                                Intent intent = new Intent(YatzeePlayScreen.this, YatzeeEndGame.class);
+                                intent.putExtra(FINAL_SCORE, Total_Score.getText().toString());
                                 startActivity(intent);
                                 finish();
                             }
@@ -539,16 +529,15 @@ public class YatzeePlayScreen extends Activity {
                         }
                         Num_Of_Roll.setText("3");
                         ResetDice(Dice_1, Dice_2, Dice_3, Dice_4, Dice_5);
-                        if(CheackIfFinish()){
-                            if(CheakIfNewChamp(Integer.valueOf(Total_Score.getText().toString()))){
-                                Intent intent = new Intent(YatzeePlayScreen.this,YatzeeEndGameTopPlayer.class);
-                                intent.putExtra(FINAL_SCORE,Total_Score.getText().toString());
+                        if (CheckIfFinish()) {
+                            if (CheckIfNewChamp(Integer.valueOf(Total_Score.getText().toString()))) {
+                                Intent intent = new Intent(YatzeePlayScreen.this, YatzeeEndGameTopPlayer.class);
+                                intent.putExtra(FINAL_SCORE, Total_Score.getText().toString());
                                 startActivity(intent);
                                 finish();
-                            }
-                            else {
-                                Intent intent = new Intent(YatzeePlayScreen.this,YatzeeEndGame.class);
-                                intent.putExtra(FINAL_SCORE,Total_Score.getText().toString());
+                            } else {
+                                Intent intent = new Intent(YatzeePlayScreen.this, YatzeeEndGame.class);
+                                intent.putExtra(FINAL_SCORE, Total_Score.getText().toString());
                                 startActivity(intent);
                                 finish();
                             }
@@ -592,16 +581,15 @@ public class YatzeePlayScreen extends Activity {
                         }
                         Num_Of_Roll.setText("3");
                         ResetDice(Dice_1, Dice_2, Dice_3, Dice_4, Dice_5);
-                        if(CheackIfFinish()){
-                            if(CheakIfNewChamp(Integer.valueOf(Total_Score.getText().toString()))){
-                                Intent intent = new Intent(YatzeePlayScreen.this,YatzeeEndGameTopPlayer.class);
-                                intent.putExtra(FINAL_SCORE,Total_Score.getText().toString());
+                        if (CheckIfFinish()) {
+                            if (CheckIfNewChamp(Integer.valueOf(Total_Score.getText().toString()))) {
+                                Intent intent = new Intent(YatzeePlayScreen.this, YatzeeEndGameTopPlayer.class);
+                                intent.putExtra(FINAL_SCORE, Total_Score.getText().toString());
                                 startActivity(intent);
                                 finish();
-                            }
-                            else {
-                                Intent intent = new Intent(YatzeePlayScreen.this,YatzeeEndGame.class);
-                                intent.putExtra(FINAL_SCORE,Total_Score.getText().toString());
+                            } else {
+                                Intent intent = new Intent(YatzeePlayScreen.this, YatzeeEndGame.class);
+                                intent.putExtra(FINAL_SCORE, Total_Score.getText().toString());
                                 startActivity(intent);
                                 finish();
                             }
@@ -638,16 +626,15 @@ public class YatzeePlayScreen extends Activity {
                         }
                         Num_Of_Roll.setText("3");
                         ResetDice(Dice_1, Dice_2, Dice_3, Dice_4, Dice_5);
-                        if(CheackIfFinish()){
-                            if(CheakIfNewChamp(Integer.valueOf(Total_Score.getText().toString()))){
-                                Intent intent = new Intent(YatzeePlayScreen.this,YatzeeEndGameTopPlayer.class);
-                                intent.putExtra(FINAL_SCORE,Total_Score.getText().toString());
+                        if (CheckIfFinish()) {
+                            if (CheckIfNewChamp(Integer.valueOf(Total_Score.getText().toString()))) {
+                                Intent intent = new Intent(YatzeePlayScreen.this, YatzeeEndGameTopPlayer.class);
+                                intent.putExtra(FINAL_SCORE, Total_Score.getText().toString());
                                 startActivity(intent);
                                 finish();
-                            }
-                            else {
-                                Intent intent = new Intent(YatzeePlayScreen.this,YatzeeEndGame.class);
-                                intent.putExtra(FINAL_SCORE,Total_Score.getText().toString());
+                            } else {
+                                Intent intent = new Intent(YatzeePlayScreen.this, YatzeeEndGame.class);
+                                intent.putExtra(FINAL_SCORE, Total_Score.getText().toString());
                                 startActivity(intent);
                                 finish();
                             }
@@ -680,16 +667,15 @@ public class YatzeePlayScreen extends Activity {
 
                         Num_Of_Roll.setText("3");
                         ResetDice(Dice_1, Dice_2, Dice_3, Dice_4, Dice_5);
-                        if(CheackIfFinish()){
-                            if(CheakIfNewChamp(Integer.valueOf(Total_Score.getText().toString()))){
-                                Intent intent = new Intent(YatzeePlayScreen.this,YatzeeEndGameTopPlayer.class);
-                                intent.putExtra(FINAL_SCORE,Total_Score.getText().toString());
+                        if (CheckIfFinish()) {
+                            if (CheckIfNewChamp(Integer.valueOf(Total_Score.getText().toString()))) {
+                                Intent intent = new Intent(YatzeePlayScreen.this, YatzeeEndGameTopPlayer.class);
+                                intent.putExtra(FINAL_SCORE, Total_Score.getText().toString());
                                 startActivity(intent);
                                 finish();
-                            }
-                            else {
-                                Intent intent = new Intent(YatzeePlayScreen.this,YatzeeEndGame.class);
-                                intent.putExtra(FINAL_SCORE,Total_Score.getText().toString());
+                            } else {
+                                Intent intent = new Intent(YatzeePlayScreen.this, YatzeeEndGame.class);
+                                intent.putExtra(FINAL_SCORE, Total_Score.getText().toString());
                                 startActivity(intent);
                                 finish();
                             }
@@ -708,9 +694,9 @@ public class YatzeePlayScreen extends Activity {
             public void onClick(View view) {
                 if (!Sounds.getIsMute()) buttonClickSound.start();
                 if (IsMark[0]) {
-                    ChangeDiceWhite(Dice_1,Dices[0]);
+                    ChangeDiceWhite(Dice_1, Dices[0]);
                 } else {
-                    ChangeDiceRed(Dice_1,Dices[0]);
+                    ChangeDiceRed(Dice_1, Dices[0]);
                 }
                 IsMark[0] = !(IsMark[0]);
             }
@@ -720,9 +706,9 @@ public class YatzeePlayScreen extends Activity {
             public void onClick(View view) {
                 if (!Sounds.getIsMute()) buttonClickSound.start();
                 if (IsMark[1]) {
-                    ChangeDiceWhite(Dice_2,Dices[1]);
+                    ChangeDiceWhite(Dice_2, Dices[1]);
                 } else {
-                    ChangeDiceRed(Dice_2,Dices[1]);
+                    ChangeDiceRed(Dice_2, Dices[1]);
                 }
                 IsMark[1] = !(IsMark[1]);
             }
@@ -732,9 +718,9 @@ public class YatzeePlayScreen extends Activity {
             public void onClick(View view) {
                 if (!Sounds.getIsMute()) buttonClickSound.start();
                 if (IsMark[2]) {
-                    ChangeDiceWhite(Dice_3,Dices[2]);
+                    ChangeDiceWhite(Dice_3, Dices[2]);
                 } else {
-                    ChangeDiceRed(Dice_3,Dices[2]);
+                    ChangeDiceRed(Dice_3, Dices[2]);
                 }
 
                 IsMark[2] = !(IsMark[2]);
@@ -745,9 +731,9 @@ public class YatzeePlayScreen extends Activity {
             public void onClick(View view) {
                 if (!Sounds.getIsMute()) buttonClickSound.start();
                 if (IsMark[3]) {
-                    ChangeDiceWhite(Dice_4,Dices[3]);
+                    ChangeDiceWhite(Dice_4, Dices[3]);
                 } else {
-                    ChangeDiceRed(Dice_4,Dices[3]);
+                    ChangeDiceRed(Dice_4, Dices[3]);
                 }
                 IsMark[3] = !(IsMark[3]);
             }
@@ -757,9 +743,9 @@ public class YatzeePlayScreen extends Activity {
             public void onClick(View view) {
                 if (!Sounds.getIsMute()) buttonClickSound.start();
                 if (IsMark[4]) {
-                    ChangeDiceWhite(Dice_5,Dices[4]);
+                    ChangeDiceWhite(Dice_5, Dices[4]);
                 } else {
-                    ChangeDiceRed(Dice_5,Dices[4]);
+                    ChangeDiceRed(Dice_5, Dices[4]);
                 }
                 IsMark[4] = !(IsMark[4]);
             }
@@ -779,7 +765,7 @@ public class YatzeePlayScreen extends Activity {
         });
     }
 
-    static  void RollTheDIce(ImageButton Dice_To_Roll,int NumOfDice){
+    static void RollTheDIce(ImageButton Dice_To_Roll, int NumOfDice) {
         switch (NumOfDice) {
             case 1:
                 Dice_To_Roll.setImageResource(R.drawable.diceone);
@@ -802,7 +788,7 @@ public class YatzeePlayScreen extends Activity {
         }
     }
 
-    public void ChangeDiceWhite(ImageButton DiceToChange,int NumOfDice){
+    public void ChangeDiceWhite(ImageButton DiceToChange, int NumOfDice) {
         switch (NumOfDice) {
             case 1:
                 DiceToChange.setImageResource(R.drawable.diceone);
@@ -825,7 +811,7 @@ public class YatzeePlayScreen extends Activity {
         }
     }
 
-    public void ChangeDiceRed(ImageButton DiceToChange,int NumOfDice){
+    public void ChangeDiceRed(ImageButton DiceToChange, int NumOfDice) {
         switch (NumOfDice) {
             case 1:
                 DiceToChange.setImageResource(R.drawable.diceonered);
@@ -875,15 +861,15 @@ public class YatzeePlayScreen extends Activity {
         }
     }
 
-    //cheack end game after all 13 category are cheak
-    public boolean CheackIfFinish() {
+    //Check end game after all 13 category are check
+    public boolean CheckIfFinish() {
         for (int i = 0; i < 13; i++) {
             if (ScorePlaced[i] == false) return false;
         }
         return true;
     }
 
-    public boolean CheakIfNewChamp(int Total_Score) {
+    public boolean CheckIfNewChamp(int Total_Score) {
         SharedPreferences sp = getSharedPreferences("details", MODE_PRIVATE);
         String score = sp.getString("high_score", "");
         int topscore;
@@ -899,8 +885,8 @@ public class YatzeePlayScreen extends Activity {
         }
     }
 
-    public boolean oktosave (int numoftries){
-        if(numoftries<3) return true;
+    public boolean oktosave(int numoftries) {
+        if (numoftries < 3) return true;
         return false;
     }
 

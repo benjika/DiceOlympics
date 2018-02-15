@@ -39,8 +39,8 @@ public class PigdiceGame extends AppCompatActivity {
 
     static ImageView dice;
 
-    String[] NamesArr;
-    int[] Scores;
+    String[] NamesArr; //Gets names from previous screen
+    int[] Scores;      //Gets Scores from previous screen
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -105,15 +105,18 @@ public class PigdiceGame extends AppCompatActivity {
                     sum += Integer.parseInt(totalScorePlayer1.getText().toString());
                     totalScorePlayer1.setText(String.valueOf(sum));
 
+                    //If Player 1 has >=100 the game ends and player 1 is the winner
                     if (sum >= 100) weHaveWinner(0);
                     else endTurn(currentScorePlayer1);
 
                 } else {
 
+
                     sum = Integer.parseInt(currentScorePlayer2.getText().toString());
                     sum += Integer.parseInt(totalScorePlayer2.getText().toString());
                     totalScorePlayer2.setText(String.valueOf(sum));
 
+                    //If Player 2 has >=100 the game ends and player 2 is the winner
                     if (sum >= 100) weHaveWinner(1);
                     else endTurn(currentScorePlayer2);
                 }
@@ -190,6 +193,7 @@ public class PigdiceGame extends AppCompatActivity {
         }
     }
 
+    //Ends Turn
     static void endTurn(TextView currentScore) {
 
         currentScore.setText("0");
@@ -198,9 +202,8 @@ public class PigdiceGame extends AppCompatActivity {
         turnArrow();
     }
 
-    void weHaveWinner(int nameIndex)
-    //ends game
-    {
+    //Ends game
+    void weHaveWinner(int nameIndex) {
 
         Scores[nameIndex]++; //adds a point to the winner
 
