@@ -33,9 +33,8 @@ public class AppEntrance extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (!Sounds.getIsMute()) buttonClickSound.start();
-                /*Intent intent = new Intent(AppEntrance.this, NewGameActivity .class);
-                startActivity(intent);*/
-                Toast.makeText(AppEntrance.this, "Will work", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(AppEntrance.this, YatzeeEntrance.class);
+                startActivity(intent);
             }
         });
 

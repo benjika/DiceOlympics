@@ -1,0 +1,585 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60sp"
+        android:orientation="horizontal"
+        android:layout_weight="1"
+        android:background="@color/colorPrimary"
+        >
+
+        <ImageButton
+            android:id="@+id/yatzee_play_screen_btn_mute"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_gravity="center"
+            android:layout_marginStart="10dp"
+            android:background="@color/colorPrimary"
+            android:contentDescription="@string/MuteUnMuteButton"
+            android:src="@drawable/unmute" />
+
+        <Button
+            android:layout_width="100sp"
+            android:layout_height="35sp"
+            android:background="@drawable/button_bg_round"
+            android:text="@string/Back"
+            android:layout_gravity="center"
+            android:textColor="@color/colorAccent"
+            android:layout_marginStart="10sp"
+            android:id="@+id/Yatzee_Play_Screen_Back_BTN"
+            />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="10"
+        android:background="@color/colorPrimary">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TableRow android:background="@color/colorAccent">
+
+                    <TextView android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:text="@string/Low_Score"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="20sp"
+                        />
+
+                    <TextView android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:text="@string/Zero"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="20sp"
+                        android:id="@+id/LowScoreTotal"
+                        />
+
+                </TableRow>
+
+                <TableRow android:layout_margin="5sp"
+                    >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/Aces"
+                        android:textSize="20sp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:textColor="@color/colorAccent"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="20sp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:id="@+id/AcesScore"
+                        android:text="@string/Zero"
+                        android:textColor="@color/colorAccent"
+                        android:clickable="true"
+                       />
+
+                </TableRow>
+
+                <View android:layout_height="2dip" android:background="#FF0000" />
+
+                <TableRow android:layout_margin="5sp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/Twos"
+                        android:textSize="20sp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:textColor="@color/colorAccent"/>
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/Zero"
+                        android:textSize="20sp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:id="@+id/TwosScore"
+                        android:textColor="@color/colorAccent"
+                        android:clickable="true"
+                        />
+
+                </TableRow>
+
+                <View android:layout_height="2dip" android:background="#FF0000" />
+
+                <TableRow android:layout_margin="5sp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/Threes"
+                        android:textSize="20sp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:textColor="@color/colorAccent"/>
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/Zero"
+                        android:textSize="20sp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:id="@+id/ThreesScore"
+                        android:textColor="@color/colorAccent"
+                        android:clickable="true"
+                        />
+
+                </TableRow>
+
+                <View android:layout_height="2dip" android:background="#FF0000" />
+
+                <TableRow android:layout_margin="5sp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/Fours"
+                        android:textSize="20sp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:textColor="@color/colorAccent"/>
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/Zero"
+                        android:textSize="20sp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:id="@+id/FoursScore"
+                        android:textColor="@color/colorAccent"
+                        android:clickable="true"
+                        />
+
+                </TableRow>
+
+                <View android:layout_height="2dip" android:background="#FF0000" />
+
+                <TableRow android:layout_margin="5sp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/fives"
+                        android:textSize="20sp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:textColor="@color/colorAccent"/>
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/Zero"
+                        android:textSize="20sp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:id="@+id/FivesScore"
+                        android:textColor="@color/colorAccent"
+                        android:clickable="true"
+                       />
+
+                </TableRow>
+
+                <View android:layout_height="2dip" android:background="#FF0000" />
+
+                <TableRow android:layout_margin="5sp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/sixs"
+                        android:textSize="20sp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:textColor="@color/colorAccent"/>
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/Zero"
+                        android:textSize="20sp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:id="@+id/SixsScore"
+                        android:textColor="@color/colorAccent"
+                        android:clickable="true"
+                        />
+
+                </TableRow>
+
+
+
+                <TableRow android:background="@color/colorAccent">
+
+                    <TextView android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:text="@string/High_Score"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="20sp"
+                        />
+
+                    <TextView android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:text="@string/Zero"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="20sp"
+                        android:id="@+id/HighScoreTotal"
+                        />
+
+
+                </TableRow>
+
+                <TableRow android:layout_margin="5sp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/Three_Of_A_Kind"
+                        android:textSize="20sp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:textColor="@color/colorAccent"/>
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/Zero"
+                        android:textSize="20sp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:id="@+id/ThreeOfAKindScore"
+                        android:textColor="@color/colorAccent"
+                        android:clickable="true"/>
+
+                </TableRow>
+
+                <View android:layout_height="2dip" android:background="#FF0000" />
+
+                <TableRow android:layout_margin="5sp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/Four_Of_A_Kind"
+                        android:textSize="20sp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:textColor="@color/colorAccent"/>
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/Zero"
+                        android:textSize="20sp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:id="@+id/FourOfAKindScore"
+                        android:textColor="@color/colorAccent"
+                        android:clickable="true"                    />
+
+                </TableRow>
+
+                <View android:layout_height="2dip" android:background="#FF0000" />
+
+                <TableRow android:layout_margin="5sp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/Full_House"
+                        android:textSize="20sp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:textColor="@color/colorAccent"/>
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/Zero"
+                        android:textSize="20sp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:id="@+id/FullHousScore"
+                        android:textColor="@color/colorAccent"
+                        android:clickable="true"
+                        />
+
+                </TableRow>
+
+                <View android:layout_height="2dip" android:background="#FF0000" />
+
+                <TableRow android:layout_margin="5sp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/Small_Straight"
+                        android:textSize="20sp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:textColor="@color/colorAccent"/>
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/Zero"
+                        android:textSize="20sp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:id="@+id/SmallStraightScore"
+                        android:textColor="@color/colorAccent"
+                        android:clickable="true"
+                        />
+
+                </TableRow>
+
+                <View android:layout_height="2dip" android:background="#FF0000" />
+
+                <TableRow android:layout_margin="5sp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/Large_Straight"
+                        android:textSize="20sp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:textColor="@color/colorAccent"/>
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/Zero"
+                        android:textSize="20sp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:id="@+id/LargeStraightScore"
+                        android:textColor="@color/colorAccent"
+                        android:clickable="true"
+                        />
+
+                </TableRow>
+
+                <View android:layout_height="2dip" android:background="#FF0000" />
+
+                <TableRow android:layout_margin="5sp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/Yatzee"
+                        android:textSize="20sp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:textColor="@color/colorAccent"/>
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/Zero"
+                        android:textSize="20sp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:id="@+id/YatzeeScore"
+                        android:textColor="@color/colorAccent"
+                        android:clickable="true"
+                        />
+
+                </TableRow>
+
+                <View android:layout_height="2dip" android:background="#FF0000" />
+
+                <TableRow android:layout_margin="5sp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/Chance"
+                        android:textSize="20sp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:textColor="@color/colorAccent"/>
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/Zero"
+                        android:textSize="20sp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:id="@+id/ChanceScore"
+                        android:textColor="@color/colorAccent"
+                        android:clickable="true"
+                        />
+
+
+                </TableRow>
+
+                <TableRow android:background="@color/colorPrimaryDark">
+
+                    <TextView android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:text="@string/Total_Score"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="20sp"
+                        />
+
+                    <TextView android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:text="@string/Zero"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="20sp"
+                        android:id="@+id/TotalScore"
+                        />
+
+
+                </TableRow>
+
+            </TableLayout>
+
+
+        </LinearLayout>
+
+    </ScrollView>
+    <View android:layout_height="2dip" android:layout_width="match_parent" android:background="#FF0000" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="120sp"
+        android:orientation="vertical"
+        android:layout_weight="1"
+        android:background="@color/colorPrimary"
+        >
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_weight="1"
+            android:padding="5sp">
+
+            <ImageButton
+                android:layout_width="50sp"
+                android:layout_height="65sp"
+                android:src="@drawable/diceone"
+                android:scaleType="centerInside"
+                android:padding="2sp"
+                android:background="@color/colorPrimary"
+                android:id="@+id/Yatzee_Dice_Num_One"
+                android:layout_weight="1"/>
+
+            <ImageButton
+                android:layout_width="50sp"
+                android:layout_height="65sp"
+                android:src="@drawable/diceone"
+                android:scaleType="fitXY"
+                android:padding="2sp"
+                android:background="@color/colorPrimary"
+                android:id="@+id/Yatzee_Dice_Num_Two"
+                android:layout_marginStart="5sp"
+                android:layout_weight="1"/>
+
+            <ImageButton
+                android:layout_width="50sp"
+                android:layout_height="65sp"
+                android:src="@drawable/diceone"
+                android:scaleType="fitXY"
+                android:padding="2sp"
+                android:background="@color/colorPrimary"
+                android:layout_marginStart="5sp"
+                android:layout_weight="1"
+                android:id="@+id/Yatzee_Dice_Num_Three"/>
+
+            <ImageButton
+                android:layout_width="50sp"
+                android:layout_marginStart="5sp"
+                android:layout_height="65sp"
+                android:src="@drawable/diceone"
+                android:scaleType="fitXY"
+                android:padding="2sp"
+                android:background="@color/colorPrimary"
+                android:layout_weight="1"
+                android:id="@+id/Yatzee_Dice_Num_Four"/>
+
+            <ImageButton
+                android:layout_width="50sp"
+                android:layout_marginStart="5sp"
+                android:layout_height="65sp"
+                android:src="@drawable/diceone"
+                android:scaleType="fitXY"
+                android:padding="2sp"
+                android:background="@color/colorPrimary"
+                android:layout_weight="1"
+                android:id="@+id/Yatzee_Dice_Num_Five"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_weight="1"
+            android:gravity="center"
+            >
+
+            <Button
+                android:layout_width="110sp"
+                android:layout_height="30sp"
+                android:background="@drawable/button_bg_round"
+                android:text="@string/RollDice"
+                android:id="@+id/Yatzee_Play_Screen_Roll_Dice_BTN"
+                android:textColor="@color/colorAccent"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/NumOfRoll"
+                android:text="3"
+                android:layout_marginStart="5sp"
+                android:textSize="20sp"
+                android:textColor="@color/colorAccent"
+                />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

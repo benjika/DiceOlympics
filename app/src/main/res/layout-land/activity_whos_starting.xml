@@ -70,7 +70,7 @@
                 android:layout_marginBottom="60dp"
                 android:gravity="center"
                 android:hint="player one"
-                android:textColor="@color/colorPrimaryDark"
+                android:textColor="@color/colorPrimary"
                 android:textSize="30sp" />
 
             <ImageView

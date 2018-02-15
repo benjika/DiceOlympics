@@ -16,25 +16,62 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".AppEntrance" />
-        <activity android:name=".InputNames" />
-        <activity android:name=".ChooseGame" />
-        <activity android:name=".PigdiceEntrance" />
-        <activity android:name=".MidnightEntrance" />
-        <activity android:name=".PigdiceInstructions" />
+        <activity
+            android:name=".AppEntrance"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".InputNames"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ChooseGame"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".PigdiceEntrance"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".MidnightEntrance"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".PigdiceInstructions"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".PigdiceGame"
             android:screenOrientation="landscape" />
         <activity
             android:name=".WinnerScreen"
             android:screenOrientation="landscape" />
-        <activity android:name=".MidnightInstructions" />
+        <activity
+            android:name=".MidnightInstructions"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".MidnightGame"
             android:screenOrientation="landscape" />
         <activity
             android:name=".WhosStarting"
             android:screenOrientation="landscape"></activity>
+        <activity
+            android:name=".YatzeeInstructions"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".YatzeeTopPlayer"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".YatzeeEndGame"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".YatzeeEndGameTopPlayer"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".YatzeeEntrance"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".YatzeePlayScreen"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

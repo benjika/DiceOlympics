@@ -47,7 +47,7 @@ public class PigdiceGame extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pigdice_game);
 
-        playerTurn = (int) (Math.random() * 2 + 1);
+        playerTurn = getIntent().getIntExtra("playerToBegin", -1);
 
         NamesArr = getIntent().getStringArrayExtra("NameArr");
         Scores = getIntent().getIntArrayExtra("ScoresArr");

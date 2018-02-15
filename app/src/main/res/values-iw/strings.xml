@@ -103,4 +103,46 @@
     <string name="noDiceWereChosen">עליך לבחור קוביות לפני ההטלה</string>
     <string name="RollDice">גלגל את הקוביות</string>
 
+    [09:55, 2/15/2018] טל לופו היט: <!--Yahtzee game-->
+    <string name="Low_Score">ניקוד תחתון</string>
+    <string name="High_Score">ניקוד עליון</string>
+    <string name="Aces">אסים</string>
+    <string name="Twos">2 בקוביה</string>
+    <string name="Threes">3 בקוביה</string>
+    <string name="Fours">4 בקוביה</string>
+    <string name="fives">5 בקוביה</string>
+    <string name="Three_Of_A_Kind">שלוש מאותו הסוג</string>
+    <string name="Four_Of_A_Kind">ארבע מאותו הסוג</string>
+    <string name="Full_House">בית מלא</string>
+    <string name="Small_Straight">רצף קטן</string>
+    <string name="Large_Straight">רצף גדול</string>
+    <string name="Yatzee">יאטצ\'י</string>
+    <string name="Chance">סיכוי</string>
+    <string name="sixs">6 בקוביה</string>
+    <string name="Top_Player">שחקן המוביל</string>
+    <string name="withscore">עם הניקוד</string>
+    <string name="Total_Score">ניקוד כולל</string>
+    <string name="Your_Score">הניקוד הסופי שלך הוא</string>
+    <string name="Your_the_best">קבעת שיא חדש</string>
+    <string name="Cant_Roll">אי אפשר לגלג קוביות, בחר קטגוריה לשמירת היקוד</string>
+    <string name="Cant_Choose">לא ניתן לבחור את הקטגוריה הזאת</string>
+    <string name="Enter_New_Champ_Name">הכנס את שמך</string>
+    <string name="Save">שמור</string>
+    <string name="IllegalInputForChamp">הכנס שם חוקי</string>
+    <string name="Saved">נשמר</string>
+    <string name="MustThrow">חובה להטיל לפחות פעם אחת</string>
+
+    <!--Yahtzee insructions-->
+    <string name="yatzee_goal">מטרה</string>
+    <string name="yatzee_goal_content">מטרת המשחק היא לצבור את הניקוד הכי גבוהה שאפשר ע\"י זריקה של 5 קוביות המשחק כולל 13 סיבובים  כל סיבוב אפשר לזרוק עד 3 פעמים לצבור את הנקודות באחד מתוך 13 קטגוריות המשחק מסתיים כאשר כל 13 הקטגוריות מלאות</string>
+    <string name="yatzee_Game_start_headline">התחלת המשחק</string>
+    <string name="yatzee_Game_Start">כדי להתחיל זרוק את הקוביות אחרי הזריקה אתה יכול או לזרוק שוב או לשמור את הניקוד באחד הקטגוריות שקיימים אפשר לזרוק את הקובייה עד 3 פעמים לאחר 3 פעמים חייבים לבחור קטגוריה לשמירה לפני שממשיכים לסיבוב הבא</string>
+    <string name="yatzee_Scoring_headline">ניקוד</string>
+    <string name="yatzee_Scoring">לאחר שבחרתם שאתם רוצים לשמור את הניקוד שלכם עליכם לבחור בין 13 בקטגוריות שאפשר לשמור ניקוד באחד מתוך 13 הקטגוריות לאחר ששומרים ניקוד באחד מהמקומות אין אפשרות לבחור לשמור שוב באותו מקום עד סוף המשחק (למעט ביאטצ\'י)</string>
+    <string name="yatzee_Upper_Section_Scoring_headline">חלק ניקוד עליון</string>
+    <string name="yatzee_Upper_Section_Scoring">הניקוד בחלק הזה נבחר על ידי מספר הקוביה זאת אומרת שאם יצא לכם הטלה עם 5-3-2-5-5 ובחרתם לשמור בקטגוריה של 5 אז אתם תקבלו ניקוד שווה ערך לסכום הפעמים שמופיע 5 במקרה זה 5*3 = 15 אם נבחרה קטגוריה שלא תואמת לשום צורת ניקוד אז מקבלים 0</string>
+    <string name="yatzee_Lower_Section_Scoring_headline">חלק ניקוד תחתון</string>
+    <string name="yatzee_Lower_Section_Scoring">בחלק זה הניקוד שמקבלים הוא קבוע עבור 3 מאותו הסוג או 4 מאותו הסוג מקבלים  את סכום כל הנקודות עבור רצף קטן (רצף של 4 ) מקבלים 30 נקודות ובעוד עבור רצף גדול (רצף של 5) מקבלים 40 נקודות  בית מלא - הוא מצב שבו יש לך 3 מאותו הסוג ושתיים מאותו הסוג במקביל עבור רצף מסוג בית מלא מקבלים 25 נקודות יאטצ\'י הוא רצף של 5 קוביות עם אותו המספר עבור יאטצ\'י בפעם הראשונה מקבלים  50 נקודות במצב שבו קיבלתם יאטצי כבר יש אפשרות לקבל100 נקודות בונוס בקטגוריה של הסיכוי אפשר לשים תמיד והניקוד שמתקבל הוא הסכום של הקוביות שימו לב שאפשר להשתמש בזה רק פעם אחת</string>
+    <string name="yatzee_Dump_Score_headline">ניקוד סרק</string>
+    <string name="yatzee_Dump_Score">בכל אחת מההטלות אם לא יהיה לכם רצף מספיק גדול או כמות מספקת של קוביות תוכלו לשמור בכל אחת מהקטגוריות ולקבל ניקוד 0</string>
 </resources>

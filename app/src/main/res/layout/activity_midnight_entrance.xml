@@ -29,9 +29,9 @@
         <!--Midnight's logo-->
         <ImageView
             android:id="@+id/midnight_Entrance_image"
-            android:layout_width="300dp"
+            android:layout_width="match_parent"
             android:layout_height="250dp"
-            android:src="@drawable/piggamered" />
+            android:src="@drawable/midnight" />
 
         <!--Button start midnight game-->
         <Button

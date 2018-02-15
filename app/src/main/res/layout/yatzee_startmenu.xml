@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@color/colorPrimary">
+
+    <ImageButton
+        android:id="@+id/app_btn_mute"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_gravity="center"
+        android:layout_marginStart="10dp"
+        android:background="@color/colorPrimary"
+        android:contentDescription="@string/MuteUnMuteButton"
+        android:src="@drawable/unmute" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="100sp"
+        android:src="@drawable/yahtzee_logo"
+        android:layout_margin="10sp"
+        android:id="@+id/logo"
+        android:layout_below="@id/app_btn_mute"/>
+
+    <Button
+        android:layout_width="200sp"
+        android:layout_height="50sp"
+        android:text="@string/Start"
+        android:textColor="@color/colorAccent"
+        android:layout_below="@id/logo"
+        android:background="@drawable/button_bg_round"
+        android:id="@+id/YatzeeStartGameBTN"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="70sp"/>
+
+    <Button
+        android:layout_width="200sp"
+        android:layout_height="50sp"
+        android:text="@string/Instructions"
+        android:textColor="@color/colorAccent"
+        android:layout_below="@id/YatzeeStartGameBTN"
+        android:background="@drawable/button_bg_round"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20sp"
+        android:id="@+id/YatzeeInstructionsBTN"/>
+
+    <Button
+        android:layout_width="200sp"
+        android:layout_height="50sp"
+        android:text="@string/Top_Player"
+        android:textColor="@color/colorAccent"
+        android:layout_below="@id/YatzeeInstructionsBTN"
+        android:background="@drawable/button_bg_round"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20sp"
+        android:id="@+id/YatzeeTopPlayerBTN"/>
+
+    <Button
+        android:layout_width="200sp"
+        android:layout_height="50sp"
+        android:text="@string/Back"
+        android:textColor="@color/colorAccent"
+        android:layout_below="@id/YatzeeTopPlayerBTN"
+        android:background="@drawable/button_bg_round"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20sp"
+        android:id="@+id/YatzeeBackBTN"/>
+
+
+
+
+
+
+</RelativeLayout>

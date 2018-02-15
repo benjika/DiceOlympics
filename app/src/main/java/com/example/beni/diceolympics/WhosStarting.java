@@ -3,6 +3,7 @@ package com.example.beni.diceolympics;
 import android.content.Intent;
 import android.hardware.SensorManager;
 import android.media.MediaPlayer;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.KeyEvent;
@@ -39,6 +40,9 @@ public class WhosStarting extends AppCompatActivity {
     static ImageView dice1;
     static ImageView dice2;
 
+    static boolean was1;
+    static boolean was2;
+
     static int playerToBegin;
 
     @Override
@@ -60,6 +64,8 @@ public class WhosStarting extends AppCompatActivity {
         changeArrowTo2 = AnimationUtils.loadAnimation(WhosStarting.this, R.anim.arrowflipto2);
         buttonClickSound = MediaPlayer.create(WhosStarting.this, R.raw.buttonpress);
         playerTurn = 1;
+
+        arrow.startAnimation(changeArrowTo1);
 
         //Activate Shaker
         shakeManager = (SensorManager) getSystemService(SENSOR_SERVICE);
@@ -88,6 +94,8 @@ public class WhosStarting extends AppCompatActivity {
             public void onClick(View v) {
                 if (!Sounds.getIsMute()) buttonClickSound.start();
 
+                shakeManager.unregisterListener(Shaker.sensorListener); //stops physical shake
+
                 Intent intent;
                 if (GameToPlay.equals("Pigdice"))
                     intent = new Intent(WhosStarting.this, PigdiceGame.class);
@@ -111,24 +119,52 @@ public class WhosStarting extends AppCompatActivity {
         if (playerTurn == 1) {
             player1Score = GameFunctions.rollDice("Who's Starting", dice1);
             playerTurn++;
-            changeArrowTo1.start();
+            arrow.startAnimation(changeArrowTo2);
             arrowTurn.start();
+
         } else {
+
+            RollDice.setVisibility(View.INVISIBLE);
             player2Score = GameFunctions.rollDice("Who's Starting", dice2);
             if (player1Score > player2Score) {
                 playerToBegin = 1;
+                Handler delayer = new Handler();
+                delayer.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+
+                        StartTheGame.setVisibility(View.VISIBLE);
+                        return;
+                    }
+                }, 700);
             } else if (player1Score < player2Score) {
                 playerToBegin = 2;
+                Handler delayer = new Handler();
+                delayer.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+
+                        StartTheGame.setVisibility(View.VISIBLE);
+                        return;
+                    }
+                }, 700);
             } else {
                 playerTurn = 1;
-                changeArrowTo1.start();
+                arrow.startAnimation(changeArrowTo1);
                 arrowTurn.start();
                 dice1.setImageResource(R.drawable.diceempty);
                 dice2.setImageResource(R.drawable.diceempty);
-                return;
+                Handler delayer = new Handler();
+                delayer.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+
+                        RollDice.setVisibility(View.VISIBLE);
+                        return;
+                    }
+                }, 700);
             }
-            RollDice.setVisibility(View.INVISIBLE);
-            StartTheGame.setVisibility(View.VISIBLE);
+
 
         }
 
@@ -139,6 +175,8 @@ public class WhosStarting extends AppCompatActivity {
         if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
 
             if (!Sounds.getIsMute()) buttonClickSound.start();
+
+            shakeManager.unregisterListener(Shaker.sensorListener); //stops physical shake
             final Intent intent;
             if (GameToPlay.equals("Pigdice"))
                 intent = new Intent(WhosStarting.this, PigdiceEntrance.class);

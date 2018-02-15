@@ -9,15 +9,15 @@
     tools:context="com.example.beni.diceolympics.PigdiceEntrance">
 
     <ImageButton
-        android:contentDescription="@string/MuteUnMuteButton"
         android:id="@+id/Pigdice_entrance_btn_mute"
         android:layout_width="35dp"
         android:layout_height="35dp"
+        android:layout_gravity="start"
+        android:layout_marginBottom="10dp"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
-        android:layout_gravity="start"
         android:background="@color/colorPrimary"
+        android:contentDescription="@string/MuteUnMuteButton"
         android:src="@drawable/unmute" />
 
 
@@ -29,9 +29,11 @@
 
         <ImageView
             android:id="@+id/imageLanding"
-            android:layout_width="300dp"
+            android:layout_width="match_parent"
             android:layout_height="250dp"
-            android:src="@drawable/piggamered" />
+            android:paddingLeft="20sp"
+            android:paddingRight="20sp"
+            android:src="@drawable/piggamelogo2" />
 
         <Button
             android:id="@+id/pigdice_btn_Start"

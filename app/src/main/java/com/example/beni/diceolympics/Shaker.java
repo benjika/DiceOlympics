@@ -48,9 +48,9 @@ public class Shaker {
                 canShake = false;
                 countDown();
                 if (NameOfGame.equals("Pigdice")) PigdiceGame.UniversalShake();
-                else if (NameOfGame.equals("Midnight")) MidnightGame.UltimateShake();
+                else if (NameOfGame.equals("Midnight")) MidnightGame.UniversalShake();
                 else if (NameOfGame.equals("Who's Starting")) WhosStarting.UniversalShake();
-
+                else YatzeePlayScreen.UniversalShake();
             }
         }
 

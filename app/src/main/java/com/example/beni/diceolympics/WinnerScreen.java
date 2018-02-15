@@ -93,11 +93,11 @@ public class WinnerScreen extends AppCompatActivity {
             public void onClick(View view) {
                 if (!Sounds.getIsMute()) buttonClickSound.start();
 
-                final Intent intent;
+                final Intent intent = new Intent(WinnerScreen.this, WhosStarting.class);
                 if (GameToReplay.equals("Pigdice")) {
-                    intent = new Intent(WinnerScreen.this, PigdiceGame.class);
+                    intent.putExtra("GameToPlay", "Pigdice");
                 } else {
-                    intent = new Intent(WinnerScreen.this, MidnightGame.class);
+                    intent.putExtra("GameToPlay", "Midnight");
                 }
                 intent.putExtra("NameArr", getNamesArr);
                 intent.putExtra("ScoresArr", getScores);
@@ -151,9 +151,9 @@ public class WinnerScreen extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (!Sounds.getIsMute()) buttonClickSound.start();
-                /*final Intent intent = new Intent(WinnerScreen.this, NewGameClass.class);
+                final Intent intent = new Intent(WinnerScreen.this, YatzeeEntrance.class);
                 startActivity(intent);
-                finish();*/
+                finish();
                 Toast.makeText(WinnerScreen.this, "Will Work", Toast.LENGTH_SHORT).show();
             }
         });

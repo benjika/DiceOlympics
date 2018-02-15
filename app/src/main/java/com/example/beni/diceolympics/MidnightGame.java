@@ -1,7 +1,6 @@
 package com.example.beni.diceolympics;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.hardware.SensorManager;
 import android.media.MediaPlayer;
@@ -26,13 +25,8 @@ public class MidnightGame extends AppCompatActivity {
 
     SensorManager shakeManager; //Activates dice shaker
 
-    int playerTurn = (int) Math.random() * 2 + 1;
+    int playerTurn;
 
-    boolean player1played = false;
-    boolean player2played = false;
-
-    boolean was4 = false;
-    boolean was1 = false;
 
     static LinearLayout setOfDiceBoard0;
     static LinearLayout setOfDiceBoard1;
@@ -58,7 +52,13 @@ public class MidnightGame extends AppCompatActivity {
     Animation changeArrowTo1;
     Animation changeArrowTo2;
 
-    static boolean isFirstShake = true;
+    static boolean isFirstShake;
+
+    boolean player1played = false;
+    boolean player2played = false;
+
+    boolean was4 = false;
+    boolean was1 = false;
 
     static int[] diceValues = {0, 0, 0, 0, 0, 0};
 
@@ -100,6 +100,8 @@ public class MidnightGame extends AppCompatActivity {
 
         thisActivity = this;
 
+        final MediaPlayer slideDice = MediaPlayer.create(this, R.raw.slide);
+
         getInfoFromExtras();
         InitializeDiceAndButtons();
 
@@ -121,6 +123,7 @@ public class MidnightGame extends AppCompatActivity {
         firstDice_Board.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (!Sounds.getIsMute()) slideDice.start();
                 setDice_InAndOut_OfBank(diceBoard[0], diceBank[0], diceValues[0], 0);
                 diceCountCurr--;
                 if (diceCountCurr == 0) noMoreDice();
@@ -130,6 +133,7 @@ public class MidnightGame extends AppCompatActivity {
         secondDice_Board.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (!Sounds.getIsMute()) slideDice.start();
                 setDice_InAndOut_OfBank(diceBoard[1], diceBank[1], diceValues[1], 1);
                 diceCountCurr--;
                 if (diceCountCurr == 0) noMoreDice();
@@ -139,6 +143,7 @@ public class MidnightGame extends AppCompatActivity {
         thirdDice_Board.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (!Sounds.getIsMute()) slideDice.start();
                 setDice_InAndOut_OfBank(diceBoard[2], diceBank[2], diceValues[2], 2);
                 diceCountCurr--;
                 if (diceCountCurr == 0) noMoreDice();
@@ -148,6 +153,7 @@ public class MidnightGame extends AppCompatActivity {
         fourthDice_Board.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (!Sounds.getIsMute()) slideDice.start();
                 setDice_InAndOut_OfBank(diceBoard[3], diceBank[3], diceValues[3], 3);
                 diceCountCurr--;
                 if (diceCountCurr == 0) noMoreDice();
@@ -157,6 +163,7 @@ public class MidnightGame extends AppCompatActivity {
         fifthDice_Board.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (!Sounds.getIsMute()) slideDice.start();
                 setDice_InAndOut_OfBank(diceBoard[4], diceBank[4], diceValues[4], 4);
                 diceCountCurr--;
                 if (diceCountCurr == 0) noMoreDice();
@@ -166,6 +173,7 @@ public class MidnightGame extends AppCompatActivity {
         sixthDice_Board.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (!Sounds.getIsMute()) slideDice.start();
                 setDice_InAndOut_OfBank(diceBoard[5], diceBank[5], diceValues[5], 5);
                 diceCountCurr--;
                 if (diceCountCurr == 0) noMoreDice();
@@ -175,6 +183,9 @@ public class MidnightGame extends AppCompatActivity {
         firstDice_Bank.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (!dicePlayableBank[0])
+                    return;
+                if (!Sounds.getIsMute()) slideDice.start();
                 setDice_InAndOut_OfBank(diceBank[0], diceBoard[0], diceValues[0], 0);
                 diceCountCurr++;
                 checkButtons();
@@ -184,6 +195,9 @@ public class MidnightGame extends AppCompatActivity {
         secondDice_Bank.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (!dicePlayableBank[1])
+                    return;
+                if (!Sounds.getIsMute()) slideDice.start();
                 setDice_InAndOut_OfBank(diceBank[1], diceBoard[1], diceValues[1], 1);
                 diceCountCurr++;
                 checkButtons();
@@ -193,6 +207,9 @@ public class MidnightGame extends AppCompatActivity {
         thirdDice_Bank.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (!dicePlayableBank[2])
+                    return;
+                if (!Sounds.getIsMute()) slideDice.start();
                 setDice_InAndOut_OfBank(diceBank[2], diceBoard[2], diceValues[2], 2);
                 diceCountCurr++;
                 checkButtons();
@@ -202,6 +219,9 @@ public class MidnightGame extends AppCompatActivity {
         fourthDice_Bank.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (!dicePlayableBank[3])
+                    return;
+                if (!Sounds.getIsMute()) slideDice.start();
                 setDice_InAndOut_OfBank(diceBank[3], diceBoard[3], diceValues[3], 3);
                 diceCountCurr++;
                 checkButtons();
@@ -211,6 +231,9 @@ public class MidnightGame extends AppCompatActivity {
         fifthDice_Bank.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (!dicePlayableBank[4])
+                    return;
+                if (!Sounds.getIsMute()) slideDice.start();
                 setDice_InAndOut_OfBank(diceBank[4], diceBoard[4], diceValues[4], 4);
                 diceCountCurr++;
                 checkButtons();
@@ -220,6 +243,9 @@ public class MidnightGame extends AppCompatActivity {
         sixthDice_Bank.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (!dicePlayableBank[5])
+                    return;
+                if (!Sounds.getIsMute()) slideDice.start();
                 setDice_InAndOut_OfBank(diceBank[5], diceBoard[5], diceValues[5], 5);
                 diceCountCurr++;
                 checkButtons();
@@ -229,20 +255,23 @@ public class MidnightGame extends AppCompatActivity {
         RollTheDiceBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                UltimateShake();
+                UniversalShake();
             }
         });
 
         EndTurnBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 if (playerTurn == 1) {
                     PlayerScore1.setText(String.valueOf(countDice()));
                     playerTurn = 2;
+                    player1played = true;
                     arrow.startAnimation(changeArrowTo2);
                 } else {
                     PlayerScore2.setText(String.valueOf(countDice()));
                     playerTurn = 1;
+                    player2played = true;
                     arrow.startAnimation(changeArrowTo1);
                 }
 
@@ -293,6 +322,8 @@ public class MidnightGame extends AppCompatActivity {
                         startActivity(intent);
                         shakeManager.unregisterListener(Shaker.sensorListener); //stops physical shake
                         isFirstShake = true;
+                        player1played = false;
+                        player2played = false;
                         PlayerScore1.setText("0");
                         PlayerScore2.setText("0");
                         finish();
@@ -408,6 +439,8 @@ public class MidnightGame extends AppCompatActivity {
         diceCountCurr = diceAmount;
         diceCountTot = diceAmount;
 
+        isFirstShake = true;
+
     }
 
     void getInfoFromExtras() {
@@ -426,6 +459,8 @@ public class MidnightGame extends AppCompatActivity {
 
         PlayerScore1.setText("0");
         PlayerScore2.setText("0");
+
+        playerTurn = getIntent().getIntExtra("playerToBegin", -1);
 
     }
 
@@ -474,7 +509,7 @@ public class MidnightGame extends AppCompatActivity {
 
     }
 
-    static void UltimateShake() {
+    static void UniversalShake() {
 
         if (diceCountTot == diceCountCurr && !isFirstShake) {
             Toast.makeText(thisActivity, R.string.noDiceWereChosen, Toast.LENGTH_SHORT).show();
@@ -516,14 +551,13 @@ public class MidnightGame extends AppCompatActivity {
 
 
         if (playerTurn == 1) {
-
             if (player2played) EndgameBTN.setVisibility(View.VISIBLE);
             else EndTurnBTN.setVisibility(View.VISIBLE);
 
         } else {
 
             if (player1played) EndgameBTN.setVisibility(View.VISIBLE);
-            else EndgameBTN.setVisibility(View.VISIBLE);
+            else EndTurnBTN.setVisibility(View.VISIBLE);
         }
     }
 
@@ -550,8 +584,15 @@ public class MidnightGame extends AppCompatActivity {
             diceValues[i] = 0;
         }
 
-        if (was1 && was4) return sum;
 
+        if (was1 && was4) {
+            was1 = false;
+            was4 = false;
+            return sum;
+        }
+
+        was1 = false;
+        was4 = false;
         return 0;
 
     }

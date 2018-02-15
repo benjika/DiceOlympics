@@ -31,7 +31,7 @@
             android:layout_width="300dp"
             android:layout_height="250dp"
             android:contentDescription="@string/DiceOlympicLogo"
-            android:src="@drawable/piggamered" />
+            android:src="@drawable/diceolympicgame_logo" />
 
         <!--Single Player button-->
         <Button

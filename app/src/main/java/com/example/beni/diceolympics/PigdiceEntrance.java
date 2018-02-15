@@ -37,8 +37,9 @@ public class PigdiceEntrance extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (!Sounds.getIsMute()) buttonClickSound.start();
-                Intent intent = new Intent(PigdiceEntrance.this, PigdiceGame.class);
+                Intent intent = new Intent(PigdiceEntrance.this, WhosStarting.class);
                 intent.putExtra("NameArr", getNamesArr);
+                intent.putExtra("GameToPlay", "Pigdice");
                 intent.putExtra("ScoresArr", getScores);
                 startActivity(intent);
                 finish();

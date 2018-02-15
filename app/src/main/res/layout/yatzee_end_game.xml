@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+
+
+    <ImageButton
+        android:id="@+id/yatzee_End_Game_Mute"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_gravity="center"
+        android:layout_marginStart="10dp"
+        android:background="@color/colorPrimary"
+        android:contentDescription="@string/MuteUnMuteButton"
+        android:src="@drawable/unmute" />
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/Your_Score"
+        android:textColor="@color/colorAccent"
+        android:textSize="40sp"
+        android:gravity="center"
+        android:id="@+id/Your_Final_Score_Heading"
+        android:layout_below="@id/yatzee_End_Game_Mute"
+        />
+
+    <View
+        android:layout_height="2dip"
+        android:layout_width="match_parent"
+        android:background="#FF0000"
+        android:layout_below="@id/Your_Final_Score_Heading"
+        android:layout_margin="10sp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/Your_Final_Score_Heading"
+        android:text="Score"
+        android:textColor="@color/colorAccent"
+        android:gravity="center"
+        android:textSize="50sp"
+        android:layout_marginTop="100sp"
+        android:id="@+id/PlayerScore"/>
+
+    <Button
+        android:layout_width="100sp"
+        android:layout_height="40sp"
+        android:background="@drawable/button_bg_round"
+        android:text="@string/Back"
+        android:textColor="@color/colorAccent"
+        android:layout_below="@id/PlayerScore"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50sp"
+        android:id="@+id/Yatzee_End_Game_Back"/>
+
+</RelativeLayout>

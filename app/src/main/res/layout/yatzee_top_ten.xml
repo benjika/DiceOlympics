@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+
+
+    <ImageButton
+        android:id="@+id/Yatzee_Top_Player_mute"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_gravity="center"
+        android:layout_marginStart="10dp"
+        android:background="@color/colorPrimary"
+        android:contentDescription="@string/MuteUnMuteButton"
+        android:src="@drawable/unmute" />
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/Top_Player"
+        android:textColor="@color/colorAccent"
+        android:layout_below="@id/Yatzee_Top_Player_mute"
+        android:textSize="65sp"
+        android:gravity="center"
+        android:id="@+id/TopTenHeadLine"
+        />
+
+    <View
+        android:layout_height="2dip"
+        android:layout_width="match_parent"
+        android:background="#FF0000"
+        android:layout_below="@id/TopTenHeadLine"
+        android:layout_margin="10sp"/>
+
+    <ImageView
+        android:layout_width="150sp"
+        android:layout_height="100sp"
+        android:src="@drawable/crown"
+        android:layout_below="@id/TopTenHeadLine"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/crow"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="null"
+        android:textColor="@color/colorAccent"
+        android:gravity="center"
+        android:layout_below="@id/crow"
+        android:textSize="50sp"
+        android:id="@+id/TopPlayer"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/withscore"
+        android:textColor="@color/colorAccent"
+        android:gravity="center"
+        android:layout_below="@id/TopPlayer"
+        android:textSize="50sp"
+        android:id="@+id/WithScore"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/WithScore"
+        android:text="Score"
+        android:textColor="@color/colorAccent"
+        android:gravity="center"
+        android:textSize="50sp"
+        android:id="@+id/TopPlayerScore"/>
+
+    <Button
+        android:layout_width="100sp"
+        android:layout_height="40sp"
+        android:background="@drawable/button_bg_round"
+        android:text="@string/Back"
+        android:textColor="@color/colorAccent"
+        android:layout_below="@id/TopPlayerScore"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15sp"
+        android:id="@+id/Top_Playes_Show_Back"/>
+
+</RelativeLayout>

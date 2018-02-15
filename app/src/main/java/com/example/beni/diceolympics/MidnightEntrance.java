@@ -34,9 +34,10 @@ public class MidnightEntrance extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (!Sounds.getIsMute()) buttonClickSound.start();
-                Intent intent = new Intent(MidnightEntrance.this, MidnightGame.class);
+                Intent intent = new Intent(MidnightEntrance.this, WhosStarting.class);
                 intent.putExtra("NameArr", getNamesArr);
                 intent.putExtra("ScoresArr", getScores);
+                intent.putExtra("GameToPlay", "Midnight");
                 startActivity(intent);
                 finish();
             }
