@@ -33,7 +33,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="7"
-
+        android:layout_marginEnd="5dp"
+        android:layout_marginStart="5dp"
+        android:background="@drawable/customborder"
         >
 
         <ScrollView
@@ -111,7 +113,7 @@
                     android:text="@string/yatzee_Lower_Section_Scoring_headline"
                     android:textColor="@color/colorAccent"
                     android:textSize="25sp"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -127,7 +129,7 @@
                     android:text="@string/yatzee_Upper_Section_Scoring_headline"
                     android:textColor="@color/colorAccent"
                     android:textSize="25sp"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -143,7 +145,7 @@
                     android:text="@string/yatzee_Dump_Score_headline"
                     android:textColor="@color/colorAccent"
                     android:textSize="25sp"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -164,10 +166,10 @@
         android:layout_height="50dp"
         android:layout_gravity="center"
         android:layout_margin="10dp"
-        android:layout_weight="1"
-        android:background="@color/colorAccent"
+        android:layout_weight="0.5"
+        android:background="@drawable/button_bg_round"
         android:text="@string/Back"
-        android:textColor="@color/colorPrimaryDark"
+        android:textColor="@color/colorAccent"
         android:textSize="17sp" />
 
 

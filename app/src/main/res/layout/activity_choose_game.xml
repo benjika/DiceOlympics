@@ -42,9 +42,9 @@
             android:layout_width="250dp"
             android:layout_height="50dp"
             android:layout_marginBottom="10dp"
-            android:background="@color/colorAccent"
+            android:background="@drawable/button_bg_round"
             android:text="@string/PlayPigDice"
-            android:textColor="@color/colorPrimaryDark"
+            android:textColor="@color/colorAccent"
             android:textSize="17sp" />
 
         <Button
@@ -53,9 +53,9 @@
             android:layout_height="50dp"
             android:layout_marginBottom="10dp"
             android:layout_marginTop="10dp"
-            android:background="@color/colorAccent"
+            android:background="@drawable/button_bg_round"
             android:text="@string/PlayMidnight"
-            android:textColor="@color/colorPrimaryDark"
+            android:textColor="@color/colorAccent"
             android:textSize="17sp" />
     </LinearLayout>
 
