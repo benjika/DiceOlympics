@@ -41,6 +41,7 @@
                 android:layout_marginBottom="60dp"
                 android:gravity="center"
                 android:hint="player one"
+                android:layoutDirection="ltr"
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="30sp" />
 
@@ -69,7 +70,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginBottom="60dp"
                 android:gravity="center"
-                android:hint="player one"
+                android:hint="player two"
                 android:textColor="@color/colorPrimary"
                 android:textSize="30sp" />
 
@@ -86,11 +87,10 @@
         android:id="@+id/whosStarting_turnArrow"
         android:layout_width="80sp"
         android:layout_height="80sp"
-
         android:layout_centerHorizontal="true"
         android:layout_marginTop="120sp"
         android:scaleType="fitXY"
-        android:src="@drawable/playerturnarrow" />
+        android:src="@drawable/playerturnarrowto1" />
 
 
     <Button

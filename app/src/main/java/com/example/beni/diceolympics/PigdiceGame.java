@@ -87,8 +87,7 @@ public class PigdiceGame extends AppCompatActivity {
 
         changeArrowTo1 = AnimationUtils.loadAnimation(PigdiceGame.this, R.anim.arrorflipto1);
         changeArrowTo2 = AnimationUtils.loadAnimation(PigdiceGame.this, R.anim.arrowflipto2);
-        if (playerTurn == 1) arrow.startAnimation(changeArrowTo1);
-        else arrow.startAnimation(changeArrowTo2);
+        if (playerTurn == 2) arrow.setImageResource(R.drawable.playerturnarrowto2);
 
 
         SaveScoreBTN.setOnClickListener(new View.OnClickListener() {

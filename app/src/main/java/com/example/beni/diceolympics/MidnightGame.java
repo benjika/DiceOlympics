@@ -365,8 +365,7 @@ public class MidnightGame extends AppCompatActivity {
         arrow = (ImageView) findViewById(R.id.midnight_turnArrow);
         changeArrowTo1 = AnimationUtils.loadAnimation(MidnightGame.this, R.anim.arrorflipto1);
         changeArrowTo2 = AnimationUtils.loadAnimation(MidnightGame.this, R.anim.arrowflipto2);
-        if (playerTurn == 1) arrow.startAnimation(changeArrowTo1);
-        else arrow.startAnimation(changeArrowTo2);
+        if (playerTurn == 2) arrow.setImageResource(R.drawable.playerturnarrowto2);
 
         btnMute = (ImageButton) findViewById(R.id.midnight_game_btn_mute);
         if (Sounds.getIsMute()) btnMute.setImageResource(R.drawable.mute);

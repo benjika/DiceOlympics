@@ -162,7 +162,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="15sp"
         android:scaleType="fitXY"
-        android:src="@drawable/playerturnarrow" />
+        android:src="@drawable/playerturnarrowto1" />
 
     <ImageView
         android:id="@+id/pigDice_dice"

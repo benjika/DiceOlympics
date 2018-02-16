@@ -65,8 +65,6 @@ public class WhosStarting extends AppCompatActivity {
         buttonClickSound = MediaPlayer.create(WhosStarting.this, R.raw.buttonpress);
         playerTurn = 1;
 
-        arrow.startAnimation(changeArrowTo1);
-
         //Activate Shaker
         shakeManager = (SensorManager) getSystemService(SENSOR_SERVICE);
         Shaker.setNameOfGame("Who's Starting");
@@ -121,7 +119,7 @@ public class WhosStarting extends AppCompatActivity {
             //Gets value and sets value for the dice of Player 1
             player1Score = GameFunctions.rollDice("Who's Starting", dice1);
             playerTurn++;
-            arrow.startAnimation(changeArrowTo2);
+            arrow.startAnimation(changeArrowTo1);
             arrowTurn.start();
 
         } else {
@@ -154,15 +152,15 @@ public class WhosStarting extends AppCompatActivity {
                 }, 700);
             } else {
                 playerTurn = 1;
-                arrow.startAnimation(changeArrowTo1);
+                arrow.startAnimation(changeArrowTo2);
                 arrowTurn.start();
-                dice1.setImageResource(R.drawable.diceempty);
-                dice2.setImageResource(R.drawable.diceempty);
+
                 Handler delayer = new Handler();
                 delayer.postDelayed(new Runnable() {
                     @Override
                     public void run() {
-
+                        dice1.setImageResource(R.drawable.diceempty);
+                        dice2.setImageResource(R.drawable.diceempty);
                         RollDice.setVisibility(View.VISIBLE);
                         return;
                     }

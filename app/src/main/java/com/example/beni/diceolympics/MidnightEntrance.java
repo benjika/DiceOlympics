@@ -24,7 +24,6 @@ public class MidnightEntrance extends AppCompatActivity {
 
         final Button btnStartGame = (Button) findViewById(R.id.midnight_Entrance_btn_Start);
         final Button btnInstructions = (Button) findViewById(R.id.midnight_Entrance_btn_Instructions);
-        final Button btnBack = (Button) findViewById(R.id.midnight_Entrance_btn_Back);
 
         final ImageButton btnMute = (ImageButton) findViewById(R.id.midnight_Entrance_btn_mute);
         if (Sounds.getIsMute()) btnMute.setImageResource(R.drawable.mute);
@@ -55,16 +54,6 @@ public class MidnightEntrance extends AppCompatActivity {
             public void onClick(View view) {
                 if (!Sounds.getIsMute()) buttonClickSound.start();
                 Intent intent = new Intent(MidnightEntrance.this, MidnightInstructions.class);
-                startActivity(intent);
-            }
-        });
-
-        //Goes back to choose game screen
-        btnBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (!Sounds.getIsMute()) buttonClickSound.start();
-                final Intent intent = new Intent(MidnightEntrance.this, ChooseGame.class);
                 intent.putExtra("NameArr", getNamesArr);
                 intent.putExtra("ScoresArr", getScores);
                 startActivity(intent);

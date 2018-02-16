@@ -12,6 +12,8 @@ import android.widget.ImageButton;
 public class MidnightInstructions extends AppCompatActivity {
 
     MediaPlayer buttonClickSound;
+    String[] getNamesArr;
+    int[] getScores;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +21,9 @@ public class MidnightInstructions extends AppCompatActivity {
         setContentView(R.layout.activity_midnight_instructions);
 
         final Button btnBack = (Button) findViewById(R.id.Midnight_Instructions_btn_Back);
+
+        getNamesArr = getIntent().getStringArrayExtra("NameArr");
+        getScores = getIntent().getIntArrayExtra("ScoresArr");
 
         final ImageButton btnMute = (ImageButton) findViewById(R.id.Midnight_Instructions_btn_mute);
         if (Sounds.getIsMute()) btnMute.setImageResource(R.drawable.mute);
@@ -31,6 +36,8 @@ public class MidnightInstructions extends AppCompatActivity {
             public void onClick(View view) {
                 if (!Sounds.getIsMute()) buttonClickSound.start();
                 Intent intent = new Intent(MidnightInstructions.this, MidnightEntrance.class);
+                intent.putExtra("NameArr", getNamesArr);
+                intent.putExtra("ScoresArr", getScores);
                 startActivity(intent);
                 finish();
             }
@@ -54,6 +61,8 @@ public class MidnightInstructions extends AppCompatActivity {
             if (!Sounds.getIsMute()) buttonClickSound.start();
 
             final Intent intent = new Intent(this, MidnightEntrance.class);
+            intent.putExtra("NameArr", getNamesArr);
+            intent.putExtra("ScoresArr", getScores);
             startActivity(intent);
             finish();
 

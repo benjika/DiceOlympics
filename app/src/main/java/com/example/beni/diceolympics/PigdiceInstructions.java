@@ -4,22 +4,31 @@ import android.content.Intent;
 import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 
 public class PigdiceInstructions extends AppCompatActivity {
 
+    private MediaPlayer buttonClickSound;
+
+    private String[] getNamesArr;
+    private int[] getScores;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pigdice_instructions);
 
-        final MediaPlayer buttonClickSound = MediaPlayer.create(PigdiceInstructions.this, R.raw.buttonpress);
-
         final ImageButton btnMute = (ImageButton) findViewById(R.id.Pigdice_Instructions_btn_mute);
         if(Sounds.getIsMute()) btnMute.setImageResource(R.drawable.mute);
         else btnMute.setImageResource(R.drawable.unmute);
+
+        buttonClickSound = MediaPlayer.create(PigdiceInstructions.this, R.raw.buttonpress);
+
+        getNamesArr = getIntent().getStringArrayExtra("NameArr");
+        getScores = getIntent().getIntArrayExtra("ScoresArr");
 
         final Button btnBack = (Button) findViewById(R.id.Midnight_Instructions_btn_Back);
 
@@ -28,6 +37,8 @@ public class PigdiceInstructions extends AppCompatActivity {
             public void onClick(View view) {
                 if (!Sounds.getIsMute()) buttonClickSound.start();
                 Intent intent = new Intent(PigdiceInstructions.this, PigdiceEntrance.class);
+                intent.putExtra("NameArr", getNamesArr);
+                intent.putExtra("ScoresArr", getScores);
                 startActivity(intent);
                 finish();
             }
@@ -43,5 +54,21 @@ public class PigdiceInstructions extends AppCompatActivity {
 
     }
 
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
+
+            if (!Sounds.getIsMute()) buttonClickSound.start();
+            final Intent intent = new Intent(PigdiceInstructions.this, PigdiceEntrance.class);
+            intent.putExtra("NameArr", getNamesArr);
+            intent.putExtra("ScoresArr", getScores);
+            startActivity(intent);
+            finish();
+
+            return true;
+        }
+
+        return super.onKeyDown(keyCode, event);
+    }
 
 }

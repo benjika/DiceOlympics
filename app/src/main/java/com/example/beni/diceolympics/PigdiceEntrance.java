@@ -39,20 +39,23 @@ public class PigdiceEntrance extends AppCompatActivity {
                 if (!Sounds.getIsMute()) buttonClickSound.start();
                 Intent intent = new Intent(PigdiceEntrance.this, WhosStarting.class);
                 intent.putExtra("NameArr", getNamesArr);
-                intent.putExtra("GameToPlay", "Pigdice");
                 intent.putExtra("ScoresArr", getScores);
+                intent.putExtra("GameToPlay", "Pigdice");
                 startActivity(intent);
                 finish();
             }
         });
 
-        //Calls Midnight instructions screen
+        //Calls Pigdice instructions screen
         btnInstructions.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (!Sounds.getIsMute()) buttonClickSound.start();
                 Intent intent = new Intent(PigdiceEntrance.this, PigdiceInstructions.class);
+                intent.putExtra("NameArr", getNamesArr);
+                intent.putExtra("ScoresArr", getScores);
                 startActivity(intent);
+                finish();
             }
         });
 

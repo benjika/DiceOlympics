@@ -117,7 +117,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="15sp"
         android:scaleType="fitXY"
-        android:src="@drawable/playerturnarrow" />
+        android:src="@drawable/playerturnarrowto1" />
 
     <Button
         android:id="@+id/midnight_game_diceTheDice"

@@ -48,27 +48,22 @@
             android:screenOrientation="landscape" />
         <activity
             android:name=".WhosStarting"
-            android:screenOrientation="landscape"></activity>
+            android:screenOrientation="landscape" />
         <activity
             android:name=".YatzeeInstructions"
             android:screenOrientation="portrait" />
-
         <activity
             android:name=".YatzeeTopPlayer"
             android:screenOrientation="portrait" />
-
         <activity
             android:name=".YatzeeEndGame"
             android:screenOrientation="portrait" />
-
         <activity
             android:name=".YatzeeEndGameTopPlayer"
             android:screenOrientation="portrait" />
-
         <activity
             android:name=".YatzeeEntrance"
             android:screenOrientation="portrait" />
-
         <activity
             android:name=".YatzeePlayScreen"
             android:screenOrientation="portrait" />

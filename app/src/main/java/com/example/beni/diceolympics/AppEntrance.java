@@ -37,6 +37,7 @@ public class AppEntrance extends AppCompatActivity {
                 if (!Sounds.getIsMute()) buttonClickSound.start();
                 Intent intent = new Intent(AppEntrance.this, YatzeeEntrance.class);
                 startActivity(intent);
+                finish();
             }
         });
 
@@ -48,6 +49,7 @@ public class AppEntrance extends AppCompatActivity {
                 if (!Sounds.getIsMute()) buttonClickSound.start();
                 Intent intent = new Intent(AppEntrance.this, InputNames.class);
                 startActivity(intent);
+                finish();
             }
         });
 
