@@ -581,10 +581,17 @@ public class MidnightGame extends AppCompatActivity {
         int sum = 0;
 
         for (int i = 0; i < diceAmount; i++) {
-            sum += diceValues[i];
 
-            if (diceValues[i] == 1) was1 = true;
-            else if (diceValues[i] == 4) was4 = true;
+            if (diceValues[i] != 1 && diceValues[i] != 4)
+                sum += diceValues[i];
+
+            else if (diceValues[i] == 1) {
+                if (!was1) was1 = true;
+                else sum += diceValues[i];
+            } else {
+                if (!was4) was4 = true;
+                else sum += diceValues[i];
+            }
 
             diceValues[i] = 0;
         }
@@ -614,8 +621,6 @@ public class MidnightGame extends AppCompatActivity {
             intent.putExtra("ScoresArr", getScores);
             startActivity(intent);
             isFirstShake = true;
-            PlayerScore1.setText("0");
-            PlayerScore2.setText("0");
             finish();
 
             return true;

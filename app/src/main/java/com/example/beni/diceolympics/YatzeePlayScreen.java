@@ -7,6 +7,7 @@ import android.hardware.SensorManager;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -64,7 +65,6 @@ public class YatzeePlayScreen extends Activity {
         diceShakeSound = MediaPlayer.create(this, R.raw.shakerdice1);
 
 
-        final Button Back_BTN = findViewById(R.id.Yatzee_Play_Screen_Back_BTN);
         final Button Roll_Dice_BTN = findViewById(R.id.Yatzee_Play_Screen_Roll_Dice_BTN);
         Dice_1 = findViewById(R.id.Yatzee_Dice_Num_One);
         Dice_2 = findViewById(R.id.Yatzee_Dice_Num_Two);
@@ -105,16 +105,6 @@ public class YatzeePlayScreen extends Activity {
         for (int i = 0; i < 7; i++) {
             mone[i] = 0;
         }
-
-        Back_BTN.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(YatzeePlayScreen.this, YatzeeEntrance.class);
-                startActivity(intent);
-                finish();
-            }
-        });
-
 
         Aces_score.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -922,6 +912,21 @@ public class YatzeePlayScreen extends Activity {
             Num_Of_Roll.setText(String.valueOf(NumOfRoll));
         }
     }
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
 
+        if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
+
+            shakeManager.unregisterListener(Shaker.sensorListener); //stops physical shake
+
+            final Intent intent = new Intent(this, YatzeeEntrance.class);
+            startActivity(intent);
+            finish();
+
+            return true;
+        }
+
+        return super.onKeyDown(keyCode, event);
+    }
 
 }

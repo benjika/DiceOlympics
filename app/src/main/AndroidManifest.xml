@@ -67,6 +67,7 @@
         <activity
             android:name=".YatzeePlayScreen"
             android:screenOrientation="portrait" />
+        <activity android:name=".JustHeck"></activity>
     </application>
 
 </manifest>
